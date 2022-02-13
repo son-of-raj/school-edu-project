@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@include('popups.demopopup')
 @include('Layouts.head')
 
 <body>
@@ -20,7 +20,7 @@
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
-        @include('popups.demopopup')
+        
             <div class="container" data-aos="fade-up">
 
                 <div class="row">

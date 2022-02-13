@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@include('popups.homepop')
 @include('Layouts.head')
 
 <body>
@@ -16,7 +16,6 @@
   </section><!-- End Hero -->
 
   <main id="main">
-  @include('popups.homepop')
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">

@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'Kpoints'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E6E48F6AE6B748BD9418915A981F6BF3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F654B1D229845208C3ABDC5A6B53196 }}
           package: .

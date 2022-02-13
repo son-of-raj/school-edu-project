@@ -679,22 +679,23 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="row">
-                        <div class="col-md-12 m-h-20 bg-img rounded-left" style="background-image: url('https://images.unsplash.com/photo-1525097596740-cb2a70e07e3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')"></div>
+                        <div class="col-md-12 m-h-20 bg-img rounded-left" style="background-image: url('assets/img/popup.jpg')"></div>
                         <div class="col-md-12 text-center py-5 px-sm-5 ">
                             <h2>Admissions Open</h2>
                             <h4>Class XII - Term II (March 2022)</h4>
                             <div class="row">
                             <div class="col">
-                            <p class="text-muted">Class XII - Science</p>
-                            <p class="text-muted">Physics</p>
-                            <p class="text-muted">Chemistry</p>
-                            <p class="text-muted">Mathematics</p>
+                            <p class="text-muted"><b>Class XII - Science</b></p>
+                            <p class="text-muted"><b>Physics</b></p>
+                            <p class="text-muted"><b>Chemistry</b></p>
+                            <p class="text-muted"><b>Mathematics</b></p>
+                            <p class="text-muted"><b>Biology</b></p>
                             </div>
                             <div class="col">
-                            <p class="text-muted">Class XII - Commerce </p>
-                            <p class="text-muted">Applied mathematics</p>
-                            <p class="text-muted">Fee <a href="enquery">Enquiry</a></p>
-                            <p class="text-muted">Free <a href="demo">Demo now</a></p>
+                            <p class="text-muted"><b>Class XII - Commerce </b></p>
+                            <p class="text-muted"><b>Applied mathematics</b></p>
+                            <p class="text-muted"><b>Fee </b><a href="enquery">Enquiry</a></p>
+                            <p class="text-muted"><b>Free </b><a href="demo">Demo now</a></p>
                             </div>
                             </div>
                             <h5>First 10 admissions get flat 10% off</h5>

@@ -9,9 +9,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Learning Today,<br>Leading Tomorrow</h1>
+      <h1>Nurturing the future</h1><br><h1>to Thrive</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="courses.html" class="btn-get-started">Get Started</a>
+      <a href="demo" class="btn-get-started">Get Demo</a>
     </div>
   </section><!-- End Hero -->
 
@@ -26,18 +26,17 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <h3>Welcome to Kpoints</h3>
+            <p class="fst-italic paragraph">
+            A venture by Mr. Sunil Sangam, a highly regarded online and offline Educator with 7+ years of experience, as a personal and group tutor student and a career counselor.
             </p>
-            <ul>
+            <!-- <ul>
               <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
               <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
               <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            </ul> -->
+            <p class="paragraph">
+            Mr. Sunil with his dedication to share knowledge, has educated and inspired 200+ students. He prides himself on the excellence and accomplishments of his students.
             </p>
 
           </div>
@@ -46,43 +45,14 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts section-bg">
-      <div class="container">
-
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Students</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Courses</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Events</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Trainers</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Counts Section -->
+    @include('Layouts.counter')
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
+          <!-- <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
               <h3>Why Choose Mentor?</h3>
               <p>
@@ -93,29 +63,70 @@
                 <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          </div> -->
+          <div class="col d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <i class="bx bx-brain"></i>
+                    <h4>Experience and Knowledge</h4>
+                    <p>3+  years of experience, in-depth understanding of the subjects, Ability to relate the subject with real life examples enabling students to  understand better</p>
                   </div>
                 </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <i class="bx bx-line-chart"></i>
+                    <h4>Results</h4>
+                    <p>100+ students, 100 % CBSE board results,
+                      <br>Highest: 92%20+  
+                      <br>JEE mains qualifying students Highest: 96.8 percentile 
+                      <br>26 NEET qualifying students Highest: 628/720 AIR 4020</p>
                   </div>
                 </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                    <i class="bx bxs-book-reader"></i>
+                    <h4>Comprehensible Teaching</h4>
+                    <p>Explanations done in easy understandable language with appropriate illustrations, use of humor to enable students concentrate and enjoy the class while learning</p>
+                  </div>
+                </div>
+                <div class="col d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-cog"></i>
+                    <h4>Counseling</h4>
+                    <p>Student and Parent counseling to understand the requirements of both. Helping students create a study plan to overcome their limitations and achieve mutual goal</p>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-book-alt"></i>
+                    <h4>Engaging Online Classes</h4>
+                    <p>Use of the traditional chalk and board method of teaching, using modern digital tools for engaging classes that help students to focus and easily understand</p>
+                  </div>
+                </div>
+                <div class="col d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-book-open"></i>
+                    <h4>Notes and Study Material</h4>
+                    <p>In depth notes , mostly useful for JEE mains and NEET, last minute quick revision notes for all forms of exams, formulae and important data sheets</p>
+                  </div>
+                </div>
+                <div class="col d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-laptop"></i>
+                    <h4>Great Online Platform</h4>
+                    <p>Use of Microsoft teams education which provides excellent platform for teaching and learning with recording feature for online classes and  tests.</p>
+                  </div>
+                </div>
+                <div class="col d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-network-chart"></i>
+                    <h4>Digital Tracking</h4>
+                    <p>Parent login on site feature enables parent to track weekly student progress, submission of homework / assignments, tests and attendance. Parents can also pay, track and download fee invoice online</p>
                   </div>
                 </div>
               </div>
@@ -127,7 +138,7 @@
     </section><!-- End Why Us Section -->
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+    <!-- <section id="features" class="features">
       <div class="container" data-aos="fade-up">
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
@@ -206,7 +217,7 @@
         </div>
 
       </div>
-    </section><!-- End Features Section -->
+    </section>End Features Section -->
 
     <!-- ======= Popular Courses Section ======= -->
     <section id="popular-courses" class="courses">
@@ -219,18 +230,18 @@
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col d-flex align-items-stretch">
             <div class="course-item">
               <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
               <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Web Development</h4>
                   <p class="price">$169</p>
-                </div>
+                </div> -->
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
+                <h3><a href="#">CBSE - XI - Science & Commerce</a></h3>
+                <p>Class XI  is a straight plunge into the depths of the subjects after passing out from class X & an important stage of Foundation, Learning and clearing their fundamentals for class XII, JEE mains, NEET and other entrances.</p>
+                <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
                     <span>Antonio</span>
@@ -240,23 +251,23 @@
                     &nbsp;&nbsp;
                     <i class="bx bx-heart"></i>&nbsp;65
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div> <!-- End Course Item-->
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="col d-flex align-items-stretch mt-4 mt-md-0">
             <div class="course-item">
               <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
               <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Marketing</h4>
                   <p class="price">$250</p>
-                </div>
+                </div> -->
 
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
+                <h3><a href="#">CBSE - XII - Science & Commerce</a></h3>
+                <p>Class XII is the career-defining moment in any student’s life, It is the time to implement logic & understanding of the basics learnt in class XI to excel in class XII boards and proceed  further for higher education in different degree courses.</p>
+                <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
                     <span>Lana</span>
@@ -266,23 +277,23 @@
                     &nbsp;&nbsp;
                     <i class="bx bx-heart"></i>&nbsp;42
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div> <!-- End Course Item-->
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="col d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="course-item">
               <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
               <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Content</h4>
                   <p class="price">$180</p>
-                </div>
+                </div> -->
 
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
+                <h3><a href="#">JEE mains & IIT Advanced</a></h3>
+                <p>Joint entrance Examination is a single common examination for admission in to all IIT, NIT & Govt. Funded colleges across India, Which depends on knowledge and concepts from both class XI and class XII.</p>
+                <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
                     <span>Brandon</span>
@@ -292,7 +303,33 @@
                     &nbsp;&nbsp;
                     <i class="bx bx-heart"></i>&nbsp;85
                   </div>
-                </div>
+                </div> -->
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          <div class="col d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="course-item">
+              <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+              <div class="course-content">
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>Content</h4>
+                  <p class="price">$180</p>
+                </div> -->
+
+                <h3><a href="course-details.html">NEET</a></h3>
+                <p>It is a single all India level entrance examination to get admission to almost all medical colleges across India (including private & autonomous colleges), Which depends on knowledge and concepts from both class XI and class XII.</p>
+                <!-- <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+                    <span>Brandon</span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bx bx-user"></i>&nbsp;20
+                    &nbsp;&nbsp;
+                    <i class="bx bx-heart"></i>&nbsp;85
+                  </div>
+                </div> -->
               </div>
             </div>
           </div> <!-- End Course Item-->
@@ -303,7 +340,7 @@
     </section><!-- End Popular Courses Section -->
 
     <!-- ======= Trainers Section ======= -->
-    <section id="trainers" class="trainers">
+    <!-- <section id="trainers" class="trainers">
       <div class="container" data-aos="fade-up">
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
@@ -367,7 +404,7 @@
         </div>
 
       </div>
-    </section><!-- End Trainers Section -->
+    </section>End Trainers Section -->
 
   </main><!-- End #main -->
 
@@ -376,6 +413,7 @@
 
   <script type="text/javascript">
      document.getElementById('home').className = 'active';
+     
 </script>
 </body>
 

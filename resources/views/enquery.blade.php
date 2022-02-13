@@ -14,7 +14,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>Enquery</h2>
+        <h2>Enquiry</h2>
         <p>Please fill the form for fee details</p>
       </div>
     </div><!-- End Breadcrumbs -->
@@ -60,7 +60,7 @@
                 <textarea class="form-control" name="message" rows="5" placeholder="Type Your message here" required></textarea>
               </div>
               <br>
-              <center><button class="btn btn-success"type="submit" onclick="myFunction()">Send Enquery</button></center>
+              <center><button class="btn btn-success"type="submit" onclick="myFunction()">Send Enquiry</button></center>
               <br>
               <input type="text" id="course_temp" name="course_temp" hidden></input>
             </form>

@@ -679,9 +679,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="row">
-                        <div class="col-md-12 m-h-20 bg-img rounded-left" style="background-image: url('https://images.unsplash.com/photo-1525097596740-cb2a70e07e3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')"></div>
+                        <div class="col-md-12 m-h-20 bg-img rounded-left" style="background-image: url('assets/img/popup.jpg')"></div>
                         <div class="col-md-12 text-center py-5 px-sm-5 ">
-                        <form action="popup-demo-submit" method="post" role="form" class="form-control">
+                        <h2>Book a free demo now</h2>
+                        <form action="popup-demo-submit" method="post" role="form" class="form-control border-0">
+                        
                         <div class="col form-group">
                         @csrf
                         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -702,7 +704,7 @@
                         <textarea class="form-control" name="message" rows="5" placeholder="Type Your message here" required></textarea>
                         </div>
                         <div class="col form-group">
-                        <button type="submit" class="btn btn-success">Send Demo</button>
+                        <button type="submit" class="btn btn-success">Send Demo Request</button>
                         </div>
                         </form>
                         </div>

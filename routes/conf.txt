@@ -1,0 +1,48 @@
+W
+server {
+    #proxy_cache cache;
+        #proxy_cache_valid 200 1s;
+    listen 8080;
+    listen [::]:8080;
+    root /home/site/wwwroot/public;
+    index  index.php index.html index.htm;
+    server_name  kpoints.in www.kpoints.in;
+
+    location / {
+        index  index.php index.html index.htm hostingstart.html;
+    }
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /html/;
+    }
+
+    # Disable .git directory
+    #
+    location ~ /\.git {
+
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+   RewriteBase /wwwroot/public/
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

@@ -698,11 +698,11 @@ section {
     background: #fff;
     padding: 40px 30px;
     width: 100%;
-    border: 1px solid #eef0ef;
+    border: 2px solid #000000;
 }
 
 .why-us .icon-boxes .icon-box i {
-    font-size: 32px;
+    font-size: 51px;
     padding: 18px;
     color: #5fcf80;
     margin-bottom: 30px;

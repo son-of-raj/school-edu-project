@@ -11,8 +11,8 @@
         <ul>
           <li><a id="home" href="/">Home</a></li>
           <li><a id="about" href="about">About</a></li>
-          <!-- <li><a href="courses.html">Study Material</a></li>
-          <li><a href="trainers.html">Courses</a></li> -->
+          <!-- <li><a href="trainers">Trainers</a></li> -->
+          <!-- <li><a href="trainers.html">Courses</a></li> -->
           <li><a id="contact" href="contact">Contact</a></li>
 
 

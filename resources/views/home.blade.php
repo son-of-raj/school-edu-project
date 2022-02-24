@@ -10,7 +10,7 @@
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Nurturing the future</h1><br><h1>to Thrive</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+   <!--   <h2>We are team of talented designers making websites with Bootstrap</h2>-->
       <a href="demo" class="btn-get-started">Get Demo</a>
     </div>
   </section><!-- End Hero -->
@@ -70,31 +70,34 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-brain"></i>
                     <h4>Experience and Knowledge</h4>
-                    <p>3+  years of experience, in-depth understanding of the subjects, Ability to relate the subject with real life examples enabling students to  understand better</p>
+                    <p style="color: black">3+ years of experience, in-depth understanding of the subjects, Ability to relate the subject with real life examples enabling students to  understand better</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-line-chart"></i>
                     <h4>Results</h4>
-                    <p>100+ students, 100 % CBSE board results,
-                      <br>Highest: 92%20+  
-                      <br>JEE mains qualifying students Highest: 96.8 percentile 
-                      <br>26 NEET qualifying students Highest: 628/720 AIR 4020</p>
+                    <p style="color: black">1000+ students, 100 % CBSE board results,
+                      <br>Highest: 92%  
+		                  <br>300+ JEE mains qualifying students
+                      <br>Highest: 96.8 percentile 
+		                  <br>200+ NEET qualifying students
+		                  <br>Highest: 628/720 AIR 4020
+                    </p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bxs-book-reader"></i>
                     <h4>Comprehensible Teaching</h4>
-                    <p>Explanations done in easy understandable language with appropriate illustrations, use of humor to enable students concentrate and enjoy the class while learning</p>
+                    <p style="color: black">Explanations done in easy understandable language with appropriate illustrations, use of humor to enable students concentrate and enjoy the class while learning</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cog"></i>
+                    <i class="bx bx-message-rounded-detail"></i>
                     <h4>Counseling</h4>
-                    <p>Student and Parent counseling to understand the requirements of both. Helping students create a study plan to overcome their limitations and achieve mutual goal</p>
+                    <p style="color: black">Student and Parent counseling to understand the requirements of both. Helping students create a study plan to overcome their limitations and achieve mutual goal</p>
                   </div>
                 </div>
               </div>
@@ -104,28 +107,28 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-book-alt"></i>
                     <h4>Engaging Online Classes</h4>
-                    <p>Use of the traditional chalk and board method of teaching, using modern digital tools for engaging classes that help students to focus and easily understand</p>
+                    <p style="color: black">Use of the traditional chalk and board method of teaching, using modern digital tools for engaging classes that help students to focus and easily understand</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-book-open"></i>
                     <h4>Notes and Study Material</h4>
-                    <p>In depth notes , mostly useful for JEE mains and NEET, last minute quick revision notes for all forms of exams, formulae and important data sheets</p>
+                    <p style="color: black">In depth notes , mostly useful for JEE mains and NEET, last minute quick revision notes for all forms of exams, formulae and important data sheets</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-laptop"></i>
                     <h4>Great Online Platform</h4>
-                    <p>Use of Microsoft teams education which provides excellent platform for teaching and learning with recording feature for online classes and  tests.</p>
+                    <p style="color: black">Use of Microsoft teams education which provides excellent platform for teaching and learning with recording feature for online classes and  tests.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-network-chart"></i>
                     <h4>Digital Tracking</h4>
-                    <p>Parent login on site feature enables parent to track weekly student progress, submission of homework / assignments, tests and attendance. Parents can also pay, track and download fee invoice online</p>
+                    <p style="color: black">Parent login on site feature enables parent to track weekly student progress, submission of homework / assignments, tests and attendance. Parents can also pay, track and download fee invoice online</p>
                   </div>
                 </div>
               </div>
@@ -239,7 +242,7 @@
                 </div> -->
 
                 <h3><a href="#">CBSE - XI - Science & Commerce</a></h3>
-                <p>Class XI  is a straight plunge into the depths of the subjects after passing out from class X & an important stage of Foundation, Learning and clearing their fundamentals for class XII, JEE mains, NEET and other entrances.</p>
+                <p style="color: black">Class XI  is a straight plunge into the depths of the subjects after passing out from class X & an important stage of Foundation, Learning and clearing their fundamentals for class XII, JEE mains, NEET and other entrances.</p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
@@ -265,7 +268,7 @@
                 </div> -->
 
                 <h3><a href="#">CBSE - XII - Science & Commerce</a></h3>
-                <p>Class XII is the career-defining moment in any student’s life, It is the time to implement logic & understanding of the basics learnt in class XI to excel in class XII boards and proceed  further for higher education in different degree courses.</p>
+                <p style="color: black">Class XII is the career-defining moment in any student’s life, It is the time to implement logic & understanding of the basics learnt in class XI to excel in class XII boards and proceed  further for higher education in different degree courses.</p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
@@ -291,7 +294,7 @@
                 </div> -->
 
                 <h3><a href="#">JEE mains & IIT Advanced</a></h3>
-                <p>Joint entrance Examination is a single common examination for admission in to all IIT, NIT & Govt. Funded colleges across India, Which depends on knowledge and concepts from both class XI and class XII.</p>
+                <p style="color: black">Joint entrance Examination is a single common examination for admission in to all IIT, NIT & Govt. Funded colleges across India, Which depends on knowledge and concepts from both class XI and class XII.</p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
@@ -317,7 +320,7 @@
                 </div> -->
 
                 <h3><a href="course-details.html">NEET</a></h3>
-                <p>It is a single all India level entrance examination to get admission to almost all medical colleges across India (including private & autonomous colleges), Which depends on knowledge and concepts from both class XI and class XII.</p>
+                <p style="color: black">It is a single all India level entrance examination to get admission to almost all medical colleges across India (including private & autonomous colleges), Which depends on knowledge and concepts from both class XI and class XII.</p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">

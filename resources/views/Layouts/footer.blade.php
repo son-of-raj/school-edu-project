@@ -54,7 +54,7 @@
 
   <div class="me-md-auto text-center text-md-start">
     <div class="copyright">
-      &copy; Copyright <strong><span>K Points</span></strong>. by R's Kpoints online classes   
+      &copy; Copyright <strong><span>KPoints</span></strong> by R's Kpoints online classes   
     </div>
     <!-- <div class="credits"> -->
       <!-- All the links in the footer should remain intact. -->

@@ -33,8 +33,8 @@ Route::get('demo', function () {
     return view('demo');
 });
 
-Route::get('trainers', function () {
-    return view('trainers');
+Route::get('subjects', function () {
+    return view('subjects');
 });
 
 Route::post('contact-submit', 'App\Http\Controllers\ContactController@sendEmail')->name('sendEmail');

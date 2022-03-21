@@ -719,6 +719,6 @@
     setTimeout(
     function() {
         document.querySelector(".animated").click();
-    }, 2000);
+    }, 5000);
 </script>
 </html>

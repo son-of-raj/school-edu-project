@@ -15,7 +15,8 @@ public function sendEnquery(Request $request){
     $mailData['course'] = $request->course_temp;
     $mailData['email'] = $request->email;
     $mailData['message'] = $request->message;
-    Mail::to("akashgr64@gmail.com")
+    Mail::to("info@kpoints.in")
+    ->cc("akashgr64@gmail.com")
     ->send(new Enquery($mailData));
     return view("home");
 }

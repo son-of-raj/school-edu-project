@@ -1,42 +1,43 @@
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts section-bg">
-      <div class="container">
-
-        <div class="row counters">
-
-          <div class="col-lg-4 col-6 text-center">
-          <h3>Total Students</h3>
-            <span>2000+</span>
-           
-          </div>
-
-          <div class="col-lg-4 col-6 text-center">
-          <h3>JEE qualifiers</h3>
-            <span>300+</span>
-           
-          </div>
-
-          <div class="col-lg-4 col-6 text-center">
-          <h3>NEET qualifiers</h3>
-            <span>200+</span>
-           
-          </div>
-        <button hidden class="hidden_button" onclick="plusAdd()" ></button>
-          <!-- <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="4020" data-purecounter-duration="1" class="purecounter"></span>
-            <p>NEET Topper AIR</p>
-          </div>
-
-          <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="2062" data-purecounter-duration="1" class="purecounter"></span>
-            <p>JEE mains topper AIR</p>
-          </div>
-          <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Years of helping students</p>
-          </div> -->
-
+<div class="container">
+<div class="section-title" data-aos="fade-left">
+                    <h2>Our Results Define US</h2>
+                    <!-- <p>What are they saying</p> -->
+                </div>
+    <div class="row">
+    <div class="col-md-4 col-sm-6">
+            <div class="counter green">
+                <span class="counter-value">2000</span>
+                <h3>Total Students</h3>
+            </div>
         </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="counter green">
+                <span class="counter-value">300</span>
+                <h3>JEE qualifiers</h3>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="counter green">
+                <span class="counter-value">200</span>
+                <h3>NEET qualifiers</h3>
+            </div>
+        </div>
+    </div>
+</div>
 
-      </div>
-    </section><!-- End Counts Section -->
+<script type="text/javascript">
+ $(document).ready(function(){
+    $('.counter-value').each(function(){
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text(),
+        },{
+            duration: 3500,
+            easing: 'swing',
+            step: function (now){
+                $(this).text(Math.ceil(now));
+                
+            }
+        });
+    });
+});
+</script>

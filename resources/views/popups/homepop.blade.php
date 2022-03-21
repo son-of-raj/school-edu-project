@@ -682,7 +682,7 @@
                         <div class="col-md-12 m-h-20 bg-img rounded-left" style="background-image: url('assets/img/popup.jpg')"></div>
                         <div class="col-md-12 text-center py-5 px-sm-5 ">
                             <h2>Admissions Open</h2>
-                            <h4>Class XII - Term II (March 2022)</h4>
+                            <h4>Class XII - Term II</h4>
                             <div class="row">
                             <div class="col">
                             <p class="text-muted"><b>Class XII - Science</b></p>
@@ -690,12 +690,15 @@
                             <p class="text-muted"><b>Chemistry</b></p>
                             <p class="text-muted"><b>Mathematics</b></p>
                             <p class="text-muted"><b>Biology</b></p>
+                            <p class="text-muted"><b>Fee</b> <a href="enquery" class="get-started-btn">Enquiry</a></p>
                             </div>
                             <div class="col">
                             <p class="text-muted"><b>Class XII - Commerce </b></p>
                             <p class="text-muted"><b>Applied mathematics</b></p>
-                            <p class="text-muted"><b>Fee </b><a href="enquery">Enquiry</a></p>
-                            <p class="text-muted"><b>Free </b><a href="demo">Demo now</a></p>
+                            <p class="text-muted"><b>Accounts</b></p>
+                            <p class="text-muted"><b>Business Studies</b></p>
+                            <p class="text-muted"><b>Economics</b></p>
+                            <p class="text-muted"><b>Free <a href="demo" class="get-started-btn">Demo</a></p>
                             </div>
                             </div>
                             <h5>First 10 admissions get flat 10% off</h5>

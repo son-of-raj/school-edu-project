@@ -33,7 +33,8 @@ public function sendFeedback(Request $request){
     $mailData['subject'] = $request->subject;
     $mailData['percent'] = $request->percent;
     $mailData['rating'] = $request->star;
-    Mail::to("akashgr64@gmail.com")
+    Mail::to("info@kpoints.in")
+    ->cc("akashgr64@gmail.com")
     ->send(new Feedback($mailData));
     return view("contact");
 }

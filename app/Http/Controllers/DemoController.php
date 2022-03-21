@@ -15,7 +15,8 @@ public function sendDemo(Request $request){
     $mailData['subject'] = $request->subject;
     $mailData['class'] = $request->class;
     $mailData['message'] = $request->message;
-    Mail::to("akashgr64@gmail.com")
+    Mail::to("info@kpoints.in")
+    ->cc("akashgr64@gmail.com")
     ->send(new DemoPopup($mailData));
     return view("home");
 }

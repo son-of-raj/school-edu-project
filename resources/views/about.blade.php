@@ -24,27 +24,31 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="row">
-                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                        <img src="/assets/img/about.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                        <h3>Kpoints was founded by Mr. Sunil</h3>
-                        <p class="fst-italic">
-                        a Biotechnology engineer has earned a reputation as a subject matter expert in Mathematics, Biology and Chemistry over last 7+ years, an odd combination of subjects.
-                        </p>
-                        <p class="fst-italic">
-                        He believes that a teacher is a person who can help student overcome their limitations to fall in love with the subject.                        </p>
+                    <!-- <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                        <img src="/assets/img/about-us.jpg" class="img-fluid" alt="">
+                    </div> -->
+                    <div class="col content">
+                        <p>
+                            <div class="section-title">
+                            <h2 data-aos="fade-left">About K-Points</h2>
+                            </div>
+                        <b>K-Points</b> started in 2021, with the vision of creating a Teachers' Community for excellence in education. We are specialised in providing online tutorial classes and career counselling to students to achieve their dreams. 
+                    </p>
+                        <p>
+                        K-Points strive to provide a learning experience that enhances the significance for our students in a professional, supportive and ethical environment. Hence, the student will now enjoy learning rather than ignore it. Our motto is to become a leader in providing successful academic results for our students through a culture of innovation, commitment and service.
+                    </p>
                         <!-- <ul>
                             <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                             <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
                             <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
                         </ul> -->
                         <p>
-                        As an educator, Mr. Sunil grew up in an environment that emphasized learning and gaining knowledge rather than just academic excellence. He wanted to be an educator since his scholastic career  and has managed to establish himself as an educator over the years.
+</br>
+                        <div class="section-title">
+                            <h2 data-aos="fade-left">About Founder</h2>
+                            </div>
+                       <p><b>Mr Sunil Sangam</b> is the founder of K-Points. A Biotechnology Engineering graduate started teaching Mathematics, Biology and Chemistry to the students in his early engineering days and gained a reputation in educating individuals. He believes learning should be open to all and tries to educate individuals in an accessible and understandable manner. As a successful educator, he has trained & inspired 300+ students to achieve their dreams. </p>
                     </p>
-                    <p>
-                    He believes knowledge should be available to all and try to teach and write in an accessible and understandable manner. As a result, he is known for connecting people to information by engaging, interesting and thought-provoking means. He works hard to balance many aspects involved in being an effective Educator and try to make sure he provides effective education.
-                </p>
                     </div>
                 </div>
 
@@ -60,8 +64,8 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Testimonials</h2>
-                    <p>What are they saying</p>
+                    <h2 data-aos="fade-left">Testimonials</h2>
+                    <p data-aos="fade-right">What are they saying</p>
                 </div>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">

@@ -19,41 +19,44 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
-      <div data-aos="fade-up">
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124411.85681794892!2d77.6472499589811!3d12.980131979980541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0def7e439621%3A0x77f12818aee83ff6!2sImmadihalli%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066!5e0!3m2!1sen!2sin!4v1644141249707!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
-        </div>
+      <!-- <div data-aos="fade-up">
+        <iframe style="border:0; width: 30%; height: 250px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124411.85681794892!2d77.6472499589811!3d12.980131979980541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0def7e439621%3A0x77f12818aee83ff6!2sImmadihalli%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066!5e0!3m2!1sen!2sin!4v1644141249707!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+        </div> -->
 
-      <div class="container" data-aos="fade-up">
+      <div class="container">
 
         <div class="row mt-5">
 
           <div class="col-lg-4">
             <div class="info">
-              <div class="address">
+
+            <div class="address" data-aos="flip-left">
+                <iframe style="border:0; width: 100%; height: 150px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124411.85681794892!2d77.6472499589811!3d12.980131979980541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0def7e439621%3A0x77f12818aee83ff6!2sImmadihalli%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066!5e0!3m2!1sen!2sin!4v1644141249707!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+              </div><br>
+              <div class="address" data-aos="flip-left">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>Lakshmi Nilaya,Whitefield main road</p>
                 <p>Whitefield,Bengaluru</p>
                 <p> Karnataka 560066 </p>
               </div>
 
-              <div class="email">
+              <div class="email" data-aos="flip-left">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
                 <p><a href="mailto:info@kpoints.com"><b>info@kpoints.com</b></a></p>
               </div>
 
-              <div class="phone">
+              <!-- <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
                 <p><a href="tel:+917010140023"><b>+91 7010140023</b></a></p>
-              </div>
+              </div> -->
 
             </div>
 
           </div>
 
-          <div class="col-lg-8 mt-5 mt-lg-0">
+          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="flip-right">
             <form action="contact-submit" method="post" role="form" class="form-group" border="0">
               <div class="row">
                 <div class="col-md-6 form-group">
@@ -103,7 +106,7 @@
       <br>
       <center><h3>Share Your Experience</h3></center>
       <br>
-      <div class="container">
+      <div class="container"  data-aos="fade-up">
         <div class="col d-flex justify-content-center">
         <div class="col-lg-8 mt-5 mt-lg-0">
             <form action="feedback-submit" method="post" role="form" class="form-group" border="0">

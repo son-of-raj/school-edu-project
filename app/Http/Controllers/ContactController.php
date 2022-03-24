@@ -17,7 +17,8 @@ public function sendEmail(Request $request){
     $mailData['class'] = $request->class;
     $mailData['exams'] = $request->exams;
     $mailData['message'] = $request->message;
-    Mail::to("akashgr64@gmail.com")
+    Mail::to("info@kpoints.com")
+    ->cc("akashgr64@gmail.com")
     ->send(new Contact($mailData));
     return view("home");
 }

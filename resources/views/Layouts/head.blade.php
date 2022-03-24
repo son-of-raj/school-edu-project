@@ -28,6 +28,7 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: Mentor - v4.7.0

@@ -21,13 +21,18 @@
         <td><?php echo $data['email']; ?></td>
         </tr>
         <tr>
-        <th>Subject:</th>
-        <td><?php echo $data['subject']; ?></td>
-        </tr>
-        <tr>
         <th>Class:</th>
         <td><?php echo $data['class']; ?></td>
         </tr>
+        <tr>
+        <th>Course:</th>
+        <td><?php echo $data['course']; ?></td>
+        </tr>
+        <tr>
+        <th>Subject:</th>
+        <td><?php echo $data['subjects']; ?></td>
+        </tr>
+        
         <tr>
         <th>Message:</th>
         <td><?php echo $data['message']; ?></td>

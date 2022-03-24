@@ -12,10 +12,11 @@ public function sendDemo(Request $request){
     $mailData['name'] = $request->name;
     $mailData['contact'] = $request->contact;
     $mailData['email'] = $request->email;
-    $mailData['subject'] = $request->subject;
     $mailData['class'] = $request->class;
+    $mailData['course'] = $request->course;
+    $mailData['subjects'] = $request->subjects;
     $mailData['message'] = $request->message;
-    Mail::to("info@kpoints.in")
+    Mail::to("info@kpoints.com")
     ->cc("akashgr64@gmail.com")
     ->send(new DemoPopup($mailData));
     return view("home");
@@ -25,10 +26,12 @@ public function sendPopupDemo(Request $request){
     $mailData['name'] = $request->name;
     $mailData['contact'] = $request->contact;
     $mailData['email'] = $request->email;
-    $mailData['subject'] = $request->subject;
     $mailData['class'] = $request->class;
+    $mailData['course'] = $request->course;
+    $mailData['subjects'] = $request->subjects;
     $mailData['message'] = $request->message;
-    Mail::to("akashgr64@gmail.com")
+    Mail::to("info@kpoints.com")
+    ->cc("akashgr64@gmail.com")
     ->send(new DemoPopup($mailData));
     return view("home");
 }

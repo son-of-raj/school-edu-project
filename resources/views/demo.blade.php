@@ -32,19 +32,37 @@
                 <div class="col form-group">
                   <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact Number" required>
                 </div>
+                <div class="col form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
               </div>
 
               <br>
               <div class="row">
+               
                 <div class="col form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                <select class="form-control" name="class" id="class" placeholder="Class" required>
+                <option value="" selected disabled>Select Class</option>
+                <option value="Class XI">Class XI</option>
+                <option value="Class XII">Class XII</option>
+              </select>
+                </div>
+
+                <div class="col form-group">
+                <select class="form-control" name="course" id="course" placeholder="Course" required>
+                <option value="" selected disabled>Select Course</option>
+                <option value="Science (Boards)">Science (Boards)</option>
+                <option value="Science (NEET)">Science (NEET)</option>
+                <option value="Science (JEE)">Science (JEE)</option>
+                <option value="Commerce">Commerce</option>
+               </select>
                 </div>
                 <div class="col form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject and Entrance" required>
+                <select class="form-control" name="subjects" id="subjects" placeholder="Subjects" required>
+                <option value="" selected disabled>Select Subjects</option>
+               </select>
                 </div>
-                <div class="col form-group">
-                  <input type="text" class="form-control" name="class" id="class" placeholder="Class" required>
-                </div>
+               
               </div>
               <br>
               <div class="form-group">
@@ -65,9 +83,28 @@
 
   @include('Layouts.footer')
 <script type="text/javascript">
-$(".chosen-select").chosen({
-  no_results_text: "Oops, nothing found!"
-})
+// $(".chosen-select").chosen({
+//   no_results_text: "Oops, nothing found!"
+// })
+
+$("#course").change(function () {
+        var val = $(this).val();
+        if (val == "Science (Boards)") {
+            $("#subjects").html(
+              "<option value='Biology'>Biology</option><option value='Chemistry'>Chemistry</option><option value='Mathematics'>Mathematics</option><option value='Physics'>Physics</option>");
+        } else if (val == "Science (NEET)") {
+            $("#subjects").html(
+              "<option value='Biology'>Biology</option><option value='Chemistry'>Chemistry</option><option value='Physics'>Physics</option>");
+        }
+        else if (val == "Science (JEE)") {
+            $("#subjects").html(
+              "<option value='Chemistry'>Chemistry</option><option value='Mathematics'>Mathematics</option><option value='Physics'>Physics</option>");
+        }
+        else if (val == "Commerce") {
+            $("#subjects").html(
+              "<option value='Applied Mathematics'>Applied Mathematics</option><option value='Economics'>Economics</option><option value='Business Studies'>Business Studies</option><option value='Accounts'>Accounts</option>");
+        }
+    });
 </script>
 
 <style type="text/css">

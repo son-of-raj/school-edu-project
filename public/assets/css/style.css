@@ -1842,3 +1842,21 @@ label.star:before {
         opacity: 0;
     }
 }
+
+@media (max-width: 303px) {
+    #logo {
+        display: none;
+    }
+    #mobile_logo {
+        display: block;
+    }
+}
+
+@media (min-width: 303px) {
+    #logo {
+        display: block;
+    }
+    #mobile_logo {
+        display: none;
+    }
+}

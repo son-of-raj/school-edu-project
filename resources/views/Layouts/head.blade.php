@@ -2,13 +2,21 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>K Points</title>
+  <title>K Points | Online Tutorials</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <meta name="csrf_token" content="{{ csrf_token() }}" />
+<!-- Sharing Card data -->
+
+  <meta property="og:title" content="Online Tutorials for Class 11-12 (Science & Commerce) | Get Free Demo" />
+  <meta property="og:image" content="https://kpoints.in/assets/Logo_01.png" />
+  <meta name="description" content="Get online classes from highly experienced and qualified faculty across CBSE Class XI & XII (Science & Commerce), JEE (Mains & Advanced) and NEET." />
+  <meta name="keywords" content="Online Classes, Online Tutorials, CBSE Class XI, CBSE Class XII,JEE, NEET, Tutorial Classes, Physics, Chemistry, Maths" />
+  
   <!-- Favicons -->
-  <link href="assets/favicon.png" rel="icon">
-  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/mobile_logo.png" rel="icon">
+  <link href="assets/mobile_logo.png" rel="apple-touch-icon">
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">

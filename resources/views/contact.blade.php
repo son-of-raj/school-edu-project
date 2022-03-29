@@ -46,6 +46,12 @@
                 <p><a href="mailto:info@kpoints.com"><b>info@kpoints.com</b></a></p>
               </div>
 
+              <div class="email" data-aos="flip-left">
+                <i class="bi bi-person-workspace"></i>
+                <h4>Career Opportunities:</h4> 
+                <p><a href="mailto:career@kpoints.com"><b>career@kpoints.com</b></a></p>
+              </div>
+
               <!-- <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>

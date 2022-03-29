@@ -4,9 +4,23 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Kpoints</title>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
     <link href='' rel='stylesheet'>
+
+  <title>K Points | Online Tutorials</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta name="csrf_token" content="{{ csrf_token() }}" />
+<!-- Sharing Card data -->
+
+  <meta property="og:title" content="Online Tutorials for Class 11-12 (Science & Commerce) | Get Free Demo" />
+  <meta property="og:image" content="https://kpoints.in/assets/Logo_01.png" />
+  <meta name="description" content="Get online classes from highly experienced and qualified faculty across CBSE Class XI & XII (Science & Commerce), JEE (Mains & Advanced) and NEET." />
+  <meta name="keywords" content="Online Classes, Online Tutorials, CBSE Class XI, CBSE Class XII,JEE, NEET, Tutorial Classes, Physics, Chemistry, Maths" />
+  
+  <!-- Favicons -->
+  <link href="assets/mobile_logo.png" rel="icon">
+  <link href="assets/mobile_logo.png" rel="apple-touch-icon">
     <style>
         .modal .modal-dialog.modal-full-width {
             width: 100% !important;

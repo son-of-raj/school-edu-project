@@ -43,13 +43,13 @@
               <div class="email" data-aos="flip-left">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p><a href="mailto:info@kpoints.com"><b>info@kpoints.com</b></a></p>
+                <p><a href="mailto:info@kpoints.com"><b>info@kpoints.in</b></a></p>
               </div>
 
               <div class="email" data-aos="flip-left">
                 <i class="bi bi-person-workspace"></i>
                 <h4>Career Opportunities:</h4> 
-                <p><a href="mailto:career@kpoints.com"><b>career@kpoints.com</b></a></p>
+                <p><a href="mailto:career@kpoints.com"><b>career@kpoints.in</b></a></p>
               </div>
 
               <!-- <div class="phone">

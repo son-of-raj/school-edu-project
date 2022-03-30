@@ -24,11 +24,11 @@
         <div class="row">
           <div class="col content">
           <div class="section-title" data-aos="fade-left">
-          <h2>Welcome to K-Points</h2>
+          <h2>Welcome to KPoints</h2>
           <p style="font-size: 24px;" data-aos="fade-right">Come and Join the World of Achievers to Find the Road to Success.</p>
         </div>
             <p style="color: black;font-weight: 400;font-size: inherit;" class="paragraph">
-            K-Points is India's largest ed-tech Tutorial Community for experts and learners that provides the best online tutorials for Class XI (CBSE), Class XII (CBSE) and Competitive Exams Like JEE (Mains & Advanced) & NEET. Being a passionate online tutorial institute, K-Points has supported students over the year to prepare them for chasing their career aspirations. We are always committed to equipping and empowering students to excel in Academics. We believe in making students fear-free by focusing on building concepts for subjects from the well-structured models, which is reflected in our long-term vision and mission.
+            KPoints is India's largest ed-tech Tutorial Community for experts and learners that provides the best online tutorials for Class XI (CBSE), Class XII (CBSE) and Competitive Exams Like JEE (Mains & Advanced) & NEET. Being a passionate online tutorial institute, KPoints has supported students over the year to prepare them for chasing their career aspirations. We are always committed to equipping and empowering students to excel in Academics. We believe in making students fear-free by focusing on building concepts for subjects from the well-structured models, which is reflected in our long-term vision and mission.
 The institute was established by Mr. Sunil Sangam, a young, highly qualified and committed teacher with over 8+ years of experience. As a tutor, he has trained & inspired 300+ students to achieve their dreams and prides himself on the excellency & achievements of his students.
           </p>
           </div>
@@ -43,7 +43,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" >
-          <h2 data-aos="fade-left">Why K-Points?</h2>
+          <h2 data-aos="fade-left">Why KPoints?</h2>
           <p style="font-size: 24px;" data-aos="fade-right">The Answer is, We Explain the Concepts Better to Create Individuals.</p>
         </div>
         <br>
@@ -56,7 +56,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
               <div class="course-content" style=" margin-left: 37px; margin-top: 31px; padding: 0;" data-aos="fade-left">
                 <h3 style="text-align: left;"><a href="#">I. Flexibility & Comfort</a></h3>
                 <p style="color: black;text-align: left;margin-top: 3vh; font-size: 16px;">
-                K-Points offer more flexibility and comfort than traditional tutoring. Online tutorials allow students to learn from their comfort zone and have the option to learn from anywhere.
+                KPoints offer more flexibility and comfort than traditional tutoring. Online tutorials allow students to learn from their comfort zone and have the option to learn from anywhere.
               </p>
               </div>
               <div class="course-content" style=" margin-left: 37px; padding: 0; " data-aos="fade-left">
@@ -125,7 +125,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-line-chart"></i>
                       <h4>Excellent Track Record</h4>
-                      <p style="color: black;font-weight: 600;">K-Points hold an outstanding track record in delivering exceptional results
+                      <p style="color: black;font-weight: 600;">KPoints hold an outstanding track record in delivering exceptional results
                         <br><a style="color: #00bd38;">1000+</a> students, <a style="color: #00bd38;">100 %</a> CBSE board results, Highest: <a style="color: #00bd38;"> 98.76%</a>
                         <br><a style="color: #00bd38;"> 300+</a> JEE mains qualifying students
                         <br><a style="color: #00bd38;"> 50 +</a> IIT Advanced Qualifiers
@@ -165,7 +165,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-book-alt"></i>
                     <h4>Chalk and Board Approach</h4>
-                    <p style="color: black;font-weight: 600;">At K-Points, we believe the Chalk & Board Method is the most effective method used for teaching. We use digital technology tools for engaging sessions, enabling students to understand better.</p>
+                    <p style="color: black;font-weight: 600;">At KPoints, we believe the Chalk & Board Method is the most effective method used for teaching. We use digital technology tools for engaging sessions, enabling students to understand better.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-stretch shadow p-3 mb-5 bg-white rounded-start" style="margin: 0px 5px 0px 5px;">
@@ -287,7 +287,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
           <h2 data-aos="fade-left">Courses</h2>
           <p data-aos="fade-right">The Subjects We Cover</p>
         </div>
-        <P>At K-Points Tutorials, we are proficient in building the foundation and concepts of subjects. That helps to support the students in preparing for board exams. Our faculty is experts in teaching across CBSE Class XI & XII (Science & Commerce, JEE (Mains & Advanced) and NEET.</P>
+        <P>At KPoints Tutorials, we are proficient in building the foundation and concepts of subjects. That helps to support the students in preparing for board exams. Our faculty is experts in teaching across CBSE Class XI & XII (Science & Commerce, JEE (Mains & Advanced) and NEET.</P>
         <br>
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
@@ -302,7 +302,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
 
                 <h3><a href="#">CBSE - XI - Science & Commerce</a></h3>
                 <p style="color: black">
-                Getting good grades is a prime goal for the students to build up a successful career. Class XI is a foundation to the depths of subjects that helps them stay ahead of the curriculum taught at colleges. K-Points introduces subject-centric courses for the CBSE - Class XI (Science & Commerce) to guide students to perform better in their academic exams. 
+                Getting good grades is a prime goal for the students to build up a successful career. Class XI is a foundation to the depths of subjects that helps them stay ahead of the curriculum taught at colleges. KPoints introduces subject-centric courses for the CBSE - Class XI (Science & Commerce) to guide students to perform better in their academic exams. 
               </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
@@ -330,7 +330,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
 
                 <h3><a href="#">CBSE - XII - Science & Commerce</a></h3>
                 <p style="color: black">
-                Class XII is a crucial year in the life of every student. This class acts as a deciding aspect for students who want to seek higher studies in diverse fields of education. K-points offers the best online tutorials for CBSE - Class XII (Science & Commerce), with an in-depth understanding of core concepts and an enjoyable learning experience.              </p>
+                Class XII is a crucial year in the life of every student. This class acts as a deciding aspect for students who want to seek higher studies in diverse fields of education. KPoints offers the best online tutorials for CBSE - Class XII (Science & Commerce), with an in-depth understanding of core concepts and an enjoyable learning experience.              </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
@@ -357,7 +357,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
 
                 <h3><a href="#">JEE (Mains & Advanced)</a></h3>
                 <p style="color: black">
-                JEE (Mains & Advanced) is India’s most prestigious computer-based online test conducted by NTA (National Testing Agency) for students aspiring to pursue undergraduate courses in top engineering institutes in India. K-Points will be your perfect companion in the journey to get a seat in your dream engineering college.              </p>
+                JEE (Mains & Advanced) is India’s most prestigious computer-based online test conducted by NTA (National Testing Agency) for students aspiring to pursue undergraduate courses in top engineering institutes in India. KPoints will be your perfect companion in the journey to get a seat in your dream engineering college.              </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
@@ -384,7 +384,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
 
                 <h3><a href="course-details.html">NEET</a></h3>
                 <p style="color: black">
-                NEET (National Entrance cum Eligibility Test) is a crucial Medical Entrance Examination conducted in India. More significantly, NEET is the most-recognised competitive exam and the only way for aspirants to get a seat in their dream medical colleges. K-Points delivers the right direction and support all at one place to help you crack the medical entrance exam efficiently.              </p>
+                NEET (National Entrance cum Eligibility Test) is a crucial Medical Entrance Examination conducted in India. More significantly, NEET is the most-recognised competitive exam and the only way for aspirants to get a seat in their dream medical colleges. KPoints delivers the right direction and support all at one place to help you crack the medical entrance exam efficiently.              </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">

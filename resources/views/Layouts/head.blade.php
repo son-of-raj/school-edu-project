@@ -9,10 +9,13 @@
 <!-- Sharing Card data -->
 
   <meta property="og:title" content="Online Tutorials for Class 11-12 (Science & Commerce) | Get Free Demo" />
-  <meta property="og:image" content="https://kpoints.in/assets/Logo_01.png" />
+  <meta property="og:image" content="https://kpoints.in/assets/mobile_logo.png" />
   <meta name="description" content="Get online classes from highly experienced and qualified faculty across CBSE Class XI & XII (Science & Commerce), JEE (Mains & Advanced) and NEET." />
   <meta name="keywords" content="Online Classes, Online Tutorials, CBSE Class XI, CBSE Class XII,JEE, NEET, Tutorial Classes, Physics, Chemistry, Maths" />
   
+  <meta property="og:url" content="https://www.kpoints.in/" />
+  <meta property="al:android:url" content="https://www.kpoints.in/" />
+  <meta property="al:ios:url" content="https://www.kpoints.in/" />
   <!-- Favicons -->
   <link href="assets/mobile_logo.png" rel="icon">
   <link href="assets/mobile_logo.png" rel="apple-touch-icon">

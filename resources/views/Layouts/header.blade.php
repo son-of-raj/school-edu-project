@@ -6,7 +6,7 @@
     <!-- <h1 class="logo me-auto"><a href="/">KPoints</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="/" id="logo" class="me-auto logo">
-      <img src="assets/Logo_01.png" alt="" class="img-fluid">
+      <img src="assets/Logo_02.png" alt="" class="img-fluid">
       </a>
       <a href="/" id="mobile_logo" class="me-auto logo">
       <img src="assets/mobile_logo.png" alt="" class="img-fluid">

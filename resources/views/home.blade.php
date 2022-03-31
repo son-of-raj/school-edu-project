@@ -300,7 +300,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
                   <p class="price">$169</p>
                 </div> -->
 
-                <h3><a href="#">CBSE - XI - Science & Commerce</a></h3>
+                <h3><a href="demo">CBSE - XI - Science & Commerce</a></h3>
                 <p style="color: black">
                 Getting good grades is a prime goal for the students to build up a successful career. Class XI is a foundation to the depths of subjects that helps them stay ahead of the curriculum taught at colleges. KPoints introduces subject-centric courses for the CBSE - Class XI (Science & Commerce) to guide students to perform better in their academic exams. 
               </p>
@@ -328,7 +328,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
                   <p class="price">$250</p>
                 </div> -->
 
-                <h3><a href="#">CBSE - XII - Science & Commerce</a></h3>
+                <h3><a href="demo">CBSE - XII - Science & Commerce</a></h3>
                 <p style="color: black">
                 Class XII is a crucial year in the life of every student. This class acts as a deciding aspect for students who want to seek higher studies in diverse fields of education. KPoints offers the best online tutorials for CBSE - Class XII (Science & Commerce), with an in-depth understanding of core concepts and an enjoyable learning experience.              </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
@@ -355,7 +355,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
                   <p class="price">$180</p>
                 </div> -->
 
-                <h3><a href="#">JEE (Mains & Advanced)</a></h3>
+                <h3><a href="demo">JEE (Mains & Advanced)</a></h3>
                 <p style="color: black">
                 JEE (Mains & Advanced) is India’s most prestigious computer-based online test conducted by NTA (National Testing Agency) for students aspiring to pursue undergraduate courses in top engineering institutes in India. KPoints will be your perfect companion in the journey to get a seat in your dream engineering college.              </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">
@@ -382,7 +382,7 @@ The institute was established by Mr. Sunil Sangam, a young, highly qualified and
                   <p class="price">$180</p>
                 </div> -->
 
-                <h3><a href="course-details.html">NEET</a></h3>
+                <h3><a href="demo">NEET</a></h3>
                 <p style="color: black">
                 NEET (National Entrance cum Eligibility Test) is a crucial Medical Entrance Examination conducted in India. More significantly, NEET is the most-recognised competitive exam and the only way for aspirants to get a seat in their dream medical colleges. KPoints delivers the right direction and support all at one place to help you crack the medical entrance exam efficiently.              </p>
                 <!-- <div class="trainer d-flex justify-content-between align-items-center">

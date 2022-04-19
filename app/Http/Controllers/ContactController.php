@@ -10,6 +10,7 @@ class ContactController extends Controller
 {
 
 public function sendEmail(Request $request){
+    //testing
     $mailData['firstname'] = $request->firstname;
     $mailData['lastname'] = $request->lastname;
     $mailData['phone'] = $request->phone;

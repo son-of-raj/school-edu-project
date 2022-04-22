@@ -725,6 +725,7 @@
                             <option value="Science (NEET)">Science (NEET)</option>
                             <option value="Science (JEE)">Science (JEE)</option>
                             <option value="Commerce">Commerce</option>
+                            <option value="CommerceMaths">Commerce with Applied Mathematics</option>
                         </select>
                         </div>
                         <div class="col form-group">
@@ -767,6 +768,10 @@
               "<option value='Chemistry'>Chemistry</option><option value='Mathematics'>Mathematics</option><option value='Physics'>Physics</option>");
         }
         else if (val == "Commerce") {
+            $("#subjects").html(
+              "<option value='Mathematics'>Mathematics</option><option value='Economics'>Economics</option><option value='Business Studies'>Business Studies</option><option value='Accounts'>Accounts</option>");
+        }
+        else if (val == "CommerceMaths") {
             $("#subjects").html(
               "<option value='Applied Mathematics'>Applied Mathematics</option><option value='Economics'>Economics</option><option value='Business Studies'>Business Studies</option><option value='Accounts'>Accounts</option>");
         }

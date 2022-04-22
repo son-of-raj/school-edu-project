@@ -16,6 +16,8 @@
   <meta property="og:url" content="https://www.kpoints.in/" />
   <meta property="al:android:url" content="https://www.kpoints.in/" />
   <meta property="al:ios:url" content="https://www.kpoints.in/" />
+
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- Favicons -->
   <link href="assets/mobile_logo.png" rel="icon">
   <link href="assets/mobile_logo.png" rel="apple-touch-icon">

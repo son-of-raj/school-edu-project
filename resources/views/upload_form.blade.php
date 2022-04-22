@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 @include('Layouts.head')
 
 <body>
@@ -8,11 +7,13 @@
 @include('Layouts.header')
 
   <main id="main">
+       
+  <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>Demo</h2>
+        <h2>Video Upload</h2>
         <p>Please fill the form for Demo</p>
       </div>
     </div><!-- End Breadcrumbs -->
@@ -23,7 +24,7 @@
 
         <div class="row mt-5">
           <div class="col-lg-12 mt-5 mt-lg-0">
-            <form action="demo-submit" method="post" role="form" class="form-group" border="0">
+            <form action="video-upload" method="post" role="form" class="form-group" border="0">
               <div class="row">
                 <div class="col form-group">
                 @csrf
@@ -55,7 +56,6 @@
                 <option value="Science (NEET)">Science (NEET)</option>
                 <option value="Science (JEE)">Science (JEE)</option>
                 <option value="Commerce">Commerce</option>
-                <option value="CommerceMaths">Commerce with Applied Mathematics</option>
                </select>
                 </div>
                 <div class="col form-group">
@@ -82,13 +82,27 @@
   </main><!-- End #main -->
 
 
-  @include('Layouts.footer')
-<script type="text/javascript">
-// $(".chosen-select").chosen({
-//   no_results_text: "Oops, nothing found!"
-// })
+  </main><!-- End #main -->
 
-$("#course").change(function () {
+  @include('Layouts.footer')
+
+
+  <script type="text/javascript">
+     $(document).ready(function(){
+            $.ajax({
+                        url: "/faculties_name",
+                        type: "post",
+                        dataType: "json",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            console.log(response);
+                        }
+                    });
+        });
+
+        $("#course").change(function () {
         var val = $(this).val();
         if (val == "Science (Boards)") {
             $("#subjects").html(
@@ -103,20 +117,64 @@ $("#course").change(function () {
         }
         else if (val == "Commerce") {
             $("#subjects").html(
-              "<option value='Mathematics'>Mathematics</option><option value='Economics'>Economics</option><option value='Business Studies'>Business Studies</option><option value='Accounts'>Accounts</option>");
-        }
-        else if (val == "CommerceMaths") {
-            $("#subjects").html(
               "<option value='Applied Mathematics'>Applied Mathematics</option><option value='Economics'>Economics</option><option value='Business Studies'>Business Studies</option><option value='Accounts'>Accounts</option>");
         }
     });
+     
 </script>
+<style>
 
-<style type="text/css">
+
+  .card {
+    display: flex;
+    flex-flow: wrap;
+    flex: 100%;
+    margin-bottom: 40px;
+  }
+ .card-img-body {
+      order: 2;
+    }
+
+
+  .card-img-body {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
     
-.chosen-container {
-    width: 100% !important;
-}
+    @media (max-width: 576px) {
+      width: 100%;
+      height: 200px;
+          margin-bottom: 20px;
+    }
+    
+  }
+  
+  .card-img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    
+    @media (max-width: 1140px) {
+          margin: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+    }
+    
+  }
+
+  .card-body {
+    flex: 2;
+    padding: 0 0 0 1.25rem;
+    
+    @media (max-width: 576px) {
+      padding: 0;
+    }
+    
+  }
+
 </style>
 </body>
 

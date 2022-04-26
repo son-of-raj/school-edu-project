@@ -25,8 +25,8 @@ Route::get('contact', function () {
     return view('contact');
 });
 
-Route::get('enquery', function () {
-    return view('enquery');
+Route::get('enquiry', function () {
+    return view('enquiry');
 });
 
 Route::get('demo', function () {
@@ -35,6 +35,9 @@ Route::get('demo', function () {
 
 Route::get('subjects', function () {
     return view('subjects');
+});
+Route::get('buy_course_form', function () {
+    return view('buy_course_form');
 });
 
 Route::post('contact-submit', 'App\Http\Controllers\ContactController@sendEmail')->name('sendEmail');

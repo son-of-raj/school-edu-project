@@ -706,7 +706,7 @@
                             <p class="text-muted"><b>Chemistry</b></p>
                             <p class="text-muted"><b>Mathematics</b></p>
                             <p class="text-muted"><b>Biology</b></p>
-                            <p class="text-muted"><b>Fee</b> <a href="enquery" class="get-started-btn">Enquiry</a></p>
+                            <p class="text-muted"><b>Fee</b> <a href="enquiry" class="get-started-btn">Enquiry</a></p>
                             </div>
                             <div class="col">
                             <p class="text-muted"><b>Class XII - Commerce </b></p>

@@ -43,6 +43,12 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
   <!-- =======================================================
   * Template Name: Mentor - v4.7.0
   * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/

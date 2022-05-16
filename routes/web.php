@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\StudentsdetailsController;
+use App\Models\Studentsdetail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +35,9 @@ Route::get('demo', function () {
     return view('demo');
 });
 
+Route::get('student_form', function () {
+    return view('student_form');
+});
 Route::get('subjects', function () {
     return view('subjects');
 });
@@ -50,3 +55,11 @@ Route::post('enquery-submit', 'App\Http\Controllers\EnqueryController@sendEnquer
 Route::post('demo-submit', 'App\Http\Controllers\DemoController@sendDemo')->name('sendDemo');
 Route::post('popup-demo-submit', 'App\Http\Controllers\DemoController@sendPopupDemo')->name('sendPopupDemo');
 Route::post('faculties_name', 'App\Http\Controllers\VideoSave@Faculties')->name('Faculties');
+Route::post('/admin/getdata',[StudentsdetailsController::class,'getdata'])->name("admin.getdata");
+Route::get('/demo',[StudentsdetailsController::class,'index']);
+Route::post('studentsdetail/fetch',[StudentsdetailsController::class,'fetch'])->name('studentsdetail.fetch');
+Route::post('studentsdetail/fetch2',[StudentsdetailsController::class,'fetch2'])->name('studentsdetail.fetch2');
+Route::get('admin_dashboard',[StudentsdetailsController::class,'admin_dashboard']);
+Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
+Route::post('studentsdetails/popup',[StudentsdetailsController::class,'popup'])->name('studentsdetails.popup');
+

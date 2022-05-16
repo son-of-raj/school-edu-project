@@ -12,72 +12,87 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>Student Form</h2>
+        <h2>Request Fee Structure</h2>
         <p>Please fill the form</p>
       </div>
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Contact Section ======= -->
+    @if (\Session::has('success'))
+    <br>
+    <br>
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+       setTimeout(function(){
+        window.location = "/";//here double curly bracket 
+      }, 4000);
+ 
+    </script>
+@endif
     <section id="contact" class="contact">
+
       <div class="container" data-aos="fade-up">
 
         <div class="row mt-5">
           <div class="col-lg-12 mt-5 mt-lg-0">
       
             <form action="{{route('admin.getdata')}}" method="post" role="form" class="form-group" border="0">
+
             @csrf
             <div class="row">
                 <div class="col form-group">
-                  <input type="text" name="firstName" class="form-control"  value="{{old('firstName')}}" id="name" placeholder="Your First Name" >
+                  <input type="text" name="firstName" class="form-control"  value="{{old('firstName')}}" id="name" placeholder="Student First Name" >
                   <span class="text-danger">@error('firstName'){{$message}} @enderror</span>
                 </div>
                 <div class="col form-group">
-                  <input type="text" name="lastName" class="form-control" value="{{old('lastName')}}" id="name" placeholder="Your Last Name" >
+                  <input type="text" name="lastName" class="form-control" value="{{old('lastName')}}" id="name" placeholder="Student Last Name" >
                   <span class="text-danger">@error('lastName'){{$message}} @enderror</span>
                 </div>
                 </div>
                 <br>
                 <div class="row">
                 <div class="col form-group">
-                  <input type="text" class="form-control" name="number" value="{{old('number')}}" id="contact" placeholder="Your Contact Number" >
+                  <input type="text" class="form-control" name="number" value="{{old('number')}}" id="contact" placeholder="Student Contact Number" >
                   <span class="text-danger">@error('number'){{$message}} @enderror</span>
                 </div>
                 <div class="col form-group">
-                  <input type="email" class="form-control" name="email" value="{{old('email')}}" id="email" placeholder="Your Email" >
+                  <input type="email" class="form-control" name="email" value="{{old('email')}}" id="email" placeholder="Student Email" >
                   <span class="text-danger">@error('email'){{$message}} @enderror</span>
                 </div>
                 </div>
                 <br>
                 <div class="row">
                 <div class="col form-group">
-                  <input type="text" name="fatherName" class="form-control" value="{{old('fatherName')}}" id="name" placeholder="Father/Guardian Name " >
+                  <input type="text" name="fatherName" class="form-control" value="{{old('fatherName')}}" id="name" placeholder="Guardian Name " >
                   <span class="text-danger">@error('fatherName'){{$message}} @enderror</span>
                 </div>
                 <div class="col form-group">
-                  <input type="text" class="form-control" name="fatherNumber" value="{{old('fatherNumber')}}" id="contact" placeholder="Father/Guardian Number" >
+                  <input type="text" class="form-control" name="fatherNumber" value="{{old('fatherNumber')}}" id="contact" placeholder="Guardian Number" >
                   <span class="text-danger">@error('fatherNumber'){{$message}} @enderror</span>
                 </div>
                 </div>
                 <br>
                 <div class="row">
                 <div class="col form-group">
-                  <input type="email" class="form-control" name="fatherEmail" value="{{old('fatherEmail')}}" id="email" placeholder="Father/Guardian Email" >
+                  <input type="email" class="form-control" name="fatherEmail" value="{{old('fatherEmail')}}" id="email" placeholder="Guardian Email" >
                   <span class="text-danger">@error('fatherEmail'){{$message}} @enderror</span>
                 </div>
                 <div class="col form-group">
-                  <input type="text" name="motherName" class="form-control" value="{{old('motherName')}}" id="name" placeholder="Mother/Guardian Name" >
-                  <span class="text-danger">@error('motherName'){{$message}} @enderror</span>
-                </div>
-                </div>
-                <br>
-                <div class="row">
-                <div class="col form-group">
-                  <input type="text" class="form-control" name="motherNumber" value="{{old('motherNumber')}}" id="contact" placeholder="Mother/Guardian Number" >
-                  <span class="text-danger">@error('motherNumber'){{$message}} @enderror</span>
-                </div>
-                <div class="col form-group">
-                  <input type="email" class="form-control" name="motherEmail" value="{{old('motherEmail')}}" id="email" placeholder="Mother/Guardian Email" >
-                  <span class="text-danger">@error('motherEmail'){{$message}} @enderror</span>
+                <select  name="year" id="year"  class="form-control input-lg"  placeholder="Year" >
+                  
+                <option value="{{old('year')}}" selected disabled>Select Year</option>
+
+        <option value="22">2022</option>  
+        <option value="23">2023</option>
+        <option value="24">2024</option>
+        <option value="25">2025</option>
+        
+              </select>
+              <span class="text-danger">@error('year'){{$message}} @enderror</span>
                 </div>
               </div>
 
@@ -119,32 +134,22 @@
                 </div>
                 
                
-                <div class="col form-group">
-                <select  name="year" id="year"  class="form-control input-lg"  placeholder="Year" >
-                  
-                <option value="{{old('year')}}" selected disabled>Select Year</option>
-
-        <option value="22">2022</option>  
-        <option value="23">2023</option>
-        <option value="24">2024</option>
-        <option value="25">2025</option>
-        
-              </select>
-              <span class="text-danger">@error('year'){{$message}} @enderror</span>
-                </div>
+               
               
               <br><br><br><br>
-              <button onclick="copySubjects()" id="submit1" class="btn btn-success" type="submit">Request</button>
-            </form>
-            {{ csrf_field() }}
+              <button onclick="copySubjects()" id="submit1" class="btn btn-success" type="submit">Request Fee Structure</button>
+                         </form>
+        
           </div>
 
         </div>
 
       </div>
-
+      <script>
+ 
+  </script>
     </section><!-- End Contact Section -->
-
+ 
   </main><!-- End #main -->
 
   @include('Layouts.footer')
@@ -152,8 +157,6 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
- 
-
     $(document).ready(function(){
       
       function copySubjects(){

@@ -6,16 +6,21 @@
 <body>
 
 @include('Layouts.header')
+<div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Students Details</h2>
+        
+      </div>
+    </div><!-- End Breadcrumbs -->
 
     <div class="container">
-        <br>
-        <h1>Table data</h1>
-        <br>
+      <br>
         <div class="table-responsive">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <table id="example" class=" table table-striped table-bordered display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Sr.no.</th>
+                    <th hidden>Id</th>
+                    <th>Sr. no</th>
                     <th>Student Name</th>
                     <th>Class</th>
                     <th>Course</th>
@@ -25,10 +30,11 @@
                   
                 </tr>
             </thead>
-            @foreach($data as $row)
+            @foreach($data as $key=> $row)
             <tr>
-                <td class="stud_id">{{$row->id}}</td>
-                <td class="stud_id" id="pop_up"><a onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{$row->firstName}} {{$row->lastName}}</a></td>
+                <td hidden class="stud_id">{{$row->id}}</td>
+                <td>{{ ++$key }}</td>
+                <td class="stud_id" id="pop_up"><a style="cursor:pointer ;" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{$row->firstName}} {{$row->lastName}}</a></td>
                 <td class="stud_id">{{$row->class_id}}</td>
                 <td class="stud_id">{{$row->course_id}}</td>
                 <td class="stud_id">{{$row->subject_id}}</td>
@@ -88,21 +94,6 @@
             
         </tr>
         <tr>
-            <td><h6>Mother Name</h6></td>
-            <td><h6 id="mother_name"></h6></td>
-            
-        </tr>
-        <tr>
-            <td><h6>Mother Email</h6></td>
-            <td><h6 id="mother_email"></h6></td>
-            
-        </tr>
-        <tr>
-            <td><h6>Mother Number</h6></td>
-            <td><h6 id="mother_number"></h6></td>
-            
-        </tr>
-        <tr>
             <td><h6>Class</h6></td>
             <td><h6 id="student_class"></h6></td>
             
@@ -147,16 +138,38 @@
                 )
         }
         
-        
+  
         var modal = document.getElementById("popup_details");
         var btn = document.getElementById("pop_up");
         var span = document.getElementsByClassName("close")[0];
+        $('#example').DataTable({
+            
+        order: [[0 , 'desc']],
+        dom: 'lBfrtip',
+        buttons: [
+            {
+                extend:    'excelHtml5',
+                text:      '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend:    'csvHtml5',
+                text:      '<i class="fa fa-file-csv"></i>',
+                titleAttr: 'CSV'
+            },
+            {
+                extend:    'pdfHtml5',
+                text:      '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF'
+            },
+
+]
+    });
         span.onclick = function() { 
             modal.style.display = "none";
 }
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
+
+
 
             function popup(id){
                 $.ajax(
@@ -174,10 +187,7 @@ $(document).ready(function() {
                             $("#student_number").replaceWith("<h6 id= 'student_number'>"+result[0].number+"</h6>");
                             $("#father_name").replaceWith("<h6 id= 'father_name'>"+result[0].fatherName+"</h6>");
                             $("#father_email").replaceWith("<h6 id= 'father_email'>"+result[0].fatherEmail+"</h6>");
-                            $("#father_number").replaceWith("<h6 id= 'father_number'>"+result[0].fatherNumber+"</h6>");
-                            $("#mother_name").replaceWith("<h6 id= 'mother_name'>"+result[0].motherName+"</h6>");
-                            $("#mother_email").replaceWith("<h6 id= 'mother_email'>"+result[0].motherEmail+"</h6>");
-                            $("#mother_number").replaceWith("<h6 id= 'mother_number'>"+result[0].motherNumber+"</h6>")
+                            $("#father_number").replaceWith("<h6 id= 'father_number'>"+result[0].fatherNumber+"</h6>");                
                             $("#student_class").replaceWith("<h6 id= 'student_class'>"+result[0].class_id+"</h6>")
                             $("#student_course").replaceWith("<h6 id= 'student_course'>"+result[0].course_id+"</h6>")
                             $("#student_subjects").replaceWith("<h6 id= 'student_subjects'>"+result[0].subject_id+"</h6>")
@@ -262,6 +272,18 @@ $(document).ready(function() {
   background-color: #5cb85c;
   color: white;
 }
+.dataTables_wrapper .dt-buttons {
+  /* float:none;   */
+  /* text-align:center; */
+
+  padding-left:3%;
+  
+
+}
+.csvtext { 
+    visibility: hidden;
+    }
+
 </style>
 
 @include('Layouts.footer')

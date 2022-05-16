@@ -22,9 +22,6 @@ class StudentsdetailsController extends Controller
             'fatherName'=>'required',
             'fatherNumber'=>'required|max:13',
             'fatherEmail'=>'required|email',
-            'motherName'=>'required',
-            'motherNumber'=>'required|max:13',
-            'motherEmail'=>'required|email',
             'class_name'=>'required',
             'course_name'=> 'required',
             'subject_name'=>'required',
@@ -42,9 +39,6 @@ class StudentsdetailsController extends Controller
         $form->fatherName = $request->fatherName;
         $form->fatherNumber = $request->fatherNumber;
         $form->fatherEmail = $request->fatherEmail;
-        $form->motherName = $request->motherName;
-        $form->motherNumber = $request->motherNumber;
-        $form->motherEmail = $request->motherEmail;
         $form->class_name = $request->class_name;
         $form->course_name = $request->course_name;
         
@@ -87,17 +81,21 @@ class StudentsdetailsController extends Controller
         }else{
             
                 $request->session()->put('LoggedStudent',$getdataInfo->id);
-                return redirect(('/student_form'));
+                return redirect()->back()->with('success', 'Request submitted successfully'); 
            
         }
 
         if($getdata)
         {   
            
-            return redirect('/student_form')->with('success', 'Added');
+            // echo ('if');
+            return redirect('/')->back() ->with('alert', 'Updated!');
         }else{
-            return redirect('/student_form')->with('success', 'Added');
+            // echo ('else');
+            return redirect('/student_form');
         }   
+
+        
     }
 
     function index(Request $request){
@@ -167,8 +165,8 @@ class StudentsdetailsController extends Controller
     }
 
     function admin_dashboard(Request $request){
-        $data= Studentsdetail::get();
-   
+        $data= Studentsdetail::orderBy('id', 'DESC')->get();
+
       
         return view('admin_dashboard',compact('data'));
     }

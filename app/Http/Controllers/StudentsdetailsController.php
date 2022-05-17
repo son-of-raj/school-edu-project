@@ -43,7 +43,7 @@ class StudentsdetailsController extends Controller
         $form->course_name = $request->course_name;
         
         $form->subject_name = $str;
-        if($request->class_name = 1){
+        if($request->class_name == 1){
             $form->class_id = "XI" ;
         }else{
             $form->class_id = "XII" ;

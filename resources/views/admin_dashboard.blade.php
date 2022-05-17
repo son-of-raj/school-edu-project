@@ -27,6 +27,7 @@
                     <th>Subjects</th>
                     <th>Year</th>
                     <th>Admission Code</th>
+                    <th>Created Date</th>
                   
                 </tr>
             </thead>
@@ -34,20 +35,19 @@
             <tr>
                 <td hidden class="stud_id">{{$row->id}}</td>
                 <td>{{ ++$key }}</td>
-                <td class="stud_id" id="pop_up"><a style="cursor:pointer ;" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{$row->firstName}} {{$row->lastName}}</a></td>
+                <td class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{$row->firstName}} {{$row->lastName}}</a></td>
                 <td class="stud_id">{{$row->class_id}}</td>
                 <td class="stud_id">{{$row->course_id}}</td>
                 <td class="stud_id">{{$row->subject_id}}</td>
                 <td class="stud_id">{{"20".$row->year}}</td>
                 <td class="stud_id">
                 @if($row->generated_code == NULL)
-                    
-                    
                     <button type="button" id="{{ $row->id }}" class="btn-primary generate " href="" onclick="generate( '{{ $row->id }} ');">Generate</button>
                 @else
-                    {{$row->generated_code}}-{{$row->generated_subject_code}}-{{str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT);}}
+                    {{$row->generated_code}}-{{$row->generated_subject_code}}-{{str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT)}}
                 @endif
                </td>
+               <td>{{date('d/m/Y', strtotime($row->created_at))}}</td>
                
          
             </tr>
@@ -150,20 +150,39 @@
             {
                 extend:    'excelHtml5',
                 text:      '<i class="fa fa-file-excel-o"></i>',
-                titleAttr: 'Excel'
+                titleAttr: 'Excel',
+                autoFilter: true,
+                exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6, 7,8],
+                // format: {
+                //         body: function(data, row, column, node) {
+                //             console.log(data)
+                //             return column === 17 ? data : data;
+                //             // return column === 5 ? "Hello" : data;
+                //         }
+                //     }
+                },
             },
             {
                 extend:    'csvHtml5',
                 text:      '<i class="fa fa-file-csv"></i>',
-                titleAttr: 'CSV'
+                titleAttr: 'CSV',
+                exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6, 7,8]
+                },
             },
             {
                 extend:    'pdfHtml5',
                 text:      '<i class="fa fa-file-pdf-o"></i>',
-                titleAttr: 'PDF'
+                titleAttr: 'PDF',
+                exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6, 7,8]
+                },
             },
+            
 
-]
+],
+
     });
         span.onclick = function() { 
             modal.style.display = "none";
@@ -179,9 +198,7 @@
                         data:{"_token": "{{ csrf_token() }}","id": id,},
                         success:function(result){
                             console.log(result);
-                            modal.style.display = "block";
-                            // $('#student_name').append(result.firstName+result.lastName);
-                            
+                            modal.style.display = "block";                            
                             $("#student_name").replaceWith("<h6 id= 'student_name'>"+result[0].firstName+' '+result[0].lastName+"</h6>");
                             $("#student_email").replaceWith("<h6 id= 'student_email'>"+result[0].email+"</h6>");
                             $("#student_number").replaceWith("<h6 id= 'student_number'>"+result[0].number+"</h6>");

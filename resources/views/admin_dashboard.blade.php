@@ -16,7 +16,7 @@
     <div class="container">
       <br>
         <div class="table-responsive">
-        <table id="example" class=" table table-striped table-bordered display" style="width:100%">
+        <table id="example" class=" table table-striped table-bordered display overflow-auto" style="width:100%">
             <thead>
                 <tr>
                     <th hidden>Id</th>
@@ -26,8 +26,10 @@
                     <th>Course</th>
                     <th>Subjects</th>
                     <th>Year</th>
+                    <th>Fee Structure</th>
                     <th>Admission Code</th>
                     <th>Created Date</th>
+                    <th hidden>Fee Structure</th>
                   
                 </tr>
             </thead>
@@ -40,6 +42,12 @@
                 <td class="stud_id">{{$row->course_id}}</td>
                 <td class="stud_id">{{$row->subject_id}}</td>
                 <td class="stud_id">{{"20".$row->year}}</td>
+                <td class="stud_id">@if($row->fee_structure != NULL)
+                    <button type="button" id="{{ 'A'.$row->id }}" class="btn-primary generate " href="" onclick="generate_fee( '{{ 'A'.$row->id }} ');">Re-Send</button>
+                    @else
+                    <button type="button" id="{{ 'A'.$row->id }}" class="btn-primary generate " href="" onclick="generate_fee( '{{ 'A'.$row->id }} ');">Fee</button> 
+                    
+                    @endif</td>
                 <td class="stud_id">
                 @if($row->generated_code == NULL)
                     <button type="button" id="{{ $row->id }}" class="btn-primary generate " href="" onclick="generate( '{{ $row->id }} ');">Generate</button>
@@ -48,6 +56,12 @@
                 @endif
                </td>
                <td>{{date('d/m/Y', strtotime($row->created_at))}}</td>
+               <td hidden class="stud_id">@if($row->fee_structure != NULL)
+                Fee Structure Sent
+                @else
+                 Fee Structure Not Sent
+                @endif</td>
+
                
          
             </tr>
@@ -137,6 +151,21 @@
                     }
                 )
         }
+
+        function generate_fee(id){
+           
+           $.ajax(
+                   {
+                       url:"{{ route('studentsdetails.generate_fee')}}",
+                       method:"post",
+                       data:{"_token": "{{ csrf_token() }}","id": id,},
+                       success:function(data){
+                           $("#"+(data[0].id)).replaceWith('<button type="button" id="'+ data[0].id +'" class="btn-primary generate " href="" onclick="generate_fee( '+ data[0].id +');">Re-Send</button>');                           
+                            alert("Fee Structure sent successfully")
+                       }
+                   }
+               )
+       }
         
   
         var modal = document.getElementById("popup_details");
@@ -153,14 +182,7 @@
                 titleAttr: 'Excel',
                 autoFilter: true,
                 exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7,8],
-                // format: {
-                //         body: function(data, row, column, node) {
-                //             console.log(data)
-                //             return column === 17 ? data : data;
-                //             // return column === 5 ? "Hello" : data;
-                //         }
-                //     }
+                columns: [1, 2, 3, 4, 5, 6,8,9],
                 },
             },
             {
@@ -168,7 +190,7 @@
                 text:      '<i class="fa fa-file-csv"></i>',
                 titleAttr: 'CSV',
                 exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7,8]
+                    columns: [1, 2, 3, 4, 5, 6,8,9],
                 },
             },
             {
@@ -176,7 +198,7 @@
                 text:      '<i class="fa fa-file-pdf-o"></i>',
                 titleAttr: 'PDF',
                 exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7,8]
+                    columns: [1, 2, 3, 4, 5, 6, 8, 9],
                 },
             },
             

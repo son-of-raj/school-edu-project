@@ -61,5 +61,6 @@ Route::post('studentsdetail/fetch',[StudentsdetailsController::class,'fetch'])->
 Route::post('studentsdetail/fetch2',[StudentsdetailsController::class,'fetch2'])->name('studentsdetail.fetch2');
 Route::get('admin_dashboard',[StudentsdetailsController::class,'admin_dashboard']);
 Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
+Route::post('studentsdetails/generate_fee',[StudentsdetailsController::class,'generate_fee'])->name('studentsdetails.generate_fee');
 Route::post('studentsdetails/popup',[StudentsdetailsController::class,'popup'])->name('studentsdetails.popup');
 

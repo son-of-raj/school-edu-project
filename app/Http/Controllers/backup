@@ -1,0 +1,25 @@
+ // Mail::to("info@kpoints.com")
+        // ->cc("akashgr64@gmail.com")
+        // ->send(new FeeStructure($data));
+        foreach ($data as $row) {
+           $step_final = ($row['subjects'].',');
+           $id = ($row['id']);
+        }
+        print_r ($step_final);
+        die();
+        if(count($data) >= 1){
+
+            $monthly = DB::table('subjects')->where('id', $id)->value('one_monthly');
+            $annually = DB::table('subjects')->where('id', $id)->value('one_annually');
+        }
+        else if(count($data) == 2){
+            $monthly = DB::table('subjects')->where('id', $id)->value('two_monthly');
+            $annually = DB::table('subjects')->where('id', $id)->value('two_annually');
+        }else if(count($data) > 2){
+            $monthly = DB::table('subjects')->where('id', $id)->value('three_monthly');
+            $annually = DB::table('subjects')->where('id', $id)->value('three_annually');
+        }
+
+        return compact('step_final', 'monthly', 'annually');
+        // return $data;
+    }

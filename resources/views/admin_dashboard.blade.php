@@ -19,7 +19,7 @@
         <table id="example" class=" table table-striped table-bordered display overflow-auto" style="width:100%">
             <thead>
                 <tr>
-                    <th hidden>Id</th>
+                    <th>Id</th>
                     <th>Sr. no</th>
                     <th>Student Name</th>
                     <th>Class</th>
@@ -29,13 +29,14 @@
                     <th>Fee Structure</th>
                     <th>Admission Code</th>
                     <th>Created Date</th>
-                    <th hidden>Fee Structure</th>
+                    <th>Fee Structure</th>
+                    <th>Exam Code</th>
                   
                 </tr>
             </thead>
             @foreach($data as $key=> $row)
             <tr>
-                <td hidden class="stud_id">{{$row->id}}</td>
+                <td class="stud_id">{{$row->id}}</td>
                 <td>{{ ++$key }}</td>
                 <td class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{$row->firstName}} {{$row->lastName}}</a></td>
                 <td class="stud_id">{{$row->class_id}}</td>
@@ -56,11 +57,19 @@
                 @endif
                </td>
                <td>{{date('d/m/Y', strtotime($row->created_at))}}</td>
-               <td hidden class="stud_id">@if($row->fee_structure != NULL)
-                Fee Structure Sent
+               <td class="stud_id">@if($row->fee_structure != NULL)
+                Sent
                 @else
-                 Fee Structure Not Sent
+                 Not-Sent
                 @endif</td>
+
+                <td class="stud_id">
+                    @if($row->generated_code == NULL)
+                        Exam code not Generated
+                    @else
+                        {{$row->generated_code}}-{{$row->generated_subject_code}}-{{str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT)}}
+                    @endif
+                   </td>
 
                
          
@@ -167,7 +176,7 @@
                )
        }
         
-  
+
         var modal = document.getElementById("popup_details");
         var btn = document.getElementById("pop_up");
         var span = document.getElementsByClassName("close")[0];
@@ -182,7 +191,8 @@
                 titleAttr: 'Excel',
                 autoFilter: true,
                 exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6,8,9],
+                    columns: [1, 2, 3, 4, 5, 6,10,11,9],
+                
                 },
             },
             {
@@ -190,25 +200,43 @@
                 text:      '<i class="fa fa-file-csv"></i>',
                 titleAttr: 'CSV',
                 exportOptions: {
-                    columns: [1, 2, 3, 4, 5, 6,8,9],
+                    columns: [1, 2, 3, 4, 5, 6,10,11,9],
                 },
             },
             {
                 extend:    'pdfHtml5',
                 text:      '<i class="fa fa-file-pdf-o"></i>',
                 titleAttr: 'PDF',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
                 exportOptions: {
-                    columns: [1, 2, 3, 4, 5, 6, 8, 9],
+                    columns: [1, 2, 3, 4, 5, 6,10,11,9],
                 },
             },
+
             
 
 ],
+paging: true,
+        lengthChange: true,
+        searching: true,
+        ordering: true,
+        "columnDefs": [
+        //hide the 2nd column. it's index is "1"
+        { 
+            'visible': false, 'targets': [0,10,11],
 
-    });
+        } /// COLUMN INDEX HERE
+        ]
+        });
+
+        
         span.onclick = function() { 
             modal.style.display = "none";
-}
+    };
+        span.onclick = function() { 
+            modal.style.display = "none";
+            }
 
 
 

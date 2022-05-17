@@ -297,10 +297,7 @@ class StudentsdetailsController extends Controller
         ->update([
             'fee_structure' => "Email Sent"
          ]);
-        //  print_r($data);
-        //  die();
          return [$data];
-        //  return $data;
      }
 
   

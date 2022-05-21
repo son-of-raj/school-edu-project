@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -33,25 +32,20 @@
                                                 Hello <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>,</a>
                                                 <br>
                                                 <br>
-                                                
-                                                  
-                                                 Selected Subjects:
-                                                 <a class="bold"> <?php echo $data['subjects']?></a>
-                                                  <br> <br>
-                                                  Monthly Fee:
-                                                  <a class="bold"><?php echo $data['monthly']; ?></a>
-                                                  <br> <br>
-                                                  Annual Fee:
-                                                  <a class="bold"> <?php echo $data['annually']; ?></a>
-                                                  
-                                              
+                                                You have choosen the course <a class="bold"> <?php echo $data['course']?> </a> for the class of <a class="bold"><?php echo $data['class']?></a>
+                                                <br>
+                                                <br>
+                                                Your selected subjects are : <a class="bold"> <?php echo $data['subjects']?></a>
+                                                <br>
+                                                <br>
+                                                Your Exam code is : <a class="bold"> <?php echo $data['exam_code']?></a>
                                                 <br> <br>
                                                 Thanks,
                                                 <br>
                                                 <a class="bold">KPoints </a>
                                                 </p>
                                             </div>
-                                            
+
                                             <div class="col2">
                                                 © 2022 KPoints. All rights reserved.
                                             </div>

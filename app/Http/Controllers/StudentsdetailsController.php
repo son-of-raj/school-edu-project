@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\helpers;
 use App\Mail\FeeStructure;
+use App\Mail\GeneratedCode;
 use Swift_IdGenerator;
 
 class StudentsdetailsController extends Controller
@@ -231,8 +232,31 @@ class StudentsdetailsController extends Controller
         $step20 = DB::table('studentsdetails')->where('id',$id)->value('generated_code_id');
         $step21 = str_pad($step20, 3, '0', STR_PAD_LEFT);
         $step22 = $step18."-".$step19."-".$step21;
-       
-        return  [$id, $step22];
+        
+        $step3= Studentsdetail::where('id',$id)->value('subject_name');
+        $student_first_name= Studentsdetail::where('id',$id)->value('firstName');
+        $student_last_name= Studentsdetail::where('id',$id)->value('lastName');
+        $subjects= Studentsdetail::where('id',$id)->value('subject_id');
+        $course= Studentsdetail::where('id',$id)->value('course_id');
+        $class= Studentsdetail::where('id',$id)->value('class_id');
+        $email= Studentsdetail::where('id',$id)->value('email');
+        $step4 = explode (",",$step3);
+        $data = array();
+        
+         $data['subjects'] = $subjects;
+         $data['student_first_name'] =  $student_first_name;
+         $data['student_last_name'] = $student_last_name;
+         $data['course']= $course;
+         $data['class'] = $class;
+         $data['exam_code'] = $step22;
+         $data['id'] = $id;
+
+        Mail::to($email)
+        ->cc("chityalsaumya@gmail.com")
+        // ->bcc("akashgr64@gmail.com")
+        ->send(new GeneratedCode($data));
+
+        return  [$id, $step22, $data];
     }
 
     function generate_fee(Request $request){
@@ -289,7 +313,7 @@ class StudentsdetailsController extends Controller
 
          Mail::to($email)
          ->cc("chityalsaumya@gmail.com")
-         ->bcc("akashgr64@gmail.com")
+        //  ->bcc("akashgr64@gmail.com")
          ->send(new FeeStructure($data));
 
          DB::table('studentsdetails')
@@ -298,9 +322,8 @@ class StudentsdetailsController extends Controller
             'fee_structure' => "Email Sent"
          ]);
          return [$data];
-     }
-
-  
+    }
+    
     function popup(Request $request){
         $id = $request->id;
         $result= Studentsdetail::where('id',$id)->get();

@@ -35,6 +35,10 @@ Route::get('demo', function () {
     return view('demo');
 });
 
+Route::get('/emails/email_template', function () {
+    return view('/emails/email_template');
+});
+
 Route::get('student_form', function () {
     return view('student_form');
 });
@@ -63,4 +67,7 @@ Route::get('admin_dashboard',[StudentsdetailsController::class,'admin_dashboard'
 Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
 Route::post('studentsdetails/generate_fee',[StudentsdetailsController::class,'generate_fee'])->name('studentsdetails.generate_fee');
 Route::post('studentsdetails/popup',[StudentsdetailsController::class,'popup'])->name('studentsdetails.popup');
+
+
+
 

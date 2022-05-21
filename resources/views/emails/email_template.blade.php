@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -30,30 +29,25 @@
                                                 <b>KPoints</b>
                                             </div>
                                             <div class="info">
-                                                Hello <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>,</a>
+                                                Hello <?php echo $data['student_first_name']." ".$data['student_last_name']?>,</a>
                                                 <br>
                                                 <br>
-                                                
-                                                  
-                                                 Selected Subjects:
-                                                 <a class="bold"> <?php echo $data['subjects']?></a>
-                                                  <br> <br>
-                                                  Monthly Fee:
-                                                  <a class="bold"><?php echo $data['monthly']; ?></a>
-                                                  <br> <br>
-                                                  Annual Fee:
-                                                  <a class="bold"> <?php echo $data['annually']; ?></a>
-                                                  
-                                              
+                                                You have choosen the course <a class="bold"> <?php echo $data['course']?> </a> for the class of <a class="bold"><?php echo $data['class']?></a>
+                                                <br>
+                                                <br>
+                                                Your selected subjects are : <a class="bold"> <?php echo $data['subjects']?></a>
+                                                <br>
+                                                <br>
+                                                Your Exam code is : <a class="bold"> <?php echo $data['exam_code']?></a>
                                                 <br> <br>
                                                 Thanks,
                                                 <br>
                                                 <a class="bold">KPoints </a>
                                                 </p>
                                             </div>
-                                            
-                                            <div class="col2">
-                                                © 2022 KPoints. All rights reserved.
+
+                                            <div align="center" class="col2">
+                                                <p>© 2022 KPoints. All rights reserved.</p>
                                             </div>
 
                                         </div>
@@ -92,7 +86,7 @@
             
             padding-top: 20px;
             padding-inline: 30px;
-            color: black;
+            color: rgba(0,0,0,0.7);
         }
         .contian{
             background-color:rgba(80,95,179,.1);
@@ -125,7 +119,6 @@
             color:rgba(0,0,0,0.5);
             padding: 22px;
             text-align: center;
-            align-items: center;
             font-family: Arial, Helvetica, sans-serif;
             background-color: rgba(80,95,190,.1);
             font-size: 11px;

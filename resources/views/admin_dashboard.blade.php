@@ -13,9 +13,9 @@
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <div class="container">
+    <div class="container" style="padding:10px; margin:0px;max-width:1500px">
       <br>
-        <div class="table-responsive">
+        <div class="table-responsive" style="width:100%">
         <table id="example" class=" table table-striped table-bordered display overflow-auto" style="width:100%">
             <thead>
                 <tr>
@@ -43,15 +43,15 @@
                 <td class="stud_id">{{$row->course_id}}</td>
                 <td class="stud_id">{{$row->subject_id}}</td>
                 <td class="stud_id">{{"20".$row->year}}</td>
-                <td class="stud_id">@if($row->fee_structure != NULL)
-                    <button type="button" id="{{ 'A'.$row->id }}" class="btn-primary generate " href="" onclick="generate_fee( '{{ 'A'.$row->id }} ');">Re-Send</button>
+                <td style="width:16%;align-items:center;" class="stud_id">@if($row->fee_structure != NULL)
+                    <button style="color:white; background-color:#5fcf80;" type="button" id="{{ 'A'.$row->id }}" class="btn generate " href="" onclick="generate_fee( '{{ 'A'.$row->id }} ');">Re-Send Structure</button>
                     @else
-                    <button type="button" id="{{ 'A'.$row->id }}" class="btn-primary generate " href="" onclick="generate_fee( '{{ 'A'.$row->id }} ');">Fee</button> 
+                    <button style="color:white; background-color:#5fcf80; " type="button" id="{{ 'A'.$row->id }}" class="btn generate " href="" onclick="generate_fee( '{{ 'A'.$row->id }} ');">Send Fee Structure</button> 
                     
                     @endif</td>
                 <td class="stud_id">
                 @if($row->generated_code == NULL)
-                    <button type="button" id="{{ $row->id }}" class="btn-primary generate " href="" onclick="generate( '{{ $row->id }} ');">Generate</button>
+                    <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="{{ $row->id }}" class="btn generate " href="" onclick="generate( '{{ $row->id }} ');">Generate</button>
                 @else
                     {{$row->generated_code}}-{{$row->generated_subject_code}}-{{str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT)}}
                 @endif
@@ -77,7 +77,10 @@
             @endforeach
 
             </table>
-         <div id="popup_details" class="modal"  >
+
+
+            
+<div id="popup_details" class="modal"  >
              <div class="modal-content">
     <div class="modal-header">
       
@@ -140,7 +143,7 @@
     </table>
   </div></div>
         </div>
-    </div>
+</div>
 
 
     <script type="text/javascript">
@@ -154,7 +157,7 @@
                         success:function(result){
                             console.log(result);
                             $("#"+result[0]).replaceWith("<a>" + result[1] + "</a>");
-                            
+                            alert("Exam Code sent successfully")
 
                         }
                     }
@@ -169,7 +172,7 @@
                        method:"post",
                        data:{"_token": "{{ csrf_token() }}","id": id,},
                        success:function(data){
-                           $("#"+(data[0].id)).replaceWith('<button type="button" id="'+ data[0].id +'" class="btn-primary generate " href="" onclick="generate_fee( '+ data[0].id +');">Re-Send</button>');                           
+                           $("#"+(data[0].id)).replaceWith('<button style="color:white; background-color:#5fcf80;" type="button" id="'+ data[0].id +'" class="btn generate " href="" onclick="generate_fee( '+ data[0].id +');">Re-Send Structure</button>');                           
                             alert("Fee Structure sent successfully")
                        }
                    }

@@ -34,34 +34,59 @@
                 <div class="col form-group">
                   <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact Number" required>
                 </div>
-              </div>
-
-              <br>
-              <div class="row">
-
-                <div class="col form-group">
-                <select id ="course" data-placeholder="Select Course" multiple class="chosen-select" name="course">
-                    <option value=""></option>
-                    <option value="Class XI">Class XI</option>
-                    <option value="Class XII">Class XII</option>
-                    <option value="Mathematics">Mathematics</option>
-                    <option value="Chemistry">Chemistry</option>
-                    <option value="Physics">Physics</option>
-                    <option value="JEE mains">JEE mains</option>
-                    <option value="NEET">NEET</option>
-                 </select>
-                </div>
                 <div class="col form-group">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                 </div>
               </div>
+              </div>
+              <br>
+              <br>
+              <br>
+              <div class="row">
+               
+                <div class="col form-group">
+                 <select  name="class_temp" id="class"  class="form-control input-lg dynamic" data-dependent='course' placeholder="Class" >
+                  
+                <option value="Select Class" selected disabled>Select Class</option>
+
+        <option value="1">XI</option>
+        <option value="2">XII</option>
+        
+     
+              </select>
+                </div>
+
+                            <div class="col form-group">
+                <select  name="course_temp" id="course" class="form-control input-lg dynamic2" data-dependent='subject' placeholder="Course" >
+                <option value="Select Courses" selected disabled>Select Course</option>
+               
+               </select>
+               <span class="text-danger">@error('course_name'){{$message}} @enderror</span>
+              </div>
+              <div class="col form-group ">
+                <select  name="subjects_temp[]" id="subject" multiple="multiple" class="js-example-basic-multiple form-control input-lg " placeholder="Subjects">
+                <option value="Select Subjects"  selected disabled>Select Subject</option>
+               
+                </select>
+               <span class="text-danger">@error('subject_name'){{$message}} @enderror</span>
+              </div>
+              <div class="col" hidden>
+                <select name="subject_id[]" id="subject_id" multiple="multiple" class="js-example-basic-multiple form-control input-lg " placeholder="Subjects">
+                <option value="Select Subjects"  selected disabled >Select Subject</option>
+                </select>
+              </div>
+                
+               
+              </div>
+              <br>
+              <br>
               <br>
               <div class="form-group">
                 <textarea class="form-control" name="message" rows="5" placeholder="Type Your message here" required></textarea>
               </div>
-              <br>
-              <center><button class="btn btn-success"type="submit" onclick="myFunction()">Send Enquiry</button></center>
-              <br>
+           
+              <center><br><button class="btn btn-success"type="submit" onclick="myFunction()">Send Enquiry</button></center>
+             
               <input type="text" id="course_temp" name="course_temp" hidden></input>
             </form>
 
@@ -81,7 +106,70 @@ $(".chosen-select").chosen({
   no_results_text: "Oops, nothing found!"
 })
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+      
+      function copySubjects(){
+        // $('#subject_id').val() = $('#subject').val();
+        
+      }
+        $('.dynamic').change(function(){
+            if($(this).val() != '')
+            {
+                var select = $(this).attr('id');
+                var value = $(this).val();
+                var dependent = $(this).data('dependent');
+                var _token = $('input[name="_token"]').val();
+                $.ajax(
+                    {
+                        url:"{{ route('studentsdetail.fetch')}}",
+                        method:"post",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result){
+                            $('#'+dependent).html(result);
+                        }
+                    }
+                )
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('.dynamic2').change(function(){
+            if($(this).val() != '')
+            {
+                var select = $('#class').attr('id');
+                var value = $('#course').val();
+              
+                var class_id = $('#class').val();
+                
+                var _token = $('input[name="_token"]').val();
+                $.ajax(
+                    {
+                        url:"{{ route('studentsdetail.fetch2')}}",
+                        method:"post",
+                        data:{select:select, value:value, _token:_token,class_id:class_id},
+                        success:function(result){
+                         
+                            $('#subject').html(result.output);
+                            $('#subject_id').html(result.output2);
+                            
+                        }
+                    }
+                )
+            }
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
 
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+</script>
 
 function myFunction() {
   var values = [];

@@ -97,41 +97,40 @@
               </div>
 
               <br>
-              <di class="row">
+              <div class="row">
                
                 <div class="col form-group">
                 <select  name="class_name" id="class"  class="form-control input-lg dynamic" data-dependent='course' placeholder="Class" >
                   
                 <option value="Select Class" selected disabled>Select Class</option>
 
-            
-        <option value="1">XI</option>
-        <option value="2">XII</option>
+                    <option value="1">XI</option>
+                    <option value="2">XII</option>
         
      
               </select>
               <span class="text-danger">@error('class_name'){{$message}} @enderror</span>
                 </div>
 
-                <div class="col form-group">
+              <div class="col form-group">
                 <select  name="course_name" id="course" class="form-control input-lg dynamic2" data-dependent='subject' placeholder="Course" >
                 <option value="Select Courses" selected disabled>Select Course</option>
                
                </select>
                <span class="text-danger">@error('course_name'){{$message}} @enderror</span>
-                </div>
-                <div class="col form-group ">
+              </div>
+              <div class="col form-group ">
                 <select  name="subject_name[]" id="subject" multiple="multiple" class="js-example-basic-multiple form-control input-lg " placeholder="Subjects">
                 <option value="Select Subjects"  selected disabled>Select Subject</option>
                
                 </select>
                <span class="text-danger">@error('subject_name'){{$message}} @enderror</span>
-                </div>
-                <div class="col" hidden>
+              </div>
+              <div class="col" hidden>
                 <select name="subject_id[]" id="subject_id" multiple="multiple" class="js-example-basic-multiple form-control input-lg " placeholder="Subjects">
                 <option value="Select Subjects"  selected disabled >Select Subject</option>
                 </select>
-                </div>
+              </div>
                 
                
                

@@ -17,8 +17,8 @@ public function sendEmail(Request $request){
     $mailData['class'] = $request->class;
     $mailData['exams'] = $request->exams;
     $mailData['message'] = $request->message;
-    Mail::to("info@kpoints.com")
-    ->cc("akashgr64@gmail.com")
+    Mail::to("chityalsaumya@gmail.com")
+    // ->cc("akashgr64@gmail.com")
     ->send(new Contact($mailData));
     return view("home");
 }
@@ -34,8 +34,8 @@ public function sendFeedback(Request $request){
     $mailData['subject'] = $request->subject;
     $mailData['percent'] = $request->percent;
     $mailData['rating'] = $request->star;
-    Mail::to("info@kpoints.in")
-    ->cc("akashgr64@gmail.com")
+    Mail::to("chityalsaumya@gmail.com")
+    // ->cc("akashgr64@gmail.com")
     ->send(new Feedback($mailData));
     return view("contact");
 }

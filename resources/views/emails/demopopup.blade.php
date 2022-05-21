@@ -21,15 +21,15 @@
                                     <div class="main-container">
 
                                         <div class="container">
-                                            <div><b>KPoints</b></div>
+                                           
                                          
                                      
                                         <div class="container2">
                                             <div class="contian">
-                                                <b></b>
+                                                <b>KPoints</b>
                                             </div>
                                             <div class="info">
-                                            <u>Demo has been sent by the user:</u>
+                                            <a class="bold">Demo Request has been sent by the user:</a>
                                             <br> <br>
                                                 Name:
                                                 <a class="bold"><?php echo $data['name']; ?></a>

@@ -714,8 +714,8 @@
                         <div class="col form-group">
                         <select class="form-control" name="class" id="class" placeholder="Class" required>
                             <option value="" selected disabled>Select Class</option>
-                            <option value="Class XI">Class XI</option>
-                            <option value="Class XII">Class XII</option>
+                            <option value="1">Class XI</option>
+                            <option value="2">Class XII</option>
                         </select>
                         </div>
                         <div class="col form-group">

@@ -147,6 +147,7 @@ class StudentsdetailsController extends Controller
                 
                 $output = '<option disabled value="">Select subject</option>';
                 $output2 = '<option disabled hidden value="">Select subject id</option>';
+                $output3 = '<option disabled hidden value="">Select subjects</option>';
                 
         foreach($data as $row){
            
@@ -156,12 +157,19 @@ class StudentsdetailsController extends Controller
            
             $output2 .= '<option hidden value="'.$row->id.'">' .$row->id.'</option>';
         }
+
+        foreach($data as $row){
+           
+            $output3 .= '<option value="'.$row->subject_name.'">' .$row->subject_name.'</option>';
+        }
       
         
         return ['output'=>
             $output,
             'output2'=>
-             $output2];
+             $output2,
+             'output3'=>
+             $output3];
 
         
     }
@@ -253,7 +261,7 @@ class StudentsdetailsController extends Controller
 
         Mail::to($email)
         ->cc("chityalsaumya@gmail.com")
-        // ->bcc("akashgr64@gmail.com")
+        ->bcc("akashgr64@gmail.com")
         ->send(new GeneratedCode($data));
 
         return  [$id, $step22, $data];
@@ -311,17 +319,83 @@ class StudentsdetailsController extends Controller
          $data['status'] = "sent";
          $data['id'] = $step1;
 
+         DB::table('studentsdetails')
+        ->where('id', $step2) 
+        ->update([
+            'fee_structure' => "Email Sent"
+         ]);
+
          Mail::to($email)
          ->cc("chityalsaumya@gmail.com")
-        //  ->bcc("akashgr64@gmail.com")
+         ->bcc("akashgr64@gmail.com")
          ->send(new FeeStructure($data));
+         return [$data];
+    }
+    function generate_fee2(Request $request){
+
+        $step1 = $request->id;
+        $step2= ltrim($step1, $step1[0]);
+        $step3= Studentsdetail::where('id',$step2)->value('subject_name');
+        $student_first_name= Studentsdetail::where('id',$step2)->value('firstName');
+        $student_last_name= Studentsdetail::where('id',$step2)->value('lastName');
+        $subjects= Studentsdetail::where('id',$step2)->value('subject_id');
+        $course= Studentsdetail::where('id',$step2)->value('course_id');
+        $class= Studentsdetail::where('id',$step2)->value('class_id');
+        $email= Studentsdetail::where('id',$step2)->value('email');
+        $step4 = explode (",",$step3);
+        $data = array();
+        $Data1 = array();
+       
+        foreach ($step4 as $key => $step5) {
+            $data[$key]['one_monthly'] =  DB::table('subjects')->where('id', $step5)->value('one_monthly');
+            $data[$key]['one_annually'] =  DB::table('subjects')->where('id', $step5)->value('one_annually');
+            $data[$key]['two_monthly'] =  DB::table('subjects')->where('id', $step5)->value('two_monthly');
+            $data[$key]['two_annually'] =  DB::table('subjects')->where('id', $step5)->value('two_annually');
+            $data[$key]['three_monthly'] =  DB::table('subjects')->where('id',$step5)->value('three_monthly');
+            $data[$key]['three_annually'] =  DB::table('subjects')->where('id', $step5)->value('three_annually');
+            $data[$key]['subjects'] =  DB::table('subjects')->where('id', $step5)->value('subject_name');
+            $data[$key]['id'] =  DB::table('subjects')->where('id', $step5)->value('id');
+        }
+
+        foreach ($data as $row) {
+            $id = ($row['id']);
+         }
+
+         if(count($data) == 1){
+ 
+             $monthly = DB::table('subjects')->where('id', $id)->value('one_monthly');
+             $annually = DB::table('subjects')->where('id', $id)->value('one_annually');
+         }
+         else if(count($data) == 2){
+             $monthly = DB::table('subjects')->where('id', $id)->value('two_monthly');
+             $annually = DB::table('subjects')->where('id', $id)->value('two_annually');
+         }else if(count($data) > 2){
+             $monthly = DB::table('subjects')->where('id', $id)->value('three_monthly');
+             $annually = DB::table('subjects')->where('id', $id)->value('three_annually');
+         }
+         
+         $data['subjects'] = $subjects;
+         $data['monthly'] = $monthly;
+         $data['annually'] = $annually;
+         $data['student_first_name'] =  $student_first_name;
+         $data['student_last_name'] = $student_last_name;
+         $data['course']= $course;
+         $data['class'] = $class;
+         $data['status'] = "sent";
+         $data['id'] = $step1;
 
          DB::table('studentsdetails')
         ->where('id', $step2) 
         ->update([
             'fee_structure' => "Email Sent"
          ]);
-         return [$data];
+
+         Mail::to($email)
+         ->cc("chityalsaumya@gmail.com")
+         ->bcc("akashgr64@gmail.com")
+         ->send(new FeeStructure($data));
+    
+         return redirect('/admin_dashboard');
     }
     
     function popup(Request $request){

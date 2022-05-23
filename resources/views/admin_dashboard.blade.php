@@ -132,7 +132,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h6>Father Name</h6>
+                                <h6>Guardian Name</h6>
                             </td>
                             <td>
                                 <h6 id="father_name"></h6>
@@ -141,7 +141,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h6>Father Email</h6>
+                                <h6>Guardian Email</h6>
                             </td>
                             <td>
                                 <h6 id="father_email"></h6>
@@ -150,7 +150,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h6>Father Number</h6>
+                                <h6>Guardian Number</h6>
                             </td>
                             <td>
                                 <h6 id="father_number"></h6>

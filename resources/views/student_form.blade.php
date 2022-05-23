@@ -100,7 +100,7 @@
               <div class="row">
                
                 <div class="col form-group">
-                <select  name="class_name" id="class"  class="form-control input-lg dynamic" data-dependent='course' placeholder="Class" >
+                <select  name="class_name" id="class"  class="form-control input-lg dynamic" data-dependent='course' placeholder="Class">
                   
                 <option value="Select Class" selected disabled>Select Class</option>
 
@@ -131,11 +131,17 @@
                 <option value="Select Subjects"  selected disabled >Select Subject</option>
                 </select>
               </div>
-                
-               
-               
+              <br><br>
+              <br>
+              <div class="">
+              <label style="font-size:15px" >
+              <input type="checkbox" name="terms" required>
+             <b> KPoints Pvt Ltd </b> reserves the rights to use the students photos in case they come in the merit list of any and all attending exams.</label><br>
               
-              <br><br><br><br>
+              
+            </div>
+              
+              <br><br>
               <button onclick="copySubjects()" id="submit1" class="btn btn-success" type="submit">Request Fee Structure</button>
                          </form>
         

@@ -28,6 +28,7 @@ class StudentsdetailsController extends Controller
             'course_name'=> 'required',
             'subject_name'=>'required',
             'year'=>'required',
+            
         ]);
        
  
@@ -73,6 +74,7 @@ class StudentsdetailsController extends Controller
        
         
         $form->year = $request->year;
+        
         
         $getdata = $form->save();
 

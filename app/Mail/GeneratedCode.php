@@ -28,7 +28,7 @@ class GeneratedCode extends Mailable
      */
     public function build()
     {
-        $subject = "Student Exam Code";
+        $subject = "Welcome to Kpoints E-learning ";
 
         $mail = $this->from('codicttechnologies@gmail.com', 'K Points')
             ->markdown('emails.generated_code', ['data' => $this->mailData])

@@ -7,10 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class FeeStructure extends Mailable
+class Credential extends Mailable
 {
     use Queueable, SerializesModels;
-    protected $mailData;
+
     /**
      * Create a new message instance.
      *
@@ -28,10 +28,11 @@ class FeeStructure extends Mailable
      */
     public function build()
     {
-        $subject = "Kpoints E- learning sales desk";
+       
+        $subject = "Admission code & Login Credentials @ Kpoints E-learning ";
 
         $mail = $this->from('codicttechnologies@gmail.com', 'K Points')
-            ->markdown('emails.fee_structure', ['data' => $this->mailData])
+            ->markdown('emails.credential', ['data' => $this->mailData])
             ->subject($subject);
         return $mail;
     }

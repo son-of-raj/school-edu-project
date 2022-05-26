@@ -68,6 +68,10 @@ Route::post('studentsdetails/generate',[StudentsdetailsController::class,'genera
 Route::post('studentsdetails/generate_fee',[StudentsdetailsController::class,'generate_fee'])->name('studentsdetails.generate_fee');
 Route::get('studentsdetails/generate_fee2/{id}',[StudentsdetailsController::class,'generate_fee2'])->name('studentsdetails.generate_fee2');
 Route::post('studentsdetails/popup',[StudentsdetailsController::class,'popup'])->name('studentsdetails.popup');
+Route::post('studentsdetails/popup2',[StudentsdetailsController::class,'popup2'])->name('studentsdetails.popup2');
+Route::post('studentsdetails/popup3',[StudentsdetailsController::class,'popup3'])->name('studentsdetails.popup3');
+Route::post('/admin/getidpass',[StudentsdetailsController::class,'getidpass'])->name("admin.getidpass");
+Route::post('/admin/getdetails',[StudentsdetailsController::class,'getdetails'])->name("admin.getdetails");
 
 
 

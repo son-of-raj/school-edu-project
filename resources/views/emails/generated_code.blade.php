@@ -16,33 +16,47 @@
                         <tbody>
                             <tr>
                                 <td  style="height: 600px;">
-                                    
-                               
                                     <div class="main-container">
-
-                                        <div class="container">
-                                            <div><b></b></div>
-                                          </div>
-                                     
                                         <div class="container2">
                                             <div class="contian">
-                                                <b>KPoints</b>
+                                                <a href="https://kpoints.in" id="logo" class="me-auto logo">
+                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 50px;width: 130px;">
+                                                  </a>
                                             </div>
                                             <div class="info">
-                                                Hello <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>,</a>
+                                                Hi Mr/Ms <a class="bold"><?php echo $data['fatherName']; ?></a>,,
                                                 <br>
                                                 <br>
-                                                You have choosen the course <a class="bold"> <?php echo $data['course']?> </a> for the class of <a class="bold"><?php echo $data['class']?></a>
+                                                Welcome to Kpoints E – learning platform, this is confirmation mail to reception of your admission fee for the <a class="bold"> <?php echo $data['course']?> </a> for the class of <a class="bold"><?php echo $data['class']?></a> & <a class="bold"> <?php echo $data['subjects']?></a>
                                                 <br>
                                                 <br>
-                                                Your selected subjects are : <a class="bold"> <?php echo $data['subjects']?></a>
+                                                Admission code of Student:<a class="bold"> <?php echo $data['exam_code']?></a>
                                                 <br>
                                                 <br>
-                                                Your Exam code is : <a class="bold"> <?php echo $data['exam_code']?></a>
-                                                <br> <br>
-                                                Thanks,
+                                                Total fee: ₹<a class="bold"> <?php echo $data['total_fee']?></a> <br><br>
+                                                Admission fee Received: ₹ <a class="bold"> <?php echo $data['fee']?></a>
                                                 <br>
-                                                <a class="bold">KPoints </a>
+                                                <br>
+                                                Monthly Fee payment plan:  <a class="bold"> <?php echo $data['months']?></a>
+                                                <br>
+                                                <br>
+                                                <div style="font-size: 14px" >
+                                                    *You’ll receive an Email with Login credentials shortly
+                                                    <br>*PFA invoice for admission fee. 
+                                                    <br>Sales support: 9898989763
+                                                    <br>Billing Support:  9898989763
+                                                    <br>Technical support: 9898989763
+                                                    <br>
+                                                </div>
+                                                
+                                                <br>
+                                                Regards,
+                                                <br>
+                                                <a class="bold">Billing desk </a>
+                                                <br>
+                                                <a href="https://kpoints.in" id="logo" class="me-auto logo">
+                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 50px;width: 130px;">
+                                                  </a>
                                                 </p>
                                             </div>
 

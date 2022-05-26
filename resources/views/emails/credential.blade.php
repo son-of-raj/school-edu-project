@@ -21,9 +21,7 @@
 
                                     <div class="main-container">
 
-                                        <div class="container">
-                                            <div><b></b></div>
-                                        </div>
+                                       
 
                                         <div class="container2">
                                             <div class="contian">
@@ -32,46 +30,38 @@
                                                   </a>
                                             </div>
                                             <div class="info">
-                                                Hi Mr/Ms <a class="bold"><?php echo $data['fatherName']; ?></a>,
+                                                Hi Mr/Ms <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?> / <a class="bold"><?php echo $data['fatherName']; ?></a>,
                                                 <br>
                                                 <br>
-                                                This is an auto generated response for your enquiry on our website
-                                                Kpoints.in for fee structure for the Grade & Subjects.
-                                                <br><br> Number of free demo classes are 5 per subject.
-                                                <br> <br>Admission fee to be paid after free completion of demo classes: ₹<?php echo $data['fee']; ?>
-
+                                                This email is important and consists of Admission code and Login credentials for Mr/Ms <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?></a>'s MS account.<br>
+                                             <br>Admission Code: <a class="bold"><?php echo $data['exam_code']?></a>
+                                             <br><br>
+                                                Number of free demo classes 5 per subject.
                                                 <br>
                                                 <br>
+                                                <u>Login Credentials for MS teams:</u>
                                                 <br>
-                                                <table class="tab"  >
-                                                  <thead>
-                                                    <tr>
-                                                        <th class="tabh">Monthly Fee</th>
-                                                        <th class="tabh">Annual Fee</th>
-                                                    </tr>
-                                                  </thead>
-                                                    <tr>
-                                                        <td class="tabd">
-                                                                <?php echo $data['monthly']; ?>
-                                                            </td>
-                                                        <td class="tabd">
-                                                                <?php echo $data['annually']; ?>
-                                                            </td>
-                                                    </tr>
-
-                                                </table>
-                                                <br> <br>
-                                                <div style="font-size:14px"> *If advance amount paid, it will be reduced from annual fee
-                                                    <br> *A sales representative from Kpoints will get in touch with you shortly
+                                                <br>
+                                                User id: <a class="bold"><?php echo $data['user_id']?></a>
+                                                <br>
+                                                <br>
+                                                Temporary password: <a class="bold"><?php echo $data['user_pass']?></a>
+                                                <br>
+                                                <br>
+                                                <a href="https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=4765445b-32c6-49b0-83e6-1d93765276ca&redirect_uri=https%3A%2F%2Fwww.office.com%2Flandingv2&response_type=code%20id_token&scope=openid%20profile%20https%3A%2F%2Fwww.office.com%2Fv2%2FOfficeHome.All&response_mode=form_post&nonce=637891622631346738.Y2MyNTIzZGEtZGM4Mi00ODdmLTk1ZDAtMzQwNmEzMmYzN2I2NDVjOTAwNTUtNmNiOS00Njk2LTgyN2ItNTFjODM4YzYxOTUx&ui_locales=en-US&mkt=en-US">Click here</a> to login
+                                                <br>
+                                                <a>Click here</a> for steps to login
+                                                
+                                                <br>
+                                                <div style="font-size:14px">
                                                     <br> Sales support: 9898989763
                                                 </div>
                                                 <br>
                                                 Regards
                                                 <br>
-                                                <a class="bold">Sales Desk <br>
-                                                    KPoints Pvt Ltd.
-                                                    </a>
-                                                    <br>
+                                                <a class="bold">Admin<br>
+                                                    Kpoints Pvt Ltd.
+                                                    </a><br>
                                                     <a href="https://kpoints.in" id="logo" class="me-auto logo">
                                                         <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 50px;width: 130px;">
                                                       </a>
@@ -96,16 +86,6 @@
     </table>
 
     <style>
-        .tab , .tabh , .tabd{
-            border: .5px solid black;
-            border-collapse: collapse;
-        }
-
-        .tabd ,.tabh{
-            padding: 10px;
-        }
-
-
         .bold {
             font-weight: bold;
             color: black;

@@ -16,7 +16,7 @@
     <div class="container" style="padding:10px; margin:0px;max-width:1500px">
         <br>
         <div class="table-responsive" style="width:100%">
-            <table id="example" class=" table table-striped table-bordered display overflow-auto" >
+            <table id="example" class=" table table-striped table-bordered display overflow-auto">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -31,63 +31,62 @@
                         <th>Created Date</th>
                         <th>Fee Structure</th>
                         <th>Exam Code</th>
+                        <th>Credentials</th>
 
                     </tr>
                 </thead>
                 @foreach ($data as $key => $row)
-                    <tr>
-                        <td class="stud_id">{{ $row->id }}</td>
-                        <td>{{ ++$key }}</td>
-                        <td class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);"
-                                onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{ $row->firstName }} {{ $row->lastName }}</a></td>
-                        <td class="stud_id">{{ $row->class_id }}</td>
-                        <td class="stud_id">{{ $row->course_id }}</td>
-                        <td class="stud_id">{{ $row->subject_id }}</td>
-                        <td class="stud_id">{{ '20' . $row->year }}</td>
-                        <td style="width:16%;align-items:center;" class="stud_id">
-                            @if ($row->fee_structure != null)
-                                {{-- <button style="color:white; background-color:#5fcf80;" type="button"
+                <tr>
+                    <td class="stud_id">{{ $row->id }}</td>
+                    <td>{{ ++$key }}</td>
+                    <td class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{ $row->firstName }} {{ $row->lastName }}</a></td>
+                    <td class="stud_id">{{ $row->class_id }}</td>
+                    <td class="stud_id">{{ $row->course_id }}</td>
+                    <td class="stud_id">{{ $row->subject_id }}</td>
+                    <td class="stud_id">{{ '20' . $row->year }}</td>
+                    <td style="width:16%;align-items:center;" class="stud_id">
+                        @if ($row->fee_structure != null)
+                        {{-- <button style="color:white; background-color:#5fcf80;" type="button"
                                     id="{{ 'A' . $row->id }}" class="btn generate " href=""
-                                    onclick="generate_fee( '{{ 'A' . $row->id }} ');">Re-Send Structure</button> --}}
+                        onclick="generate_fee( '{{ 'A' . $row->id }} ');">Re-Send Structure</button> --}}
 
-                                    <a>Email Sent</a>
-
-                                   
-                            @else
-                                <button style="color:white; background-color:#5fcf80; " type="button"
-                                    id="{{ 'A' . $row->id }}" class="btn generate " href=""
-                                    onclick="generate_fee( '{{ 'A' . $row->id }} ');">Send Fee Structure</button>
-                            @endif
-                        </td>
-                        <td class="stud_id">
-                            @if ($row->generated_code == null)
-                                <button style="color:white; background-color:#5fcf80; font-size:14px" type="button"
-                                    id="{{ $row->id }}" class="btn generate " href=""
-                                    onclick="generate( '{{ $row->id }} ');">Generate</button>
-                            @else
-                                {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
-                            @endif
-                        </td>
-                        <td>{{ date('d/m/Y', strtotime($row->created_at)) }}</td>
-                        <td class="stud_id">
-                            @if ($row->fee_structure != null)
-                                Sent
-                            @else
-                                Not-Sent
-                            @endif
-                        </td>
-
-                        <td class="stud_id">
-                            @if ($row->generated_code == null)
-                                Exam code not Generated
-                            @else
-                                {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
-                            @endif
-                        </td>
+                        <a>Email Sent</a>
 
 
+                        @else
+                        <button style="color:white; background-color:#5fcf80; " type="button" id="{{ 'A' . $row->id }}" class="btn generate " href="" onclick="generate_fee( '{{ 'A' . $row->id }} ');">Send Fee Structure</button>
+                        @endif
+                    </td>
+                    <td class="stud_id">
+                        @if ($row->generated_code == null)
+                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up3" class="btn" href="" onclick="popup3( '{{ $row->id }} ');">Generate</button>
+                        @else
+                        {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
+                        @endif
+                    </td>
+                    <td>{{ date('d/m/Y', strtotime($row->created_at)) }}</td>
+                    <td class="stud_id">
+                        @if ($row->fee_structure != null)
+                        Sent
+                        @else
+                        Not-Sent
+                        @endif
+                    </td>
 
-                    </tr>
+                    <td class="stud_id">
+                        @if ($row->generated_code == null)
+                        Exam code not Generated
+                        @else
+                        {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
+                        @endif
+                    </td>
+                    <td>
+                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up2" class="btn" href="" onclick="popup2( '{{ $row->id }} ');">Send Credentials</button>
+                    </td>
+
+
+
+                </tr>
                 @endforeach
 
             </table>
@@ -200,28 +199,153 @@
         </div>
     </div>
 
+    <div id="popup_details2" class="modal2">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h6 id="student"></h6>
+                <strong class="close2">&times;</strong>
+            </div>
+            <div style="padding: 8px">
+                <form action="{{route('admin.getidpass')}}" method="post" role="form" class="form-group" border="0" >
+
+                    @csrf
+                    <div class="row">
+                        <div class="col form-group" hidden>
+                            <input type="text" name="id" class="form-control" value="" id="id" placeholder="Id" required >
+                          
+                          </div>
+                        <div class="col form-group">
+                          <input type="text" name="user_id" class="form-control"  value="{{old('user_id')}}" id="user_id" placeholder="User Id" required >
+                          <span class="text-danger">@error('user_id'){{$message}} @enderror</span>
+                        </div>
+                        <div class="col form-group">
+                            <input type="text" name="user_pass" class="form-control"  value="{{old('user_pass')}}" id="user_pass" placeholder="User Password" required >
+                            <span class="text-danger">@error('user_pass'){{$message}} @enderror</span>
+                          </div>
+                    </div>
+                    <div  style="padding:10px" >
+                        <button id="submit1" class="btn btn-success" type="submit">Send</button>
+                    </div>
+                  
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_details3" class="modal3">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h6 id="studentName"></h6>
+                <strong class="close3">&times;</strong>
+            </div>
+            <div style="padding: 8px">
+                <form action="{{route('admin.getdetails')}}" method="post" role="form" class="form-group" border="0" >
+
+                    @csrf
+                    <div class="row">
+                        <div class="col form-group" hidden>
+                            <input type="text" name="id" class="form-control" value="" id="studid" placeholder="Id" required >
+                          
+                          </div>
+                        <div class="col form-group">
+                          <input type="date" name="months" class="form-control"  value="{{old('months')}}" id="months" placeholder="Calculate from month " required >
+                          <span class="text-danger">@error('months'){{$message}} @enderror</span>
+                        </div>
+                        <div class="col form-group">
+                            <input type="number" name="advance" class="form-control"  value="{{old('months')}}" id="months" placeholder="Admission Fee received " required >
+                            <span class="text-danger">@error('months'){{$message}} @enderror</span>
+                          </div>
+                        
+                    </div>
+                    <div  style="padding:10px" >
+                        <button id="submit1" class="btn btn-success" type="submit">Send</button>
+                    </div>
+                  
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript">
-        function generate(id) {
+      
 
-            $.ajax({
-                url: "{{ route('studentsdetails.generate') }}",
-                method: "post",
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    "id": id,
-                },
-                success: function(result) {
-                    console.log(result);
-                    $("#" + result[0]).replaceWith("<a>" + result[1] + "</a>");
-                    alert("Exam Code sent successfully")
 
-                }
-            })
-        }
+        var modal = document.getElementById("popup_details");
+        var btn = document.getElementById("pop_up");
+        var span = document.getElementsByClassName("close")[0];
+        var modal2 = document.getElementById("popup_details2");
+        var btn2 = document.getElementById("pop_up2");
+        var modal3 = document.getElementById("popup_details3");
+        var btn3 = document.getElementById("pop_up3");
+
+        $('#example').DataTable({
+
+            order: [
+                [0, 'desc']
+            ]
+            , dom: 'lBfrtip'
+            , buttons: [{
+                    extend: 'excelHtml5'
+                    , text: '<i class="fa fa-file-excel-o"></i>'
+                    , titleAttr: 'Excel'
+                    , autoFilter: true
+                    , exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9],
+
+                    }
+                , }
+                , {
+                    extend: 'csvHtml5'
+                    , text: '<i class="fa fa-file-csv"></i>'
+                    , titleAttr: 'CSV'
+                    , exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9]
+                    , }
+                , }
+                , {
+                    extend: 'pdfHtml5'
+                    , text: '<i class="fa fa-file-pdf-o"></i>'
+                    , titleAttr: 'PDF'
+                    , orientation: 'landscape'
+                    , pageSize: 'LEGAL'
+                    , exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9]
+                    , }
+                , },
+
+
+
+            ]
+            , paging: true
+            , lengthChange: true
+            , searching: true
+            , ordering: true
+            , "columnDefs": [
+                //hide the 2nd column. it's index is "1"
+                {
+                    'visible': false
+                    , 'targets': [0, 10, 11],
+
+                } /// COLUMN INDEX HERE
+            ]
+        });
+
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        };
+        
+        $('.close2').on('click', function () {
+            modal2.style.display = "none";
+        })
+
+        $('.close3').on('click', function () {
+            modal3.style.display = "none";
+        })
 
         function generate_fee(id) {
-
             $.ajax({
                 url: "{{ route('studentsdetails.generate_fee') }}",
                 method: "post",
@@ -239,80 +363,14 @@
             })
         }
 
-
-        var modal = document.getElementById("popup_details");
-        var btn = document.getElementById("pop_up");
-        var span = document.getElementsByClassName("close")[0];
-        $('#example').DataTable({
-
-            order: [
-                [0, 'desc']
-            ],
-            dom: 'lBfrtip',
-            buttons: [{
-                    extend: 'excelHtml5',
-                    text: '<i class="fa fa-file-excel-o"></i>',
-                    titleAttr: 'Excel',
-                    autoFilter: true,
-                    exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9],
-
-                    },
-                },
-                {
-                    extend: 'csvHtml5',
-                    text: '<i class="fa fa-file-csv"></i>',
-                    titleAttr: 'CSV',
-                    exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9],
-                    },
-                },
-                {
-                    extend: 'pdfHtml5',
-                    text: '<i class="fa fa-file-pdf-o"></i>',
-                    titleAttr: 'PDF',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL',
-                    exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9],
-                    },
-                },
-
-
-
-            ],
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            "columnDefs": [
-                //hide the 2nd column. it's index is "1"
-                {
-                    'visible': false,
-                    'targets': [0, 10, 11],
-
-                } /// COLUMN INDEX HERE
-            ]
-        });
-
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        };
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-
-
         function popup(id) {
             $.ajax({
-                url: "{{ route('studentsdetails.popup') }}",
-                method: "post",
+                url: "{{ route('studentsdetails.popup') }}", 
+                method: "post", 
                 data: {
-                    "_token": "{{ csrf_token() }}",
-                    "id": id,
-                },
+                    "_token": "{{ csrf_token() }}", 
+                    "id": id, 
+                }, 
                 success: function(result) {
                     console.log(result);
                     modal.style.display = "block";
@@ -334,10 +392,49 @@
                 }
             })
         }
+
+
+        function popup2(id) {
+            $.ajax({
+                url: "{{ route('studentsdetails.popup2') }}",
+                method: "post", 
+                data: {
+                    "_token": "{{ csrf_token() }}", 
+                    "id": id, 
+                }, 
+                success: function(result) {
+                    console.log(result);
+                    modal2.style.display = "block";
+                    $("#student").replaceWith("<h6 id= 'student'> To " + result[0].firstName + ' ' +result[0].lastName + "</h6>");
+                    $("#id").replaceWith('<input type="text" name="id" class="form-control" value='+  result[0].id +' id="id" placeholder="Id" required >');
+                }
+            })
+        }
+
+        function popup3(id) {
+
+         $.ajax({
+         url: "{{ route('studentsdetails.popup3') }}", 
+         method: "post",
+          data: {
+         "_token": "{{ csrf_token() }}", 
+          "id": id, 
+         }, 
+         success: function(result) {
+            console.log(result);
+         modal3.style.display = "block";
+         $("#studentName").replaceWith("<h6 id= 'studentName'> To " + result[0].firstName + ' ' +result[0].lastName + "</h6>");
+         $("#studid").replaceWith('<input type="text" name="id" class="form-control" value='+  result[0].id +' id="studid" placeholder="Id" required >');
+
+         }
+         })
+        }
+
     </script>
+
     <style>
         /* The Modal (background) */
-        .modal {
+        .modal , .modal2 , .modal3{
             display: none;
             /* Hidden by default */
             position: fixed;
@@ -401,7 +498,7 @@
         }
 
         /* The Close Button */
-        .close {
+        .close, .close2, .close3{
             color: white;
             float: right;
             font-size: 28px;

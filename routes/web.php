@@ -53,6 +53,10 @@ Route::get('Form', function () {
     return view('upload_form');
 });
 
+Route::get('test', function () {
+    return view('emails.generated_code');
+});
+
 Route::post('contact-submit', 'App\Http\Controllers\ContactController@sendEmail')->name('sendEmail');
 Route::post('feedback-submit', 'App\Http\Controllers\ContactController@sendFeedback')->name('sendFeedback');
 Route::post('enquery-submit', 'App\Http\Controllers\EnqueryController@sendEnquery')->name('sendEnquery');

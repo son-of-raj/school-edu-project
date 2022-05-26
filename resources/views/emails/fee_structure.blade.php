@@ -38,7 +38,7 @@
                                                 This is an auto generated response for your enquiry on our website
                                                 Kpoints.in for fee structure for the Grade & Subjects.
                                                 <br><br> Number of free demo classes are 5 per subject.
-                                                <br> <br>Admission fee to be paid after free completion of demo classes: ₹<?php echo $data['fee']; ?>
+                                                <br> <br>Admission fee to be paid after completion of free demo classes: ₹<?php echo $data['fee']; ?>
 
                                                 <br>
                                                 <br>

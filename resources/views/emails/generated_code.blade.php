@@ -24,7 +24,7 @@
                                                   </a>
                                             </div>
                                             <div class="info">
-                                                Hi Mr/Ms <a class="bold"><?php echo $data['fatherName']; ?></a>,,
+                                                Hi Mr/Ms <a class="bold"><?php echo $data['fatherName']; ?></a>,
                                                 <br>
                                                 <br>
                                                 Welcome to Kpoints E – learning platform, this is confirmation mail to reception of your admission fee for the <a class="bold"> <?php echo $data['course']?> </a> for the class of <a class="bold"><?php echo $data['class']?></a> & <a class="bold"> <?php echo $data['subjects']?></a>
@@ -33,11 +33,40 @@
                                                 Admission code of Student:<a class="bold"> <?php echo $data['exam_code']?></a>
                                                 <br>
                                                 <br>
-                                                Total fee: ₹<a class="bold"> <?php echo $data['total_fee']?></a> <br><br>
-                                                Admission fee Received: ₹ <a class="bold"> <?php echo $data['fee']?></a>
+                                                Advance fee Received: ₹ <a class="bold"> <?php echo $data['advance']?></a><br>
+                                                Total pending fee: ₹<a class="bold"> <?php echo $data['total_fee']?></a>
                                                 <br>
                                                 <br>
-                                                Monthly Fee payment plan:  <a class="bold"> <?php echo $data['months']?></a>
+                                                @if ($data['total_fee'] == 0)
+                                                <a class="bold">Already paid</a>
+                                                @else
+                                                <table class="tab"  >
+                                                    <thead>
+                                                      <tr>
+                                                          <th class="tabh">Sl.no</th>
+                                                          <th class="tabh">Months</th>
+                                                          <th class="tabh">Amount</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <?php foreach ($data['months'] as $key => $data_month){
+                                                     ?>
+                                                    <tr>
+                                                        <td class="tabd">
+                                                            {{ ++$key }}
+                                                        </td>
+                                                          <td class="tabd">
+                                                            <?php echo $data_month['month']; ?>
+                                                              </td>
+                                                          <td class="tabd">
+                                                            ₹ <?php echo $data['months_fee']; ?>
+                                                              </td>
+                                                      </tr>
+                                                    
+                                                    <?php } ?>
+                                                      
+  
+                                                  </table>
+                                                  @endif
                                                 <br>
                                                 <br>
                                                 <div style="font-size: 14px" >
@@ -78,6 +107,14 @@
     </table>
     
     <style>
+         .tab , .tabh , .tabd{
+            border: .5px solid black;
+            border-collapse: collapse;
+        }
+
+        .tabd ,.tabh{
+            padding: 10px;
+        }
         .bold{
             font-weight: bold;
             color:black;

@@ -140,6 +140,13 @@
               
               
             </div>
+            <div class="">
+              <label style="font-size:15px" >
+              <input type="checkbox" name="terms_and_conditions" required>
+              we accept terms and conditions of KPoints</label><br>
+              
+              
+            </div>
               
               <br><br>
               <button onclick="copySubjects()" id="submit1" class="btn btn-success" type="submit">Request Fee Structure</button>

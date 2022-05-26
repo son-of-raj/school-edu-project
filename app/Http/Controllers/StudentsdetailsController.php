@@ -184,18 +184,26 @@ class StudentsdetailsController extends Controller
         return view('admin_dashboard',compact('data'));
     }
     
+
+    function getMonthsInRange($startDate, $endDate)
+    {
+        $months = array();
+    
+        while (strtotime($startDate) <= strtotime($endDate)) {
+            $months[] = array(
+                'year' => date('Y', strtotime($startDate)),
+                'month' => date('F', strtotime($startDate)),
+            );
+    
+            // Set date to 1 so that new month is returned as the month changes.
+            $startDate = date('01 M Y', strtotime($startDate . '+ 1 month'));
+        }
+    
+        return $months;
+    }
+
     function getdetails(Request $request){
         $id = $request->id;
-        $months = $request->months;
-        $advance = $request->advance;
-        print_r($advance);
-        die();
-        $data = array();
-        DB::table('studentsdetails')
-        ->where('id', $id)
-        ->update([
-            'months' => $months, 
-         ]);
 
        $code = "EX";
       
@@ -261,7 +269,7 @@ class StudentsdetailsController extends Controller
         $subjects= Studentsdetail::where('id',$id)->value('subject_id');
         $course= Studentsdetail::where('id',$id)->value('course_id');
         $class= Studentsdetail::where('id',$id)->value('class_id');
-        $email= Studentsdetail::where('id',$id)->value('email');
+        $email= Studentsdetail::where('id',$id)->value('fatherEmail');
         $step4 = explode (",",$step3);
         $data = array();
         
@@ -293,30 +301,42 @@ class StudentsdetailsController extends Controller
              $monthly = DB::table('subjects')->where('id', $id)->value('three_monthly');
              $annually = DB::table('subjects')->where('id', $id)->value('three_annually');
          }
-         if(sizeof($step4) <= 2){
-            $fee = "5000";
-         }else if(count($step4) > 2){
-            $fee = "10000";
-         }
-         $total_fee = $annually - $fee;
 
+
+         $advance = $request->advance;
+         DB::table('studentsdetails')
+         ->where('id', $request->id) 
+         ->update([
+             'advance' =>  $advance,
+             'transaction_id' => $request->transaction
+          ]);
+
+         $total_fee = $annually - $advance;
+         $start_date = date("Y-m-d");
+         $year= Studentsdetail::where('id',$request->id)->value('year')+1;
+         $end_date_temp = ("31-03-20".$year);
+         
+         $end_date = date("Y-m-d", strtotime($end_date_temp));
+         $months = $this->getMonthsInRange($start_date,$end_date);
+         $months_count = count($months);
+    
+         $every_month_fee = round($total_fee / $months_count);
 
          $data['subjects'] = $subjects;
          $data['monthly'] = $monthly;
          $data['annually'] = $annually;
-         $data['fee'] = $fee;
+         $data['advance'] = $advance;
          $data['total_fee'] = $total_fee;
          $data['student_first_name'] =  $student_first_name;
          $data['student_last_name'] = $student_last_name;
          $data['course']= $course;
          $data['class'] = $class;
-         $data['months'] = $months;
          $data['status'] = "sent";
          $data['exam_code'] = $step22;
          $data['id'] = $id;
          $data['fatherName'] = $fatherName;
-         
-
+         $data['months'] = $months;
+         $data['months_fee']= $every_month_fee;
         Mail::to($email)
         ->cc("chityalsaumya@gmail.com")
         ->bcc("akashgr64@gmail.com")

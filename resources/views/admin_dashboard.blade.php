@@ -32,6 +32,11 @@
                         <th>Fee Structure</th>
                         <th>Exam Code</th>
                         <th>Credentials</th>
+                        <th>Student Number</th>
+                        <th>Student email</th>
+                        <th>Guardian Name</th>
+                        <th>Guardian Number</th>
+                        <th>Guardian email</th>
 
                     </tr>
                 </thead>
@@ -83,6 +88,22 @@
                     <td>
                         <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up2" class="btn" href="" onclick="popup2( '{{ $row->id }} ');">Send Credentials</button>
                     </td>
+
+                <td>
+                    {{ $row->number}}
+                </td>
+                <td>
+                    {{ $row->email}}
+                </td>
+                <td>
+                    {{ $row->fatherName}}
+                </td>
+                <td>
+                    {{ $row->fatherNumber}}
+                </td>
+                <td>
+                    {{ $row->fatherEmail}}
+                </td>
 
 
 
@@ -250,11 +271,11 @@
                           
                           </div>
                         <div class="col form-group">
-                          <input type="date" name="months" class="form-control"  value="{{old('months')}}" id="months" placeholder="Calculate from month " required >
-                          <span class="text-danger">@error('months'){{$message}} @enderror</span>
-                        </div>
-                        <div class="col form-group">
-                            <input type="number" name="advance" class="form-control"  value="{{old('months')}}" id="months" placeholder="Admission Fee received " required >
+                            <label>Admission Fee received:</label><input type="number" name="advance" class="form-control" id="months" placeholder="Enter Amount" required >
+                            <span class="text-danger">@error('months'){{$message}} @enderror</span>
+                          </div>
+                          <div class="col form-group">
+                            <label>Transaction ID:</label><input type="text" name="transaction" class="form-control" id="months" placeholder="Transaction ID">
                             <span class="text-danger">@error('months'){{$message}} @enderror</span>
                           </div>
                         
@@ -292,7 +313,7 @@
                     , titleAttr: 'Excel'
                     , autoFilter: true
                     , exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9],
+                        columns: [2,13,14,15,16,17, 3, 4, 5, 6, 10, 11, 9],
 
                     }
                 , }
@@ -301,7 +322,7 @@
                     , text: '<i class="fa fa-file-csv"></i>'
                     , titleAttr: 'CSV'
                     , exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9]
+                        columns: [2,13,14,15,16,17, 3, 4, 5, 6, 10, 11, 9]
                     , }
                 , }
                 , {
@@ -311,7 +332,7 @@
                     , orientation: 'landscape'
                     , pageSize: 'LEGAL'
                     , exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 10, 11, 9]
+                        columns: [2,13,14,15,16,17, 3, 4, 5, 6, 10, 11, 9]
                     , }
                 , },
 
@@ -326,7 +347,7 @@
                 //hide the 2nd column. it's index is "1"
                 {
                     'visible': false
-                    , 'targets': [0, 10, 11],
+                    , 'targets': [0, 10, 11,12,13,14,15,16,17],
 
                 } /// COLUMN INDEX HERE
             ]

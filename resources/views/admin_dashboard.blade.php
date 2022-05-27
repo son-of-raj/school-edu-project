@@ -21,6 +21,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Sr. no</th>
+                        <th>Image</th>
                         <th>Student Name</th>
                         <th>Class</th>
                         <th>Course</th>
@@ -28,10 +29,10 @@
                         <th>Year</th>
                         <th>Fee Structure</th>
                         <th>Admission Code</th>
+                        <th>Credentials</th>
                         <th>Created Date</th>
                         <th>Fee Structure</th>
-                        <th>Exam Code</th>
-                        <th>Credentials</th>
+                        <th>Admission Code</th>
                         <th>Student Number</th>
                         <th>Student email</th>
                         <th>Guardian Name</th>
@@ -44,11 +45,13 @@
                 <tr>
                     <td class="stud_id">{{ $row->id }}</td>
                     <td>{{ ++$key }}</td>
-                    <td class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{ $row->firstName }} {{ $row->lastName }}</a></td>
-                    <td class="stud_id">{{ $row->class_id }}</td>
-                    <td class="stud_id">{{ $row->course_id }}</td>
-                    <td class="stud_id">{{ $row->subject_id }}</td>
-                    <td class="stud_id">{{ '20' . $row->year }}</td>
+                    <td align="center"> <img src="<?php echo asset("storage/students/$row->photo")?>"
+                        style="height: 46px;width: 74%;border-radius: 50%;"></td>
+                    <td align="center" class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{ $row->firstName }} {{ $row->lastName }}</a></td>
+                    <td align="center" class="stud_id">{{ $row->class_id }}</td>
+                    <td align="center" class="stud_id">{{ $row->course_id }}</td>
+                    <td align="center" class="stud_id">{{ $row->subject_id }}</td>
+                    <td align="center" class="stud_id">{{ '20' . $row->year }}</td>
                     <td style="width:16%;align-items:center;" class="stud_id">
                         @if ($row->fee_structure != null)
                         {{-- <button style="color:white; background-color:#5fcf80;" type="button"
@@ -62,15 +65,18 @@
                         <button style="color:white; background-color:#5fcf80; " type="button" id="{{ 'A' . $row->id }}" class="btn generate " href="" onclick="generate_fee( '{{ 'A' . $row->id }} ');">Send Fee Structure</button>
                         @endif
                     </td>
-                    <td class="stud_id">
+                    <td align="center" class="stud_id">
                         @if ($row->generated_code == null)
                         <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up3" class="btn" href="" onclick="popup3( '{{ $row->id }} ');">Generate</button>
                         @else
                         {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
                         @endif
                     </td>
-                    <td>{{ date('d/m/Y', strtotime($row->created_at)) }}</td>
-                    <td class="stud_id">
+                    <td align="center">
+                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up2" class="btn" href="" onclick="popup2( '{{ $row->id }} ');">Send Credentials</button>
+                    </td>
+                    <td align="center">{{ date('d/m/Y', strtotime($row->created_at)) }}</td>
+                    <td align="center" class="stud_id">
                         @if ($row->fee_structure != null)
                         Sent
                         @else
@@ -78,30 +84,28 @@
                         @endif
                     </td>
 
-                    <td class="stud_id">
+                    <td align="center" class="stud_id">
                         @if ($row->generated_code == null)
                         Exam code not Generated
                         @else
                         {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
                         @endif
                     </td>
-                    <td>
-                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up2" class="btn" href="" onclick="popup2( '{{ $row->id }} ');">Send Credentials</button>
-                    </td>
 
-                <td>
+
+                <td align="center">
                     {{ $row->number}}
                 </td>
-                <td>
+                <td align="center">
                     {{ $row->email}}
                 </td>
-                <td>
+                <td align="center">
                     {{ $row->fatherName}}
                 </td>
-                <td>
+                <td align="center">
                     {{ $row->fatherNumber}}
                 </td>
-                <td>
+                <td align="center">
                     {{ $row->fatherEmail}}
                 </td>
 
@@ -313,7 +317,7 @@
                     , titleAttr: 'Excel'
                     , autoFilter: true
                     , exportOptions: {
-                        columns: [2,13,14,15,16,17, 3, 4, 5, 6, 10, 11, 9],
+                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11],
 
                     }
                 , }
@@ -322,7 +326,7 @@
                     , text: '<i class="fa fa-file-csv"></i>'
                     , titleAttr: 'CSV'
                     , exportOptions: {
-                        columns: [2,13,14,15,16,17, 3, 4, 5, 6, 10, 11, 9]
+                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11]
                     , }
                 , }
                 , {
@@ -332,7 +336,7 @@
                     , orientation: 'landscape'
                     , pageSize: 'LEGAL'
                     , exportOptions: {
-                        columns: [2,13,14,15,16,17, 3, 4, 5, 6, 10, 11, 9]
+                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11]
                     , }
                 , },
 
@@ -347,7 +351,7 @@
                 //hide the 2nd column. it's index is "1"
                 {
                     'visible': false
-                    , 'targets': [0, 10, 11,12,13,14,15,16,17],
+                    , 'targets': [0,1,12,13,14,15,16,17,18],
 
                 } /// COLUMN INDEX HERE
             ]

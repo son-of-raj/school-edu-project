@@ -16,7 +16,6 @@ class StudentsdetailsController extends Controller
 {
     function getdata(Request $request){
        
-       
         $request->validate([
             'firstName'=>'required',
             'lastName'=>'required',
@@ -45,6 +44,10 @@ class StudentsdetailsController extends Controller
         $form->fatherEmail = $request->fatherEmail;
         $form->class_name = $request->class_name;
         $form->course_name = $request->course_name;
+       
+            $file= $request->file->hashName();
+            $request->file->store('students', 'public');
+            $form->photo = $file;
         
         $form->subject_name = $str;
         if($request->class_name == 1){

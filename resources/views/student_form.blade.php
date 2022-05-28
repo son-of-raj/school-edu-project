@@ -119,7 +119,12 @@
                                 <div class="col form-group">
                                   <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="file" id="customFileLang" lang="es" required>
-                                    <label class="custom-file-label" for="customFileLang">Upload your image</label>
+                                    <label class="custom-file-label" for="customFileLang">Upload your image(max size:2mb)</label>
+                                    <span class="text-danger">
+                                        @error('file')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                   </div>
                               </div>
                                

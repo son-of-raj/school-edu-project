@@ -28,6 +28,7 @@ class StudentsdetailsController extends Controller
             'course_name'=> 'required',
             'subject_name'=>'required',
             'year'=>'required',
+            'file' => 'required|image|mimes:jpg,jpeg,png,svg|max:2048'
             
         ]);
        

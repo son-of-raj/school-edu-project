@@ -117,9 +117,10 @@
                                     </span>
                                 </div>
                                 <div class="col form-group">
+                                    <label>Upload Your Image</label>
                                   <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="file" id="customFileLang" lang="es" required>
-                                    <label class="custom-file-label" for="customFileLang">Upload your image(max size:2mb)</label>
+                                    <label class="custom-file-label" for="customFileLang">(max size:2mb)</label>
                                     <span class="text-danger">
                                         @error('file')
                                             {{ $message }}
@@ -210,7 +211,7 @@
                                 <div class="">
                                     <label style="font-size:15px">
                                         <input type="checkbox" name="terms_and_conditions" required>
-                                        we accept terms and conditions of KPoints</label><br>
+                                        we accept <a href="#">terms and conditions</a> of KPoints</label><br>
 
 
                                 </div>

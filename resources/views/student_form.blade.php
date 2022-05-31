@@ -211,7 +211,7 @@
                                 <div class="">
                                     <label style="font-size:15px">
                                         <input type="checkbox" name="terms_and_conditions" required>
-                                        we accept <a href="#">terms and conditions</a> of KPoints</label><br>
+                                        We accept <a href="#">terms and conditions</a> of KPoints</label><br>
 
 
                                 </div>

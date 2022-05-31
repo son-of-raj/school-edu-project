@@ -20,20 +20,20 @@
                                         <div class="container2">
                                             <div class="contian">
                                                 <a href="https://kpoints.in" id="logo" class="me-auto logo">
-                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 50px;width: 130px;">
+                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 250px;">
                                                   </a>
                                             </div>
                                             <div class="info">
-                                                Hi Mr/Ms <a class="bold"><?php echo $data['fatherName']; ?></a>,
+                                                Hi <a class="bold"><?php echo $data['fatherName']; ?></a>,
                                                 <br>
                                                 <br>
-                                                Welcome to Kpoints E – learning platform, this is confirmation mail to reception of your admission fee for the <a class="bold"> <?php echo $data['course']?> </a> for the class of <a class="bold"><?php echo $data['class']?></a> & <a class="bold"> <?php echo $data['subjects']?></a>
+                                                Welcome to Kpoints E – learning platform, this is confirmation mail to reception of your admission fee for the <a class="bold"> <?php echo $data['course']?> </a> <form action="" method="post"></form>for subjects <a class="bold"> <?php echo $data['subjects']?></a> of class <a class="bold"><?php echo $data['class']?></a>.
                                                 <br>
                                                 <br>
-                                                Admission code of Student:<a class="bold"> <?php echo $data['exam_code']?></a>
+                                                Admission code of Student:<a class="bold"> <?php echo $data['exam_code']?></a>(Keep this information for further communications)
                                                 <br>
                                                 <br>
-                                                Advance fee Received: ₹ <a class="bold"> <?php echo $data['advance']?></a><br>
+                                                Admission fee Received: ₹ <a class="bold"> <?php echo $data['advance']?></a><br>
                                                 Total pending fee: ₹<a class="bold"> <?php echo $data['total_fee']?></a>
                                                 <br>
                                                 <br>
@@ -65,17 +65,41 @@
                                                     <?php } ?>
                                                       
   
-                                                  </table>
+                                                </table>
                                                   @endif
                                                 <br>
                                                 <br>
-                                                <div style="font-size: 14px" >
-                                                    *You’ll receive an Email with Login credentials shortly
-                                                    <br>*PFA invoice for admission fee. 
-                                                    <br>Sales support: 9898989763
-                                                    <br>Billing Support:  9898989763
-                                                    <br>Technical support: 9898989763
+                                                <br>
                                                     <br>
+                                                   
+                                                <div class="bold" style="font-size: 14px" >
+                                                    *You’ll receive an Email with Login credentials shortly.
+                                                   
+                                                    <br>
+
+                                                    <br>
+                                                    <a style="color:red">Payment should be made before 5th of every month.</a>
+                                                     <br>
+                                                    <br>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Sales support:</td>
+                                                            <td><a href="tel:+9898989763">9898989763</a></td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Billing support:</td>
+                                                            <td><a href="tel:+9898989763">9898989763</a></td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Technical support:</td>
+                                                            <td><a href="tel:+9898989763">9898989763</a></td>
+                                                            
+                                                        </tr>
+                                                    </thead>                                    
+                                                </table> 
                                                 </div>
                                                 
                                                 <br>
@@ -140,7 +164,7 @@
             color: black;
         }
         .contian{
-            background-color:rgba(80,95,179,.1);
+     
             padding: 25px;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;

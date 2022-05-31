@@ -21,14 +21,14 @@
                                
                                     <div class="main-container">
 
-                                        <div class="container">
-                                            <div><b></b></div>
-                                          </div>
+                                     
                                      
                                         <div class="container2">
-                                            <div class="contian">
-                                                <b>KPoints</b>
-                                            </div>
+                                          <div class="contian">
+                                            <a href="https://kpoints.in" id="logo" class="me-auto logo">
+                                                <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 150px;">
+                                              </a>
+                                        </div>
                                             <div class="info">
                                               <u>User has been Contacted for the below details:</u>
                                               <br>
@@ -101,7 +101,7 @@
             color: black;
         }
         .contian{
-            background-color:rgba(80,95,179,.1);
+            
             padding: 25px;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;

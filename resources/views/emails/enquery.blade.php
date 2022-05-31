@@ -26,7 +26,9 @@
                                      
                                         <div class="container2">
                                             <div class="contian">
-                                                <b></b>
+                                                <a href="https://kpoints.in" id="logo" class="me-auto logo">
+                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 150px;">
+                                                  </a>
                                             </div>
                                             <div class="info">
                                             <u>Enquery has been sent by the user:</u>

@@ -21,22 +21,19 @@
 
                                     <div class="main-container">
 
-                                        <div class="container">
-                                            <div><b></b></div>
-                                        </div>
+                                      
 
                                         <div class="container2">
                                             <div class="contian">
                                                 <a href="https://kpoints.in" id="logo" class="me-auto logo">
-                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 50px;width: 130px;">
+                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 250px;">
                                                   </a>
                                             </div>
                                             <div class="info">
-                                                Hi Mr/Ms <a class="bold"><?php echo $data['fatherName']; ?></a>,
+                                                Hi <a class="bold"><?php echo $data['fatherName']; ?></a>,
                                                 <br>
                                                 <br>
-                                                This is an auto generated response for your enquiry on our website
-                                                Kpoints.in for fee structure for the Grade & Subjects.
+                                                This is an auto generated response for your enquiry on our website Kpoints.in for fee structure  for the <a class="bold"> <?php echo $data['course']?> </a> <form action="" method="post"></form>for subjects <a class="bold"> <?php echo $data['subjects']?></a> of class <a class="bold"><?php echo $data['class']?></a>.
                                                 <br><br> Number of free demo classes are 5 per subject.
                                                 <br> <br>Admission fee to be paid after completion of free demo classes: ₹<?php echo $data['fee']; ?>
 
@@ -52,21 +49,21 @@
                                                   </thead>
                                                     <tr>
                                                         <td class="tabd">
-                                                                <?php echo $data['monthly']; ?>
+                                                            ₹<?php echo $data['monthly']; ?>
                                                             </td>
                                                         <td class="tabd">
-                                                                <?php echo $data['annually']; ?>
+                                                            ₹<?php echo $data['annually']; ?>
                                                             </td>
                                                     </tr>
 
                                                 </table>
-                                                <br> <br>
-                                                <div style="font-size:14px"> *If advance amount paid, it will be reduced from annual fee
+                                                <br> <br><br> <br>
+                                                <div class="bold"style="font-size:14px"> 
                                                     <br> *A sales representative from Kpoints will get in touch with you shortly
-                                                    <br> Sales support: 9898989763
+                                                    <br> Sales support: <a href="tel:+4733378901">9898989763</a>
                                                 </div>
                                                 <br>
-                                                Regards
+                                                Regards,
                                                 <br>
                                                 <a class="bold">Sales Desk <br>
                                                     KPoints Pvt Ltd.
@@ -135,7 +132,7 @@
         }
 
         .contian {
-            background-color: rgba(80, 95, 179, .1);
+           
             padding: 25px;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;

@@ -26,7 +26,9 @@
                                      
                                         <div class="container2">
                                             <div class="contian">
-                                                <b>KPoints</b>
+                                                <a href="https://kpoints.in" id="logo" class="me-auto logo">
+                                                    <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 150px;">
+                                                  </a>
                                             </div>
                                             <div class="info">
                                             <a class="bold">Demo Request has been sent by the user:</a>

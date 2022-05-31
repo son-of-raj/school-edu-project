@@ -19,10 +19,10 @@ class StudentsdetailsController extends Controller
         $request->validate([
             'firstName'=>'required',
             'lastName'=>'required',
-            'number'=>'required|max:13',
+            'number'=>'required|max:13|min:10',
             'email'=>'required|unique:studentsdetails|email',
             'fatherName'=>'required',
-            'fatherNumber'=>'required|max:13',
+            'fatherNumber'=>'required|max:13|min:10',
             'fatherEmail'=>'required|email',
             'class_name'=>'required',
             'course_name'=> 'required',
@@ -202,7 +202,7 @@ class StudentsdetailsController extends Controller
             // Set date to 1 so that new month is returned as the month changes.
             $startDate = date('01 M Y', strtotime($startDate . '+ 1 month'));
         }
-    
+     
         return $months;
     }
 
@@ -316,14 +316,16 @@ class StudentsdetailsController extends Controller
           ]);
 
          $total_fee = $annually - $advance;
-         $start_date = date("Y-m-d");
-         $year= Studentsdetail::where('id',$request->id)->value('year')+1;
-         $end_date_temp = ("31-03-20".$year);
+         
+         $start_date = date("Y-m-d",strtotime('first day of +1 month'));
+         $year= Studentsdetail::where('id',$id)->value('year')+1;
+         $end_date_temp = ("20".$year."-03-31");
          
          $end_date = date("Y-m-d", strtotime($end_date_temp));
          $months = $this->getMonthsInRange($start_date,$end_date);
+        
          $months_count = count($months);
-    
+       
          $every_month_fee = round($total_fee / $months_count);
 
          $data['subjects'] = $subjects;
@@ -398,9 +400,23 @@ class StudentsdetailsController extends Controller
             $fee = "10000";
          }
 
+         $total_fee = $annually - $fee;
+         
+         $start_date = date("Y-m-d",strtotime('first day of +1 month'));
+         $year= Studentsdetail::where('id',$step2)->value('year')+1;
+         $end_date_temp = ("20".$year."-03-31");
+         
+         $end_date = date("Y-m-d", strtotime($end_date_temp));
+         $months = $this->getMonthsInRange($start_date,$end_date);
+        
+         $months_count = count($months);
+       
+         $every_month_fee = round($total_fee / $months_count);
+
+        
          $data['subjects'] = $subjects;
-         $data['monthly'] = $monthly;
-         $data['annually'] = $annually;
+         $data['monthly'] = $every_month_fee;
+         $data['annually'] = $total_fee;
          $data['fee'] = $fee;
          $data['student_first_name'] =  $student_first_name;
          $data['student_last_name'] = $student_last_name;
@@ -409,6 +425,8 @@ class StudentsdetailsController extends Controller
          $data['class'] = $class;
          $data['status'] = "sent";
          $data['id'] = $step1;
+         $data['months'] = $months;
+         $data['months_fee']= $every_month_fee;
 
          DB::table('studentsdetails')
         ->where('id', $step2) 
@@ -530,7 +548,6 @@ class StudentsdetailsController extends Controller
         $step18 = DB::table('studentsdetails')->where('id',$id)->value('generated_code');
         $step19 = DB::table('studentsdetails')->where('id',$id)->value('generated_subject_code');
         $step20 = DB::table('studentsdetails')->where('id',$id)->value('generated_code_id');
-        $fatherEmail = DB::table('studentsdetails')->where('id',$id)->value('fatherEmail');
         $step21 = str_pad($step20, 3, '0', STR_PAD_LEFT);
         $step22 = $step18."-".$step19."-".$step21;
         
@@ -549,8 +566,9 @@ class StudentsdetailsController extends Controller
          $data['fatherName'] = $fatherName;
          Mail::to($email)
         //  ->cc($fatherEmail)
-         ->cc("akashgr64@gmail.com")
-         ->bcc("chityalsaumya@gmail.com")
+        ->cc("chityalsaumya@gmail.com")
+        ->bcc("akashgr64@gmail.com")
+       
 
          ->send(new Credential($data));
       

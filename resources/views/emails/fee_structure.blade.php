@@ -60,7 +60,7 @@
                                                 <br> <br><br> <br>
                                                 <div class="bold"style="font-size:14px"> 
                                                     <br> *A sales representative from Kpoints will get in touch with you shortly
-                                                    <br> Sales support: <a href="tel:+4733378901">9898989763</a>
+                                                    <br> Sales support: <a href="tel:+9898989763">9898989763</a>
                                                 </div>
                                                 <br>
                                                 Regards,

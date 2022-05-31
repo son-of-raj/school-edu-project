@@ -38,6 +38,8 @@
                         <th>Guardian Name</th>
                         <th>Guardian Number</th>
                         <th>Guardian email</th>
+                        <th>User ID</th>
+                        <th>Password</th>
 
                     </tr>
                 </thead>
@@ -107,6 +109,20 @@
                 </td>
                 <td align="center">
                     {{ $row->fatherEmail}}
+                </td>
+                <td align="center">
+                    @if ($row->user_id != null)
+                    {{ $row->user_id}}
+                    @else
+                    Not-Sent
+                    @endif
+                </td>
+                <td align="center">
+                    @if ($row->user_pass != null)
+                    {{ $row->user_pass}}
+                    @else
+                    Not-Sent
+                    @endif
                 </td>
 
 
@@ -217,6 +233,54 @@
                             </td>
 
                         </tr>
+                        <tr>
+                            <td>
+                                <h6>Admission Code</h6>
+                            </td>
+                            <td>
+                                <h6 id="admission_code"></h6>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h6>Admission Fee Received</h6>
+                            </td>
+                            <td>
+                                <h6 id="admission_fee"></h6>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6>Transaction ID</h6>
+                            </td>
+                            <td>
+                                <h6 id="transaction_id"></h6>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h6>User ID</h6>
+                            </td>
+                            <td>
+                                <h6 id="user_id"></h6>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h6>Password</h6>
+                            </td>
+                            <td>
+                                <h6 id="password"></h6>
+                            </td>
+
+                        </tr>
 
                     </table>
                 </div>
@@ -317,7 +381,7 @@
                     , titleAttr: 'Excel'
                     , autoFilter: true
                     , exportOptions: {
-                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11],
+                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11,19,20],
 
                     }
                 , }
@@ -326,7 +390,7 @@
                     , text: '<i class="fa fa-file-csv"></i>'
                     , titleAttr: 'CSV'
                     , exportOptions: {
-                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11]
+                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11,19,20]
                     , }
                 , }
                 , {
@@ -336,7 +400,7 @@
                     , orientation: 'landscape'
                     , pageSize: 'LEGAL'
                     , exportOptions: {
-                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11]
+                        columns: [3,14,15,16,17,18,4,5,6,7,12,13,11,19,20]
                     , }
                 , },
 
@@ -351,7 +415,7 @@
                 //hide the 2nd column. it's index is "1"
                 {
                     'visible': false
-                    , 'targets': [0,1,12,13,14,15,16,17,18],
+                    , 'targets': [0,1,12,13,14,15,16,17,18,19,20],
 
                 } /// COLUMN INDEX HERE
             ]
@@ -414,7 +478,40 @@
                         "</h6>")
                     $("#year").replaceWith("<h6 id= 'year'>" + "20" + result[0].year + "</h6>")
 
+                    if (result[0].generated_code == null) {
+                        $("#admission_code").replaceWith("<h6 id= 'admission_code'> Admission code not generted </h6>")
+                    }else{
+                        $("#admission_code").replaceWith("<h6 id= 'admission_code'>" + result[0].generated_code +"-"+result[0].generated_subject_code+"-"+result[0].generated_code_id+"</h6>")
+                    }
+
+                    if (result[0].advance == null) {
+                        $("#admission_fee").replaceWith("<h6 id= 'admission_fee'> Admission Fee Not Received </h6>")
+                    }else{
+                        $("#admission_fee").replaceWith("<h6 id= 'admission_fee'>" + result[0].advance +"</h6>")
+                    }
+
+                    if (result[0].transaction_id == null) {
+                        $("#transaction_id").replaceWith("<h6 id= 'transaction_id'> Transaction ID Not Found </h6>")
+                    }else{
+                        $("#transaction_id").replaceWith("<h6 id= 'transaction_id'>" + result[0].transaction_id +"</h6>")
+                    }
+
+                    if (result[0].user_id == null) {
+                        $("#user_id").replaceWith("<h6 id= 'user_id'> User ID Not Found  </h6>")
+                    }else{
+                        $("#user_id").replaceWith("<h6 id= 'user_id'>" + result[0].user_id +"</h6>")
+                    }
+
+                    if (result[0].user_pass == null) {
+                        $("#password").replaceWith("<h6 id= 'password'> User ID Not Found  </h6>")
+                    }else{
+                        $("#password").replaceWith("<h6 id= 'password'>" + result[0].user_pass +"</h6>")
+                    }
+                   
+
                 }
+
+                // admission_fee,transaction_id,user_id,password
             })
         }
 

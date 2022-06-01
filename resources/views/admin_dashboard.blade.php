@@ -497,13 +497,13 @@
                     }
 
                     if (result[0].user_id == null) {
-                        $("#user_id").replaceWith("<h6 id= 'user_id'> User ID Not Found  </h6>")
+                        $("#user_id").replaceWith("<h6 id= 'user_id'> User ID Not Generated  </h6>")
                     }else{
                         $("#user_id").replaceWith("<h6 id= 'user_id'>" + result[0].user_id +"</h6>")
                     }
 
                     if (result[0].user_pass == null) {
-                        $("#password").replaceWith("<h6 id= 'password'> User ID Not Found  </h6>")
+                        $("#password").replaceWith("<h6 id= 'password'> User Password Not Generated  </h6>")
                     }else{
                         $("#password").replaceWith("<h6 id= 'password'>" + result[0].user_pass +"</h6>")
                     }

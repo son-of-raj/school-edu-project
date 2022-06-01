@@ -55,7 +55,7 @@
                                                             {{ ++$key }}
                                                         </td>
                                                           <td class="tabd">
-                                                            <?php echo $data_month['month']; ?>
+                                                            <?php echo $data_month['month']."-".$data_month['year'] ?>
                                                               </td>
                                                           <td class="tabd">
                                                             ₹ <?php echo $data['months_fee']; ?>
@@ -80,6 +80,9 @@
                                                     <br>
                                                     <a style="color:red">Payment should be made before 5th of every month.</a>
                                                      <br>
+                                                     <br>
+                                                     <a style="color:red">Total Fee Payment should be made on or before 5th of March <?php echo $data['last_payment_year']; ?>.</a>
+                                                      <br>
                                                     <br>
                                                 <table>
                                                     <thead>

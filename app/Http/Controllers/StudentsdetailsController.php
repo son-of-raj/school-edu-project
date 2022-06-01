@@ -318,14 +318,16 @@ class StudentsdetailsController extends Controller
          $total_fee = $annually - $advance;
          
          $start_date = date("Y-m-d",strtotime('first day of +1 month'));
-         $year= Studentsdetail::where('id',$id)->value('year')+1;
+         $year= Studentsdetail::where('id',$request->id)->value('year')+1;
          $end_date_temp = ("20".$year."-03-31");
+         $end_date_temp1 = ("20".$year);
          
          $end_date = date("Y-m-d", strtotime($end_date_temp));
          $months = $this->getMonthsInRange($start_date,$end_date);
+
         
          $months_count = count($months);
-       
+
          $every_month_fee = round($total_fee / $months_count);
 
          $data['subjects'] = $subjects;
@@ -343,6 +345,7 @@ class StudentsdetailsController extends Controller
          $data['fatherName'] = $fatherName;
          $data['months'] = $months;
          $data['months_fee']= $every_month_fee;
+         $data['last_payment_year'] = $end_date_temp1;
         Mail::to($email)
         ->cc("chityalsaumya@gmail.com")
         ->bcc("akashgr64@gmail.com")
@@ -408,6 +411,7 @@ class StudentsdetailsController extends Controller
          
          $end_date = date("Y-m-d", strtotime($end_date_temp));
          $months = $this->getMonthsInRange($start_date,$end_date);
+
         
          $months_count = count($months);
        
@@ -545,6 +549,7 @@ class StudentsdetailsController extends Controller
         $student_first_name= Studentsdetail::where('id',$id)->value('firstName');
         $student_last_name= Studentsdetail::where('id',$id)->value('lastName');
         $fatherName= Studentsdetail::where('id',$id)->value('fatherName');
+        $fatherEmail= Studentsdetail::where('id',$id)->value('fatherEmail');
         $step18 = DB::table('studentsdetails')->where('id',$id)->value('generated_code');
         $step19 = DB::table('studentsdetails')->where('id',$id)->value('generated_subject_code');
         $step20 = DB::table('studentsdetails')->where('id',$id)->value('generated_code_id');
@@ -564,12 +569,10 @@ class StudentsdetailsController extends Controller
          $data['student_first_name'] =  $student_first_name;
          $data['student_last_name'] = $student_last_name;
          $data['fatherName'] = $fatherName;
-         Mail::to($email)
-        //  ->cc($fatherEmail)
-        ->cc("chityalsaumya@gmail.com")
-        ->bcc("akashgr64@gmail.com")
-       
+         $data['fatherEmail'] = $fatherEmail;
 
+         Mail::to($email)
+         ->cc($fatherEmail)
          ->send(new Credential($data));
       
          

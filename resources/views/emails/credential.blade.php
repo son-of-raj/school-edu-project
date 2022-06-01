@@ -33,12 +33,11 @@
                                                 Hi <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?> / <a class="bold"><?php echo $data['fatherName']; ?></a>,
                                                 <br>
                                                 <br>
-                                                This email is important and consists of Admission code and Login credentials for <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?></a>'s MS account.<br>
+                                                This email is important and consists of Admission code and Login credentials for <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>'s</a><b>Microsoft Account.</b> <br>
                                              <br>Admission Code: <a class="bold"><?php echo $data['exam_code']?></a>(Keep this information for further communications)
                                              <br><br>
                                                 <br>
-                                                <br>
-                                                <u class='bold'>Login Credentials for MS teams:</u>
+                                                <u class='bold'>Login Credentials for Microsoft Teams:</u>
                                                 <br>
                                                 <br>
                                                 User id: <a class="bold"><?php echo $data['user_id']?></a>

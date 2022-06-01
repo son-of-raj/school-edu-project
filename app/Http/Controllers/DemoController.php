@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Mail;
 class DemoController extends Controller
 {
 
+    function index(Request $request){
+        
+        
+        return view('/demo');
+    }
+    
 public function sendDemo(Request $request){
     $mailData['name'] = $request->name;
     $mailData['contact'] = $request->contact;

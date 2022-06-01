@@ -14,6 +14,17 @@ use Swift_IdGenerator;
 
 class StudentsdetailsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function getdata(Request $request){
        
         $request->validate([
@@ -107,11 +118,7 @@ class StudentsdetailsController extends Controller
         
     }
 
-    function index(Request $request){
-        
-        
-        return view('/demo');
-    }
+
 
     function fetch(Request $request){
         

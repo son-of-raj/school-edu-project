@@ -3,6 +3,7 @@
 use App\Http\Controllers\StudentsdetailsController;
 use App\Models\Studentsdetail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,7 @@ Route::get('test', function () {
     return view('emails.generated_code');
 });
 
+
 Route::post('contact-submit', 'App\Http\Controllers\ContactController@sendEmail')->name('sendEmail');
 Route::post('feedback-submit', 'App\Http\Controllers\ContactController@sendFeedback')->name('sendFeedback');
 Route::post('enquery-submit', 'App\Http\Controllers\EnqueryController@sendEnquery')->name('sendEnquery');
@@ -64,10 +66,9 @@ Route::post('demo-submit', 'App\Http\Controllers\DemoController@sendDemo')->name
 Route::post('popup-demo-submit', 'App\Http\Controllers\DemoController@sendPopupDemo')->name('sendPopupDemo');
 Route::post('faculties_name', 'App\Http\Controllers\VideoSave@Faculties')->name('Faculties');
 Route::post('/admin/getdata',[StudentsdetailsController::class,'getdata'])->name("admin.getdata");
-Route::get('/demo',[StudentsdetailsController::class,'index']);
+Route::get('/demo','App\Http\Controllers\DemoController@index');
 Route::post('studentsdetail/fetch',[StudentsdetailsController::class,'fetch'])->name('studentsdetail.fetch');
 Route::post('studentsdetail/fetch2',[StudentsdetailsController::class,'fetch2'])->name('studentsdetail.fetch2');
-Route::get('admin_dashboard',[StudentsdetailsController::class,'admin_dashboard']);
 Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
 Route::post('studentsdetails/generate_fee',[StudentsdetailsController::class,'generate_fee'])->name('studentsdetails.generate_fee');
 Route::get('studentsdetails/generate_fee2/{id}',[StudentsdetailsController::class,'generate_fee2'])->name('studentsdetails.generate_fee2');
@@ -80,3 +81,9 @@ Route::post('/admin/getdetails',[StudentsdetailsController::class,'getdetails'])
 
 
 
+
+
+Auth::routes();
+
+Route::get('/admin_dashboard', [App\Http\Controllers\StudentsdetailsController::class, 'admin_dashboard'])->name('admin_dashboard');
+Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

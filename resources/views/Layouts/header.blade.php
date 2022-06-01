@@ -20,6 +20,8 @@
         <!-- <li><a href="Form">Upload Form</a></li> -->
         <!-- <li><a href="trainers.html">Courses</a></li> -->
         <li><a id="contact" href="contact">Contact</a></li>
+        
+       
         <!-- <li class="dropdown"><a href="#"><span>Subjects</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li class="dropdown"><a href="#"><span>Class XI</span> <i class="bi bi-chevron-right"></i></a>
@@ -130,6 +132,8 @@
     <!-- .navbar -->
 
     <a href="demo" class="get-started-btn">Get Demo</a>
-
+    @if (Auth::user())
+    <a id="logout" class="get-started-btn" href="logout">Logout</a>
+    @endif
   </div>
 </header><!-- End Header -->

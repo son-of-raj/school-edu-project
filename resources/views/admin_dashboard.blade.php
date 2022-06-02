@@ -8,7 +8,7 @@
     @include('Layouts.header')
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container">
-            <h2>Students Details</h2>
+            <h2>Admin Dashboard</h2>
 
         </div>
     </div><!-- End Breadcrumbs -->
@@ -662,6 +662,16 @@
         .csvtext {
             visibility: hidden;
         }
+
+        table.dataTable thead tr {
+  background-color: #5fcf80;
+  color:white
+}
+
+.buttons-excel {
+  background-color: #5fcf80;
+  color:white
+}
 
     </style>
 

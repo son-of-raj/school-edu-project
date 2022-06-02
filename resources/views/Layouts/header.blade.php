@@ -133,6 +133,9 @@
 
     <a href="demo" class="get-started-btn">Get Demo</a>
     @if (Auth::user())
+    <a id="admin_dashboard" class="get-started-btn" href="admin_dashboard">Admin</a>
+    @endif
+    @if (Auth::user())
     <a id="logout" class="get-started-btn" href="logout">Logout</a>
     @endif
   </div>

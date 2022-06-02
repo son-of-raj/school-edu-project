@@ -250,7 +250,7 @@
                     var dependent = $(this).data('dependent');
                     var _token = $('input[name="_token"]').val();
                     $.ajax({
-                        url: "{{ route('studentsdetail.fetch') }}",
+                        url: "{{ route('fetch') }}",
                         method: "post",
                         data: {
                             select: select,
@@ -277,7 +277,7 @@
 
                     var _token = $('input[name="_token"]').val();
                     $.ajax({
-                        url: "{{ route('studentsdetail.fetch2') }}",
+                        url: "{{ route('fetch2') }}",
                         method: "post",
                         data: {
                             select: select,

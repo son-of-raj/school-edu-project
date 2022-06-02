@@ -67,8 +67,8 @@ Route::post('popup-demo-submit', 'App\Http\Controllers\DemoController@sendPopupD
 Route::post('faculties_name', 'App\Http\Controllers\VideoSave@Faculties')->name('Faculties');
 Route::post('/admin/getdata',[StudentsdetailsController::class,'getdata'])->name("admin.getdata");
 Route::get('/demo','App\Http\Controllers\DemoController@index');
-Route::post('studentsdetail/fetch',[StudentsdetailsController::class,'fetch'])->name('studentsdetail.fetch');
-Route::post('studentsdetail/fetch2',[StudentsdetailsController::class,'fetch2'])->name('studentsdetail.fetch2');
+Route::post('fetch','App\Http\Controllers\EnqueryController@fetch')->name('fetch');
+Route::post('fetch2','App\Http\Controllers\EnqueryController@fetch2')->name('fetch2');
 Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
 Route::post('studentsdetails/generate_fee',[StudentsdetailsController::class,'generate_fee'])->name('studentsdetails.generate_fee');
 Route::get('studentsdetails/generate_fee2/{id}',[StudentsdetailsController::class,'generate_fee2'])->name('studentsdetails.generate_fee2');

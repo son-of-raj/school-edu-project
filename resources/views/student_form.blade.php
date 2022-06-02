@@ -39,7 +39,7 @@
                 <div class="row mt-5">
                     <div class="col-lg-12 mt-5 mt-lg-0">
 
-                        <form action="{{ route('admin.getdata') }}" method="post" role="form" class="form-group"
+                        <form action="{{ route('getdata') }}" method="post" role="form" class="form-group"
                             border="0" enctype='multipart/form-data'>
 
                             @csrf

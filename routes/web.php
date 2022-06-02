@@ -65,7 +65,7 @@ Route::post('enquery-submit', 'App\Http\Controllers\EnqueryController@sendEnquer
 Route::post('demo-submit', 'App\Http\Controllers\DemoController@sendDemo')->name('sendDemo');
 Route::post('popup-demo-submit', 'App\Http\Controllers\DemoController@sendPopupDemo')->name('sendPopupDemo');
 Route::post('faculties_name', 'App\Http\Controllers\VideoSave@Faculties')->name('Faculties');
-Route::post('/admin/getdata',[StudentsdetailsController::class,'getdata'])->name("admin.getdata");
+Route::post('getdata','App\Http\Controllers\StudentFormController@getdata')->name("getdata");
 Route::get('/demo','App\Http\Controllers\DemoController@index');
 Route::post('fetch','App\Http\Controllers\EnqueryController@fetch')->name('fetch');
 Route::post('fetch2','App\Http\Controllers\EnqueryController@fetch2')->name('fetch2');

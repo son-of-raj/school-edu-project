@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 @include('Layouts.head')
 
 <body>
@@ -74,14 +73,11 @@
                     <br>
                     <br><br>
                     <div class="table-responsive" style="width:100%">
-                        <table id="example" class=" table table-striped table-bordered display overflow-auto">
+                        <table id="notes_table" class="" style=" width: -webkit-fill-available; ">
                             <thead>
-
-                                <tr align="center">
                                     <th align="center">Sr no.</th>
                                     <th align="center">Topic</th>
                                     <th align="center">No. of pages</th>
-                                </tr>
                             </thead>
                            <tbody id="hr">
                             <tr  align="center">
@@ -239,6 +235,29 @@
         .chosen-container {
             width: 100% !important;
         }
+
+        #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#notes_table td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#notes_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#notes_table tr:hover {background-color: #ddd;}
+
+#notes_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #5fcf80;
+  color: white;
+}
     </style>
 
 </body>

@@ -101,23 +101,12 @@ class EnqueryController extends Controller
             $output .='<tr><td align="center">'.++$key.'</td>
             <td align="center">
             <a href="notes/'.$row->id.'"><div>' .$row->topic.'</div></a>
-            <hr>
             <div>'.$row->description.'</div><br>
             </td> 
             <td align="center">
             <div id='.$row->id.' >'.$step2.'</div>
             </td></tr>
             ';
-            // $output1 .= '<td align="center">'.++$key.'</td>';
-            // $output2 .= '<td align="center">
-            // <a href="show_studymaterial/'.$row->id.'"><div>' .$row->topic.'</div></a>
-            // <hr>
-            // <div>'.$row->description.'</div><br>
-            // </td>';
-        
-            // $output3 .= ' <td align="center">
-            // <div id='.$row->id.' >'.$step2.'</div>
-            // </td>';
         }
         
         return [
@@ -128,13 +117,13 @@ class EnqueryController extends Controller
 
     function ShowStudymaterial($id){
        
-        $data =   DB::table('studentsnotes')->where('id', $id)->value('notes');
-     
-      $step=str_replace(array('["','"','"]',']'), '', $data);
+    $data['files'] =   DB::table('studentsnotes')->where('id', $id)->value('notes');
+    $data['topic'] = DB::table('studentsnotes')->where('id', $id)->value('topic');
+    $data['description'] = DB::table('studentsnotes')->where('id', $id)->value('description');
   
-    $step1 = explode(",",$step);
-   
-        return view('notes',compact('step1'));
+    $data['files'] = explode(",",$data['files']);
+
+        return view('notes',compact('data'));
 
 
     }

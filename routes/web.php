@@ -74,7 +74,7 @@ Route::post('fetch','App\Http\Controllers\EnqueryController@fetch')->name('fetch
 Route::post('fetch2','App\Http\Controllers\EnqueryController@fetch2')->name('fetch2');
 Route::post('fetch3','App\Http\Controllers\EnqueryController@fetch3')->name('fetch3');
 Route::get('fetch3','App\Http\Controllers\EnqueryController@fetch3')->name('fetch3');
-
+Route::get('notes/logout', 'App\Http\Controllers\HomeController@test')->name('test');
 Route::get('notes/{id}','App\Http\Controllers\EnqueryController@ShowStudymaterial')->name('ShowStudymaterial');
 
 Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
@@ -96,3 +96,4 @@ Auth::routes();
 Route::get('/admin_dashboard', [App\Http\Controllers\StudentsdetailsController::class, 'admin_dashboard'])->name('admin_dashboard');
 Route::get('/admin_add_notes', [App\Http\Controllers\StudentsdetailsController::class, 'admin_add_notes'])->name('admin_add_notes');
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+Route::get('/notes/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

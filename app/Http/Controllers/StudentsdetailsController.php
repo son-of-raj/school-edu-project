@@ -542,6 +542,8 @@ class StudentsdetailsController extends Controller
                 $files[] = $name;  
             }
          }
+
+        $files = implode(",",$files);
         $form->filenames = $files;
         $addnotes = $form->save();
 

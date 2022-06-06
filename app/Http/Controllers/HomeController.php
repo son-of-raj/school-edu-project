@@ -32,4 +32,10 @@ class HomeController extends Controller
         Auth::logout();
         return redirect()->route('admin_dashboard');
     }
+
+    public function test()
+    {
+        echo "hi";
+        die();
+    }
 }

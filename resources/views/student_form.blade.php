@@ -87,19 +87,19 @@
                             <br>
                             <div class="row">
                                 <div class="col form-group">
-                                    <input type="text" name="fatherName" class="form-control"
-                                        value="{{ old('fatherName') }}" id="name" placeholder="Guardian Name ">
+                                    <input type="text" name="guardianName" class="form-control"
+                                        value="{{ old('guardianName') }}" id="name" placeholder="Guardian Name ">
                                     <span class="text-danger">
-                                        @error('fatherName')
+                                        @error('guardianName')
                                             {{ $message }}
                                         @enderror
                                     </span>
                                 </div>
                                 <div class="col form-group">
-                                    <input type="text" class="form-control" name="fatherNumber"
-                                        value="{{ old('fatherNumber') }}" id="contact" placeholder="Guardian Number">
+                                    <input type="text" class="form-control" name="guardianNumber"
+                                        value="{{ old('guardianNumber') }}" id="contact" placeholder="Guardian Number">
                                     <span class="text-danger">
-                                        @error('fatherNumber')
+                                        @error('guardianNumber')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -108,10 +108,10 @@
                             <br>
                             <div class="row">
                                 <div class="col form-group">
-                                    <input type="email" class="form-control" name="fatherEmail"
-                                        value="{{ old('fatherEmail') }}" id="email" placeholder="Guardian Email">
+                                    <input type="email" class="form-control" name="guardianEmail"
+                                        value="{{ old('guardianEmail') }}" id="email" placeholder="Guardian Email">
                                     <span class="text-danger">
-                                        @error('fatherEmail')
+                                        @error('guardianEmail')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -119,9 +119,9 @@
                                 <div class="col form-group">
                                     <label>Upload Your Image</label>
                                   <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="file" id="customFileLang" lang="es" required>
+                                    <input type="file" class="custom-file-input" name="file" id="customFileLang" lang="es" >
                                     <label class="custom-file-label" for="customFileLang">(max size:2mb)</label>
-                                    <span class="text-danger">
+                                    <br><span class="text-danger">
                                         @error('file')
                                             {{ $message }}
                                         @enderror

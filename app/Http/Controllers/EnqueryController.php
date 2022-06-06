@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Enquery;
+use App\Models\Studentsnote;
 use Input;
 class EnqueryController extends Controller
 {
@@ -77,6 +78,69 @@ class EnqueryController extends Controller
 
         
     }
+    function fetch3(Request $request){
+        
+
+     
+        $value = $request->get('value');
+        
+        $course_id = $request->get('course_id');
+        $data = DB::table('studentsnotes')
+                ->where('subject_id', $value)
+                ->where('course_id', $course_id)
+                ->get();
+                
+                $output = '<div></div>';
+                // $output1 = '<div></div>';
+                // $output2 = '<div></div>';
+                // $output3 = '<div></div>';
+                
+        foreach($data as $key =>$row){
+            $step1 = explode(",",$row->notes);
+            $step2 = count($step1);
+            $output .='<tr><td align="center">'.++$key.'</td>
+            <td align="center">
+            <a href="notes/'.$row->id.'"><div>' .$row->topic.'</div></a>
+            <hr>
+            <div>'.$row->description.'</div><br>
+            </td> 
+            <td align="center">
+            <div id='.$row->id.' >'.$step2.'</div>
+            </td></tr>
+            ';
+            // $output1 .= '<td align="center">'.++$key.'</td>';
+            // $output2 .= '<td align="center">
+            // <a href="show_studymaterial/'.$row->id.'"><div>' .$row->topic.'</div></a>
+            // <hr>
+            // <div>'.$row->description.'</div><br>
+            // </td>';
+        
+            // $output3 .= ' <td align="center">
+            // <div id='.$row->id.' >'.$step2.'</div>
+            // </td>';
+        }
+        
+        return [
+            'output'=>$output];
+
+        
+    }
+
+    function ShowStudymaterial($id){
+       
+        $data =   DB::table('studentsnotes')->where('id', $id)->value('notes');
+     
+      $step=str_replace(array('["','"','"]',']'), '', $data);
+  
+    $step1 = explode(",",$step);
+   
+        return view('notes',compact('step1'));
+
+
+    }
+    
+
+
 
 
 public function sendEnquery(Request $request){

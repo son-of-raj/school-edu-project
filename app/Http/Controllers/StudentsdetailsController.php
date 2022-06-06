@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Studentsdetail;
+use App\Models\Studentsnote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -20,12 +21,9 @@ class StudentsdetailsController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
-
-
 
     function fetch(Request $request){
         
@@ -103,8 +101,7 @@ class StudentsdetailsController extends Controller
     }
     
 
-    function getMonthsInRange($startDate, $endDate)
-    {
+    function getMonthsInRange($startDate, $endDate){
         $months = array();
     
         while (strtotime($startDate) <= strtotime($endDate)) {
@@ -135,7 +132,7 @@ class StudentsdetailsController extends Controller
        $step4 = str_replace(array('["', '"]'), '', $step3 );
        $step5 = DB::table('studentsdetails')->where('id',$id)->pluck('course_name');
        $step6 = DB::table('coursetable')->where('id',$step5)->pluck('course_code');
-       $fatherName= Studentsdetail::where('id',$id)->value('fatherName');
+       $guardianName= Studentsdetail::where('id',$id)->value('guardianName');
        $step7 = str_replace(array('["', '"]'), '', $step6 );
        $code =$code.$stepyearplus."0".$step4.$step7;
        DB::table('studentsdetails')
@@ -187,7 +184,7 @@ class StudentsdetailsController extends Controller
         $subjects= Studentsdetail::where('id',$id)->value('subject_id');
         $course= Studentsdetail::where('id',$id)->value('course_id');
         $class= Studentsdetail::where('id',$id)->value('class_id');
-        $email= Studentsdetail::where('id',$id)->value('fatherEmail');
+        $email= Studentsdetail::where('id',$id)->value('guardianEmail');
         $step4 = explode (",",$step3);
         $data = array();
         
@@ -256,13 +253,13 @@ class StudentsdetailsController extends Controller
          $data['status'] = "sent";
          $data['exam_code'] = $step22;
          $data['id'] = $id;
-         $data['fatherName'] = $fatherName;
+         $data['guardianName'] = $guardianName;
          $data['months'] = $months;
          $data['months_fee']= $every_month_fee;
          $data['last_payment_year'] = $end_date_temp1;
         Mail::to($email)
-        ->cc("chityalsaumya@gmail.com")
-        ->bcc("akashgr64@gmail.com")
+        // ->cc('chityalsaumya@gmail.com')
+        // ->bcc("akashgr64@gmail.com")
         ->send(new GeneratedCode($data));
 
         return redirect('/admin_dashboard');
@@ -274,11 +271,11 @@ class StudentsdetailsController extends Controller
         $step3= Studentsdetail::where('id',$step2)->value('subject_name');
         $student_first_name= Studentsdetail::where('id',$step2)->value('firstName');
         $student_last_name= Studentsdetail::where('id',$step2)->value('lastName');
-        $fatherName= Studentsdetail::where('id',$step2)->value('fatherName');
+        $guardianName= Studentsdetail::where('id',$step2)->value('guardianName');
         $subjects= Studentsdetail::where('id',$step2)->value('subject_id');
         $course= Studentsdetail::where('id',$step2)->value('course_id');
         $class= Studentsdetail::where('id',$step2)->value('class_id');
-        $email= Studentsdetail::where('id',$step2)->value('fatherEmail');
+        $email= Studentsdetail::where('id',$step2)->value('guardianEmail');
         $step4 = explode (",",$step3);
         $data = array();
         $Data1 = array();
@@ -339,7 +336,7 @@ class StudentsdetailsController extends Controller
          $data['student_first_name'] =  $student_first_name;
          $data['student_last_name'] = $student_last_name;
          $data['course']= $course;
-         $data['fatherName']= $fatherName;
+         $data['guardianName']= $guardianName;
          $data['class'] = $class;
          $data['status'] = "sent";
          $data['id'] = $step1;
@@ -353,8 +350,8 @@ class StudentsdetailsController extends Controller
          ]);
 
          Mail::to($email)
-         ->cc("chityalsaumya@gmail.com")
-         ->bcc("akashgr64@gmail.com")
+        //  ->cc('chityalsaumya@gmail.com')
+        //  ->bcc("akashgr64@gmail.com")
          ->send(new FeeStructure($data));
          return [$data];
     }
@@ -427,8 +424,8 @@ class StudentsdetailsController extends Controller
          ]);
 
          Mail::to($email)
-         ->cc("chityalsaumya@gmail.com")
-         ->bcc("akashgr64@gmail.com")
+        //  ->cc('chityalsaumya@gmail.com')
+        //  ->bcc("akashgr64@gmail.com")
          ->send(new FeeStructure($data));
     
          return redirect('/admin_dashboard');
@@ -462,8 +459,8 @@ class StudentsdetailsController extends Controller
         $email= Studentsdetail::where('id',$id)->value('email');
         $student_first_name= Studentsdetail::where('id',$id)->value('firstName');
         $student_last_name= Studentsdetail::where('id',$id)->value('lastName');
-        $fatherName= Studentsdetail::where('id',$id)->value('fatherName');
-        $fatherEmail= Studentsdetail::where('id',$id)->value('fatherEmail');
+        $guardianName= Studentsdetail::where('id',$id)->value('guardianName');
+        $guardianEmail= Studentsdetail::where('id',$id)->value('guardianEmail');
         $step18 = DB::table('studentsdetails')->where('id',$id)->value('generated_code');
         $step19 = DB::table('studentsdetails')->where('id',$id)->value('generated_subject_code');
         $step20 = DB::table('studentsdetails')->where('id',$id)->value('generated_code_id');
@@ -482,16 +479,85 @@ class StudentsdetailsController extends Controller
          $data['exam_code'] = $step22;
          $data['student_first_name'] =  $student_first_name;
          $data['student_last_name'] = $student_last_name;
-         $data['fatherName'] = $fatherName;
-         $data['fatherEmail'] = $fatherEmail;
+         $data['guardianName'] = $guardianName;
+         $data['guardianEmail'] = $guardianEmail;
 
          Mail::to($email)
-         ->cc($fatherEmail)
+         ->cc($guardianEmail)
+        //  ->bcc('chityalsaumya@gmail.com')
          ->send(new Credential($data));
       
          
          return redirect('/admin_dashboard');
     }
+
+    function admin_add_notes(Request $request){
+        
+        return view('admin_add_notes');
+    }
+    
+    function getnotes(Request $request){
+       
+        $request->validate([
+            
+            'class_id'=>'required',
+            'course_id'=> 'required',
+            'subject_id'=>'required',
+            'topic'=>'required',
+            'description' => 'required',
+            'notes' => 'required|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'notes' =>'required',
+            'notes.*' => 'image'
+            
+        ]);
+       
+ 
+        $form = new Studentsnote;
+        $form->class_id = $request->class_id;
+        $form->course_id = $request->course_id;
+        $form->subject_id = $request->subject_id;
+        if($request->class_id == 1){
+            $form->class_name = "XI" ;
+        }else{
+            $form->class_name = "XII" ;
+        }
+        $form->course_name=DB::table('coursetable')->where('id',$form->course_id)->pluck('course_name');
+        $form->subject_name=DB::table('subjects')->where('id',$form->subject_id )->pluck('subject_name');
+
+        $repl = str_replace(array('["', '"]'), '', $form->course_name );
+        $repl2 = str_replace(array('["', '"]'), '', $form->subject_name );
+
+        $form->course_name = $repl ;
+        $form->subject_name = $repl2 ;
+        $form->topic = $request->topic;
+        $form->description = $request->description;
+        $files = [];
+        if($request->hasfile('notes'))
+         {
+            foreach($request->file('notes') as $file)
+            {
+                $time =strval(date("h:i:s"));
+                $name =date('d-m-Y').'-'.time().'-'.$file->hashName();
+                $file->move(public_path('storage/notes'), $name);  
+                $files[] = $name;  
+            }
+         }
+        $form->filenames = $files;
+        $addnotes = $form->save();
+
+
+        if(!$addnotes){
+            return back()->with('fail',"we do not recognize your email address");
+        }else{
+            return redirect()->back()->with('success', 'Submitted successfully'); 
+        }
+   
+    }
+
+
+       
+
+
 
        
 }

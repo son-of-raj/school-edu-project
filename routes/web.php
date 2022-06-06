@@ -66,9 +66,17 @@ Route::post('demo-submit', 'App\Http\Controllers\DemoController@sendDemo')->name
 Route::post('popup-demo-submit', 'App\Http\Controllers\DemoController@sendPopupDemo')->name('sendPopupDemo');
 Route::post('faculties_name', 'App\Http\Controllers\VideoSave@Faculties')->name('Faculties');
 Route::post('getdata','App\Http\Controllers\StudentFormController@getdata')->name("getdata");
+Route::get('show_notes', 'App\Http\Controllers\StudentFormController@show_notes')->name('show_notes');
+// Route::post('get_topics', 'App\Http\Controllers\StudentFormController@get_topics')->name('get_topics');
+
 Route::get('/demo','App\Http\Controllers\DemoController@index');
 Route::post('fetch','App\Http\Controllers\EnqueryController@fetch')->name('fetch');
 Route::post('fetch2','App\Http\Controllers\EnqueryController@fetch2')->name('fetch2');
+Route::post('fetch3','App\Http\Controllers\EnqueryController@fetch3')->name('fetch3');
+Route::get('fetch3','App\Http\Controllers\EnqueryController@fetch3')->name('fetch3');
+
+Route::get('notes/{id}','App\Http\Controllers\EnqueryController@ShowStudymaterial')->name('ShowStudymaterial');
+
 Route::post('studentsdetails/generate',[StudentsdetailsController::class,'generate'])->name('studentsdetails.generate');
 Route::post('studentsdetails/generate_fee',[StudentsdetailsController::class,'generate_fee'])->name('studentsdetails.generate_fee');
 Route::get('studentsdetails/generate_fee2/{id}',[StudentsdetailsController::class,'generate_fee2'])->name('studentsdetails.generate_fee2');
@@ -77,7 +85,7 @@ Route::post('studentsdetails/popup2',[StudentsdetailsController::class,'popup2']
 Route::post('studentsdetails/popup3',[StudentsdetailsController::class,'popup3'])->name('studentsdetails.popup3');
 Route::post('/admin/getidpass',[StudentsdetailsController::class,'getidpass'])->name("admin.getidpass");
 Route::post('/admin/getdetails',[StudentsdetailsController::class,'getdetails'])->name("admin.getdetails");
-
+Route::post('getnotes',[StudentsdetailsController::class,'getnotes'])->name("getnotes");
 
 
 
@@ -86,4 +94,5 @@ Route::post('/admin/getdetails',[StudentsdetailsController::class,'getdetails'])
 Auth::routes();
 
 Route::get('/admin_dashboard', [App\Http\Controllers\StudentsdetailsController::class, 'admin_dashboard'])->name('admin_dashboard');
+Route::get('/admin_add_notes', [App\Http\Controllers\StudentsdetailsController::class, 'admin_add_notes'])->name('admin_add_notes');
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Studentsnote;
 use App\Models\Studentsdetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,9 +28,9 @@ class StudentFormController extends Controller
             'lastName'=>'required',
             'number'=>'required|max:13|min:10',
             'email'=>'required|unique:studentsdetails|email',
-            'fatherName'=>'required',
-            'fatherNumber'=>'required|max:13|min:10',
-            'fatherEmail'=>'required|email',
+            'guardianName'=>'required',
+            'guardianNumber'=>'required|max:13|min:10',
+            'guardianEmail'=>'required|email',
             'class_name'=>'required',
             'course_name'=> 'required',
             'subject_name'=>'required',
@@ -47,9 +47,9 @@ class StudentFormController extends Controller
         $form->lastName = $request->lastName;
         $form->number = $request->number;
         $form->email = $request->email;
-        $form->fatherName = $request->fatherName;
-        $form->fatherNumber = $request->fatherNumber;
-        $form->fatherEmail = $request->fatherEmail;
+        $form->guardianName = $request->guardianName;
+        $form->guardianNumber = $request->guardianNumber;
+        $form->guardianEmail = $request->guardianEmail;
         $form->class_name = $request->class_name;
         $form->course_name = $request->course_name;
        
@@ -114,6 +114,11 @@ class StudentFormController extends Controller
         
     }
 
+    function show_notes(Request $request){
+        
+        return view('show_notes');
+    }
 
+  
        
 }

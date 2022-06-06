@@ -16,6 +16,7 @@
         <li><a id="home" href="/">Home</a></li>
         <li><a id="about" href="about">About</a></li>
         <li><a id="fee_structure" href="student_form">Fee Enquiry</a></li>
+        <li><a id="show_notes" href="/show_notes">Study Material</a></li>
         <!-- <li><a href="subjects">Subjects</a></li> -->
         <!-- <li><a href="Form">Upload Form</a></li> -->
         <!-- <li><a href="trainers.html">Courses</a></li> -->
@@ -136,7 +137,11 @@
     <a id="admin_dashboard" class="get-started-btn" href="admin_dashboard">Admin</a>
     @endif
     @if (Auth::user())
+    <a id="admin_add_notes" class="get-started-btn" href="admin_add_notes">Add notes</a>
+    @endif
+    @if (Auth::user())
     <a id="logout" class="get-started-btn" href="logout">Logout</a>
     @endif
+  
   </div>
 </header><!-- End Header -->

@@ -76,7 +76,7 @@
                         <table id="notes_table" class="" style=" width: -webkit-fill-available; ">
                             <thead>
                                     <th align="center">Sr no.</th>
-                                    <th align="center">Topic</th>
+                                    <th align="center">Topics</th>
                                     <th align="center">No. of pages</th>
                             </thead>
                            <tbody id="hr">

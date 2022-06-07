@@ -65,7 +65,7 @@ service nginx restart
 kpoints@kpoints.mysql.database.azure.com:3306
 
 
- php artisan storage:link
+php artisan storage:link
 
 
 

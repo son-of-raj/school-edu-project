@@ -89,28 +89,34 @@ class EnqueryController extends Controller
                 ->where('subject_id', $value)
                 ->where('course_id', $course_id)
                 ->get();
-                
                 $output = '<div></div>';
-                // $output1 = '<div></div>';
-                // $output2 = '<div></div>';
-                // $output3 = '<div></div>';
-                
-        foreach($data as $key =>$row){
-            $step1 = explode(",",$row->notes);
-            $step2 = count($step1);
-            $output .='<tr><td align="center">'.++$key.'</td>
+        if(count($data)>0){
+            foreach ($data as $key =>$row) {
+                $step1 = explode(",", $row->notes);
+                $step2 = count($step1);
+                $output .='<tr><td align="center">'.++$key.'</td>
+                <td align="center">
+                <a href="notes/'.$row->id.'"><div>' .$row->topic.'</div></a>
+                <div>'.$row->description.'</div><br>
+                </td> 
+                <td align="center">
+                <div id='.$row->id.' >'.$step2.'</div>
+                </td></tr>
+                ';
+            }
+        }else{
+            $output .='<tr><td align="center">1</td>
             <td align="center">
-            <a href="notes/'.$row->id.'"><div>' .$row->topic.'</div></a>
-            <div>'.$row->description.'</div><br>
-            </td> 
-            <td align="center">
-            <div id='.$row->id.' >'.$step2.'</div>
-            </td></tr>
+            <div>Notes Not Available</div><br>
+            </td>
+            <td></td></tr>
             ';
         }
         
+        
         return [
-            'output'=>$output];
+            'output'=>$output
+        ];
 
         
     }

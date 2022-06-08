@@ -33,7 +33,7 @@
                                                 Hi <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?> / <a class="bold"><?php echo $data['guardianName']; ?></a>,
                                                 <br>
                                                 <br>
-                                                This email is important and consists of Admission code and Login credentials for <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>'s</a><b>Microsoft Account.</b> <br>
+                                                This email is important and consists of Admission code and Login credentials for <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>'s Microsoft Account.</a> <br>
                                              <br>Admission Code: <a class="bold"><?php echo $data['exam_code']?></a>(Keep this information for further communications)
                                              <br><br>
                                                 <br>

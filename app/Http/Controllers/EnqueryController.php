@@ -105,7 +105,7 @@ class EnqueryController extends Controller
                 ';
             }
         }else{
-            $output .='<tr><td align="center">1</td>
+            $output .='<tr><td align="center"></td>
             <td align="center">
             <div>Notes Not Available</div><br>
             </td>

@@ -102,13 +102,13 @@
                     {{ $row->email}}
                 </td>
                 <td align="center">
-                    {{ $row->fatherName}}
+                    {{ $row->guardianName}}
                 </td>
                 <td align="center">
-                    {{ $row->fatherNumber}}
+                    {{ $row->guardianNumber}}
                 </td>
                 <td align="center">
-                    {{ $row->fatherEmail}}
+                    {{ $row->guardianEmail}}
                 </td>
                 <td align="center">
                     @if ($row->user_id != null)
@@ -139,7 +139,7 @@
                     <div class="modal-header">
 
                         <h2>Student Details</h2>
-                        <span class="close">&times;</span>
+                        <span style="cursor: pointer;" class="close">&times;</span>
                     </div>
 
                     <table class="table">
@@ -444,10 +444,11 @@
                 },
                 success: function(data) {
                     console.log(data[0].id);
+                    alert("Fee Structure sent successfully")
                     $("#" + (data[0].id)).replaceWith(
                         '<a>Email Sent</a>'
                     );
-                    alert("Fee Structure sent successfully")
+                   
                 }
             })
         }
@@ -467,9 +468,9 @@
                         result[0].lastName + "</h6>");
                     $("#student_email").replaceWith("<h6 id= 'student_email'>" + result[0].email + "</h6>");
                     $("#student_number").replaceWith("<h6 id= 'student_number'>" + result[0].number + "</h6>");
-                    $("#father_name").replaceWith("<h6 id= 'father_name'>" + result[0].fatherName + "</h6>");
-                    $("#father_email").replaceWith("<h6 id= 'father_email'>" + result[0].fatherEmail + "</h6>");
-                    $("#father_number").replaceWith("<h6 id= 'father_number'>" + result[0].fatherNumber +
+                    $("#father_name").replaceWith("<h6 id= 'father_name'>" + result[0].guardianName + "</h6>");
+                    $("#father_email").replaceWith("<h6 id= 'father_email'>" + result[0].guardianEmail + "</h6>");
+                    $("#father_number").replaceWith("<h6 id= 'father_number'>" + result[0].guardianNumber +
                         "</h6>");
                     $("#student_class").replaceWith("<h6 id= 'student_class'>" + result[0].class_id + "</h6>")
                     $("#student_course").replaceWith("<h6 id= 'student_course'>" + result[0].course_id +
@@ -625,6 +626,7 @@
             float: right;
             font-size: 28px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .close:hover,

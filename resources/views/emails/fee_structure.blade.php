@@ -30,7 +30,7 @@
                                                   </a>
                                             </div>
                                             <div class="info">
-                                                Hi <a class="bold"><?php echo $data['fatherName']; ?></a>,
+                                                Hi <a class="bold"><?php echo $data['guardianName']; ?></a>,
                                                 <br>
                                                 <br>
                                                 This is an auto generated response for your enquiry on our website KPoints.in for fee structure  for the <a class="bold"> <?php echo $data['course']?> </a> <form action="" method="post"></form>for subjects <a class="bold"> <?php echo $data['subjects']?></a> of class <a class="bold"><?php echo $data['class']?></a>.

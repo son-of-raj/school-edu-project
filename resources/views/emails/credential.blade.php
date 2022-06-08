@@ -30,7 +30,7 @@
                                                   </a>
                                             </div>
                                             <div class="info">
-                                                Hi <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?> / <a class="bold"><?php echo $data['fatherName']; ?></a>,
+                                                Hi <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?> / <a class="bold"><?php echo $data['guardianName']; ?></a>,
                                                 <br>
                                                 <br>
                                                 This email is important and consists of Admission code and Login credentials for <a class="bold"><?php echo $data['student_first_name']." ".$data['student_last_name']?>'s</a><b>Microsoft Account.</b> <br>
@@ -49,7 +49,7 @@
                                                 <br>
                                                 <a href="https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=4765445b-32c6-49b0-83e6-1d93765276ca&redirect_uri=https%3A%2F%2Fwww.office.com%2Flandingv2&response_type=code%20id_token&scope=openid%20profile%20https%3A%2F%2Fwww.office.com%2Fv2%2FOfficeHome.All&response_mode=form_post&nonce=637891622631346738.Y2MyNTIzZGEtZGM4Mi00ODdmLTk1ZDAtMzQwNmEzMmYzN2I2NDVjOTAwNTUtNmNiOS00Njk2LTgyN2ItNTFjODM4YzYxOTUx&ui_locales=en-US&mkt=en-US">Click here</a> to login
                                                 <br>
-                                                <a href="#">Click here</a> for steps to login
+                                                <a href="{{ URL::to('ms_steps') }}">Click here</a> for steps to login
                                                 
                                                 <br>
                                                 <br>

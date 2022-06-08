@@ -68,6 +68,7 @@ Route::post('faculties_name', 'App\Http\Controllers\VideoSave@Faculties')->name(
 Route::post('getdata','App\Http\Controllers\StudentFormController@getdata')->name("getdata");
 Route::get('show_notes', 'App\Http\Controllers\StudentFormController@show_notes')->name('show_notes');
 // Route::post('get_topics', 'App\Http\Controllers\StudentFormController@get_topics')->name('get_topics');
+Route::get('ms_steps', 'App\Http\Controllers\StudentFormController@ms_steps')->name('ms_steps');
 
 Route::get('/demo','App\Http\Controllers\DemoController@index');
 Route::post('fetch','App\Http\Controllers\EnqueryController@fetch')->name('fetch');

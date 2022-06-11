@@ -8,7 +8,7 @@
     @include('Layouts.header')
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container">
-            <h2>Student Notes</h2>
+            <h2>Add sub topic images</h2>
 
         </div>
     </div><!-- End Breadcrumbs -->
@@ -22,6 +22,7 @@
             <li>{!! \Session::get('success') !!}</li>
         </ul>
     </div>
+    
     @endif
 
     <div class="container" data-aos="fade-up">
@@ -29,7 +30,7 @@
         <div class="row mt-5">
             <div class="col-lg-12 mt-5 mt-lg-0">
 
-                <form action="{{ route('getnotes') }}" method="post" role="form" class="form-group" border="0"
+                <form action="{{ route('getnotes2') }}" method="post" role="form" class="form-group" border="0"
                     enctype='multipart/form-data'>
 
                     @csrf
@@ -65,8 +66,8 @@
                             </span>
                         </div>
                         <div class="col form-group ">
-                            <select name="subject_id" id="subject" class="form-control input-lg "
-                                placeholder="Subjects">
+                            <select name="subject_id" id="subject" class="form-control input-lg dynamic4"
+                                data-dependent='topic' placeholder="Subjects">
                                 <option value="Select Subjects" selected disabled>Select Subject</option>
                             </select>
                             <span class="text-danger">
@@ -83,57 +84,58 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col form-group">
-
-                            <input type="textarea" name="topic" class="form-control" value="{{ old('topic') }}"
-                                id="topic" placeholder="Enter Topic">
+                    <div class='row'>
+                        <div class="col form-group ">
+                            <select name="topic" id="topic" class="form-control input-lg dynamic5"
+                                data-dependent='sub_topic' placeholder="Topics">
+                                <option value="Select Topics" selected disabled>Select Topic</option>
+                            </select>
                             <span class="text-danger">
                                 @error('topic')
                                 {{ $message }}
                                 @enderror
                             </span>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col form-group">
-                            <textarea rows="5" cols="50" name="description" class="form-control"
-                                value="{{ old('description') }}" id="description"
-                                placeholder="Enter Description"></textarea>
-                            <span class="text-danger">
-                                @error('description')
-                                {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
+                       
+                        <div class="col form-group ">
+                            <select name="sub_topic" id="sub_topic" class="form-control input-lg "
+                                placeholder="Sub_topic">
+                                <option value="Select Sub-topic" selected disabled>Select Sub-topic</option>
+                              
 
-                        <div class="input-group hdtuto control-group lst increment">
-                            <input type="text" name="sub_topic[]" class="myfrm form-control">
-                            
-                            <div class="input-group-btn">
-                                <button class="btn btn-success add" type="button"><i
-                                        class="fldemo glyphicon glyphicon-plus"></i>Add</button>
-                            </div>
+                            </select>
                             <span class="text-danger">
                                 @error('sub_topic')
                                 {{ $message }}
                                 @enderror
                             </span>
                         </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+
+                        <div class="input-group hdtuto control-group lst increment">
+                            <input type="file" name="notes[]" class="myfrm form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-success add" type="button"><i
+                                        class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                            </div>
+                            <span class="text-danger">
+                                @error('notes')
+                                {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
                         <div class="clone hide">
                             <div class="hdtuto control-group lst input-group" style="margin-top:10px">
-                                <input type="text" name="sub_topic[]" class="myfrm form-control">
-                              
+                                <input type="file" name="notes[]" class="myfrm form-control">
                                 <div class="input-group-btn">
                                     <button class="btn btn-danger remove" type="button"><i
                                             class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
                                 </div>
                                 <span class="text-danger">
-                                    @error('sub_topic')
+                                    @error('notes')
                                     {{ $message }}
                                     @enderror
                                 </span>
@@ -142,7 +144,7 @@
                     </div>
                     <div class="here"></div>
                     <br><br>
-                    <button style="width: 100%" id="submit" class="btn btn-success" type="submit">Add Topics</button>
+                    <button style="width: 100%" id="submit" class="btn btn-success" type="submit">Add Notes</button>
                 </form>
                 <br><br>
             </div>
@@ -220,6 +222,64 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+    $('.dynamic4').change(function() {
+        if ($(this).val() != '') {
+            var select = $('#course').attr('id');
+            var value = $('#subject').val();
+
+            var course_id = $('#course').val();
+
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url: "{{ route('fetch4') }}",
+                method: "post",
+                data: {
+                    select: select,
+                    value: value,
+                    _token: _token,
+                    course_id: course_id
+                },
+                success: function(result) {
+                    $('#topic').html(result.output);
+                    $('#topic_id').html(result.output1);
+                }
+            })
+        }
+    });
+});
+    </script>
+    <script>
+        $(document).ready(function() {
+    $('.dynamic5').change(function() {
+        if ($(this).val() != '') {
+            var select = $('#subject').attr('id');
+            var value = $('#topic').val();
+
+          
+
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url: "{{ route('fetch5') }}",
+                method: "post",
+                data: {
+                    select: select,
+                    value: value,
+                    _token: _token,
+            
+           
+                },
+                success: function(result) {
+                    $('#sub_topic').html(result.output);
+                   
+                }
+            })
+        }
+    });
+});
+    </script>
+
 
     <style type="text/css">
         .chosen-container {

@@ -26,8 +26,8 @@
                                         <div class="container2">
                                           <div class="contian">
                                             <a href="https://kpoints.in" id="logo" class="me-auto logo">
-                                                <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 150px;">
-                                              </a>
+                                              <img src="https://kpoints.in/assets/Logo_02.png" alt="" class="img-fluid" style="height: 70px;width: 250px;">
+                                            </a>
                                         </div>
                                             <div class="info">
                                               <u>User has been Contacted for the below details:</u>
@@ -76,68 +76,85 @@
     </table>
     
     <style>
-        .bold{
-            font-weight: bold;
-            color:black;
-        }
-        .main-container{
-            padding: 0;
-            margin: 0;
-            width:100%;
-        }
-        .container{
-            padding:10px;
-            margin:0;
-            width: 100%;
-            align-items: center;
-            font-size: 18px;
-            font-family: Arial, Helvetica, sans-serif;
-           
-        }
-        .container2{
-            
-            padding-top: 20px;
-            padding-inline: 30px;
-            color: black;
-        }
-        .contian{
-            
-            padding: 25px;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
-        }
-        .info{
-          padding:40px;
-                      
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
-            line-height: 28px;
-        }
-        .info b{
-          padding:0px;
-          font-size:18px;
-          display:flex;
-          align-content:center;
-          align-items:left;
-        }
-        .info p{
-            align-items:center;
-            color: black;
-            font-size: 16px;
-            line-height: 28px;
-        }
-        .col2{
-            color:rgba(0,0,0,0.5);
-            padding: 22px;
-            text-align: center;
-            align-items: center;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgba(80,95,190,.1);
-            font-size: 11px;
-            
-        }
-      
-    </style>
+      .tab , .tabh , .tabd{
+          border: .5px solid black;
+          border-collapse: collapse;
+      }
+
+      .tabd ,.tabh{
+          padding: 10px;
+      }
+
+
+      .bold {
+          font-weight: bold;
+          color: black;
+      }
+
+      .main-container {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+      }
+
+      .container {
+          padding: 10px;
+          margin: 0;
+          width: 100%;
+          align-items: center;
+          font-size: 18px;
+          font-family: Arial, Helvetica, sans-serif;
+
+      }
+
+      .container2 {
+
+          padding-top: 20px;
+          padding-inline: 30px;
+          color: black;
+      }
+
+      .contian {
+         
+          padding: 25px;
+          text-align: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 18px;
+      }
+
+      .info {
+          padding: 40px;
+
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 18px;
+          line-height: 28px;
+      }
+
+      .info b {
+          padding: 0px;
+          font-size: 18px;
+          display: flex;
+          align-content: center;
+          align-items: left;
+      }
+
+      .info p {
+          align-items: center;
+          color: black;
+          font-size: 16px;
+          line-height: 28px;
+      }
+
+      .col2 {
+          color: rgba(0, 0, 0, 0.5);
+          padding: 22px;
+          text-align: center;
+          align-items: center;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: rgba(80, 95, 190, .1);
+          font-size: 11px;
+
+      }
+  </style>
 </body>
 </html>

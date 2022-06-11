@@ -33,9 +33,5 @@ class HomeController extends Controller
         return redirect()->route('admin_dashboard');
     }
 
-    public function test()
-    {
-        echo "hi";
-        die();
-    }
+  
 }

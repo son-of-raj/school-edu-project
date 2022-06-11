@@ -134,7 +134,7 @@
     </table>
     
     <style>
-         .tab , .tabh , .tabd{
+        .tab , .tabh , .tabd{
             border: .5px solid black;
             border-collapse: collapse;
         }
@@ -142,68 +142,77 @@
         .tabd ,.tabh{
             padding: 10px;
         }
-        .bold{
+
+
+        .bold {
             font-weight: bold;
-            color:black;
+            color: black;
         }
-        .main-container{
+
+        .main-container {
             padding: 0;
             margin: 0;
-            width:100%;
+            width: 100%;
         }
-        .container{
-            padding:10px;
-            margin:0;
+
+        .container {
+            padding: 10px;
+            margin: 0;
             width: 100%;
             align-items: center;
             font-size: 18px;
             font-family: Arial, Helvetica, sans-serif;
-           
+
         }
-        .container2{
-            
+
+        .container2 {
+
             padding-top: 20px;
             padding-inline: 30px;
             color: black;
         }
-        .contian{
-     
+
+        .contian {
+           
             padding: 25px;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
         }
-        .info{
-          padding:40px;
-                      
+
+        .info {
+            padding: 40px;
+
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
             line-height: 28px;
         }
-        .info b{
-          padding:0px;
-          font-size:18px;
-          display:flex;
-          align-content:center;
-          align-items:left;
+
+        .info b {
+            padding: 0px;
+            font-size: 18px;
+            display: flex;
+            align-content: center;
+            align-items: left;
         }
-        .info p{
-            align-items:center;
+
+        .info p {
+            align-items: center;
             color: black;
             font-size: 16px;
             line-height: 28px;
         }
-        .col2{
-            color:rgba(0,0,0,0.5);
+
+        .col2 {
+            color: rgba(0, 0, 0, 0.5);
             padding: 22px;
             text-align: center;
             align-items: center;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: rgba(80,95,190,.1);
+            background-color: rgba(80, 95, 190, .1);
             font-size: 11px;
-            
+
         }
-      
     </style>
 </body>
 </html>

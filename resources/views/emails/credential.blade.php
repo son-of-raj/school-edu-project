@@ -89,6 +89,16 @@
     </table>
 
     <style>
+        .tab , .tabh , .tabd{
+            border: .5px solid black;
+            border-collapse: collapse;
+        }
+
+        .tabd ,.tabh{
+            padding: 10px;
+        }
+
+
         .bold {
             font-weight: bold;
             color: black;
@@ -118,7 +128,7 @@
         }
 
         .contian {
-            
+           
             padding: 25px;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;

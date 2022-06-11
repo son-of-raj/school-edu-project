@@ -112,7 +112,7 @@
                     <div class="row">
 
                         <div class="input-group hdtuto control-group lst increment">
-                            <input type="text" name="sub_topic[]" class="myfrm form-control">
+                            <input type="text" name="sub_topic[]" placeholder="Enter Sub Topic" class="myfrm form-control">
                             
                             <div class="input-group-btn">
                                 <button class="btn btn-success add" type="button"><i
@@ -126,7 +126,7 @@
                         </div>
                         <div class="clone hide">
                             <div class="hdtuto control-group lst input-group" style="margin-top:10px">
-                                <input type="text" name="sub_topic[]" class="myfrm form-control">
+                                <input type="text" name="sub_topic[]" placeholder="Enter Sub Topic" class="myfrm form-control">
                               
                                 <div class="input-group-btn">
                                     <button class="btn btn-danger remove" type="button"><i

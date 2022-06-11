@@ -21,7 +21,7 @@
         
     
     @if (Auth::user())
-    <li class="dropdown"><a href="#"><span>Admin</span><i class="bi bi-chevron-right"></i></a>
+    <li class="dropdown"><a href="#"><span>Admin</span><i class="bi bi-chevron-down"></i></a>
       <ul>
       <li><a href="#">
       <li><a id="admin_dashboard"  href="admin_dashboard"><span>Dashboard</span></a></li>

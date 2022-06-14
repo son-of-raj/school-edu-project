@@ -100,10 +100,10 @@ class EnqueryController extends Controller
 
                 // $step2 = count($step1);
                 $output .= '<tr><td style="width: 10%" align="center">' . ++$key . '</td>
-                <td align="left">
-                <a href="notes/' . $row->id . '"><b><u style="color:black"><div style="font-size:16px;color:black">' . $row->topic . '</div></u></b></a>
-                <div style="font-size:14px">' . $row->description . '</div><br>
-                </td> 
+               <td align="left"> <a href="notes/' . $row->id . '">
+                <b><div style="font-size:18px;color:black">' . $row->topic . '</div></b>
+                <div style="font-size:16px;color:black">' . $row->description . '</div><br>
+                </a></td> 
                 </tr>
                 ';
             }
@@ -122,13 +122,13 @@ class EnqueryController extends Controller
         ];
     }
 
-    
+
     function fetch4(Request $request)
     {
-        
+
 
         $value = $request->get('value');
-        
+
         $course_id = $request->get('course_id');
         $data = DB::table('studentsnotes')
             ->where('subject_id', $value)
@@ -140,22 +140,21 @@ class EnqueryController extends Controller
 
         foreach ($data as $row) {
 
-            $output .= '<option value="'. $row->id.'">' .$row->topic . '</option>
+            $output .= '<option value="' . $row->id . '">' . $row->topic . '</option>
           ';
         }
-  
+
 
         return [
             'output' =>
             $output,
-   
+
         ];
-    
     }
 
     function fetch5(Request $request)
     {
-        
+
 
         $value = $request->get('value');
 
@@ -169,21 +168,64 @@ class EnqueryController extends Controller
 
             $output .= '<option value="' . $row->id . '">' . $row->sub_topic . '</option>';
         }
-      
+
 
 
         return [
             'output' =>
             $output,
-         
+
         ];
-    
     }
+
+    function fetch6(Request $request)
+    {
+
+
+
+        $value = $request->get('value');
+
+        $course_id = $request->get('course_id');
+        $data = DB::table('studentsnotes')
+            ->where('subject_id', $value)
+            ->where('course_id', $course_id)
+            ->get();
+        $output = '<div></div>';
+        if (count($data) > 0) {
+            foreach ($data as $key => $row) {
+
+                // $step2 = count($step1);
+                $output .= '<tr><td style="width: 10%" align="center">' . ++$key . '</td>
+                <td align="left">
+                <b><u style="color:black"><div style="font-size:16px;color:black">' . $row->topic . '</div></u></b>
+                <div style="font-size:14px">' . $row->description . '</div><br>
+               
+                </td> 
+                <td style="width: 10%" > <a href="delete/' . $row->id . '"> <button class="btn btn-danger " type="button">Delete</button></a></td>
+                </tr>
+                ';
+            }
+        } else {
+            $output .= '<tr><td align="center"></td>
+            <td align="center">
+            <div>Notes Not Available</div><br>
+            </td>
+            </tr>
+            ';
+        }
+
+
+        return [
+            'output' => $output
+        ];
+    }
+    
+  
 
 
     function ShowStudymaterial(Request  $request, $id)
     {
-       
+
         $topic_id = DB::table('studentsnotes')->where('id', $id)->value('id');
         $sub_topic_id = DB::table('subtopictables')->where('studentstopic_id', $id)->pluck('id');
         $data['sub_topic'] =   DB::table('subtopictables')->where('studentstopic_id', $topic_id)->value('sub_topic');
@@ -199,17 +241,19 @@ class EnqueryController extends Controller
             }
         }
         $data3 = DB::table('notes_files')
-        ->where('topic_id', $topic_id)
-        ->orderBy('sub_topic_id','ASC')
-        ->get(); 
-        if (count($data3) > 0) {   
-        foreach ($data3 as $key => $row) {
+            ->where('topic_id', $topic_id)
+            ->orderBy('sub_topic_id', 'ASC')
+            ->get();
+        if (count($data3) > 0) {
+            foreach ($data3 as $key => $row) {
 
-            $notes = $row->notes;
+                $notes = $row->notes;
+            }
         }
+        return view('notes', compact('data', 'data2', 'data3'));
     }
-        return view('notes', compact('data', 'data2','data3'));
-    }
+
+
 
     public function sendEnquery(Request $request)
     {

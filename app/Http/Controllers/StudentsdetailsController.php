@@ -544,6 +544,7 @@ class StudentsdetailsController extends Controller
         $form->save();
         $sub_topic = $request->sub_topic;
         $studentstopic_id = $form->id;
+     
         for ($i = 0; $i < count($sub_topic); $i++) {
             $database = [
                 'sub_topic' => $sub_topic[$i],
@@ -629,4 +630,15 @@ class StudentsdetailsController extends Controller
 
         return view('add_subtopic_notes');
     }
+
+
+    function delete($id)
+    {
+        DB::table('studentsnotes')->where('id', $id)->delete();
+        return back()->with('success', "Deleted Topic");
+
+    }
+
+
+
 }

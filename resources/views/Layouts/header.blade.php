@@ -27,6 +27,7 @@
       <li><a id="admin_dashboard"  href="admin_dashboard"><span>Dashboard</span></a></li>
       <li><a id="admin_add_notes"  href="admin_add_notes"><span>Add Topics</span></a></li>
       <li><a id="add_subtopic_notes"  href="add_subtopic_notes"><span>Add Notes</span></a></li>
+      <li><a id="edit"  href="edit"><span>Delete Topics</span></a></li>
       <li><a id="logout"  href="logout"><span>Logout</span></a></li>
     </li>
     </ul>

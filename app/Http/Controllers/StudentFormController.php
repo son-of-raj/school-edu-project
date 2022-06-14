@@ -118,6 +118,10 @@ class StudentFormController extends Controller
         
         return view('show_notes');
     }
+    function edit(Request $request){
+        
+        return view('edit');
+    }
 
     function ms_steps(Request $request){
         

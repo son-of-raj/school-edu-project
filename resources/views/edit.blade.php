@@ -7,10 +7,20 @@
     @include('Layouts.header')
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container">
-            <h2>Study Material</h2>
+            <h2>Delete Topics</h2>
 
         </div>
     </div><!-- End Breadcrumbs -->
+    @if (\Session::has('success'))
+    <br>
+    <br>
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+    
+    @endif
 
     <div class="container" data-aos="fade-up">
 
@@ -77,6 +87,7 @@
                             <thead>
                                     <th style="width: 10%" align="center">Unit no.</th>
                                     <th align="center">Topics</th>
+                                    <th style="width: 10%" ></th>
                                    
                             </thead>
                            <tbody id="hr">
@@ -91,6 +102,9 @@
                                     <div>Select Subject for topics</div>
 
 
+
+                                </td>
+                                <td>
 
                                 </td>
                              
@@ -208,7 +222,7 @@
 
                 var _token = $('input[name="_token"]').val();
                 $.ajax({
-                    url: "{{ route('fetch3') }}",
+                    url: "{{ route('fetch6') }}",
                     method: "post",
                     data: {
                         select: select,
@@ -218,9 +232,6 @@
                     },
                     success: function(result) {
                         $('#hr').html(result.output);
-                        // $('#srno').html(result.output1);
-                        // $('#topic').html(result.output2);
-                        // $('#notes').html(result.output3);
                        
                     }
                 })
@@ -247,14 +258,13 @@
 /* 
 #notes_table tr:nth-child(even){background-color: #f2f2f2;} */
 
-#notes_table td:hover {background-color: rgb(241, 241, 241);}
+#notes_table tr:hover {background-color: rgb(241, 241, 241);}
 
 #notes_table th {
-    border: 1px solid black;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgb(255, 255, 255);
+  background-color: #ddd;
   color: black;
 }
     </style>

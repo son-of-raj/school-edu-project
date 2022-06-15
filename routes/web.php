@@ -105,3 +105,8 @@ Route::get('/add_subtopic_notes', [App\Http\Controllers\StudentsdetailsControlle
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 
 Route::get('notes/{id}','App\Http\Controllers\EnqueryController@ShowStudymaterial')->name('ShowStudymaterial');
+
+
+// Razorpay
+Route::get('razorpay-payment', [HomeController::class, 'razorpay']);
+Route::post('razorpay-payment', [HomeController::class, 'store'])->name('razorpay.payment.store');

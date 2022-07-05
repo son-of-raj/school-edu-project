@@ -179,7 +179,7 @@
                 
                 var heading_text = value.video[0].selectedvideoheadings;
                 if(heading_text!==undefined){
-                var tags = heading_text.split(',');
+                var tags = heading_text.split('|');
                   $.each(tags, function( index, value ) {
                   
                     html += '<li class="tag__item"><a style="color:#0930f1" href="#'+ value + '">' + value + '</a></li>';

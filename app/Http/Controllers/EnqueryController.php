@@ -304,42 +304,17 @@ class EnqueryController extends Controller
             ->where('subject_name', $subject_name)
             ->where('course_name', $course_name)
             ->get();
-        $output = '';
-        $output2 = '';
 
         if (count($result['result']) > 0) {
-            foreach ($result['result'] as $row) {
-
-                $step2 =  DB::table('videocourses')->where('id', $row->id)->value('selectedvideoheadings');
-                $explode = array_map('intval', explode(',', $step2));
-
-        $result['result']['count']= count($explode);
-                // foreach ($explode as $data1) {
-
-                //     $result['result']['headings'] = 'Hiee';
-                //     // $output2 .= '<li class="tag__item"><a style="color:#0930f1" href="#' . $row->selectedvideoheadings . '">' . $array . '</a></li>';
-                // }
-        //         $output .= '<section class="light"><div class="container py-2"><article class="postcard light green"><a class="postcard__img_link" href="#"><iframe class="postcard__img" src="' .$row->videolink . '?autoplay=1&mute=1"  allowfullscreen></iframe></a><div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="#">' . $row->videoheading .  '</a></h1><div class="postcard__subtitle small"><ul class="postcard__tagbox"><li class="tag__item">' . $row->class_name .  '</li<li class="tag__item">' . $row->course_name .  '</li><li class="tag__item">' . $row->subject_name .  '</li><br><li class="tag__item"><i class="fas fa-clock mr-2"></i>' . $row->videoby . '</li>'.$output2.'</ul></div><div class="postcard__bar"></div><div class="postcard__preview-txt">' . $row->videodescription . '</div></article></div> </section>';
-
-               
-
+            foreach ($result['result'] as $key =>$row) {
+                $data[$key]['video'] = DB::table('videocourses')
+                ->where('id', $row->id)
+                ->get();
             }
-        } 
-        // else {
-        //     $output .= '<div class="row" align="center">
-        //     <div>Videos Not Available</div><br>
-            
-        //   </div>
-        //     ';
-        
 
-
-        // return view("video_courses",compact('result'));
-        // return ($result); 
-        return response()->json(['result' => $result]);
-
-        // return ['output' =>  $output,'output2' => $output2 ];
-  
+            return response()->json(['result' => $data]);
+        }
+       
     }
 
 

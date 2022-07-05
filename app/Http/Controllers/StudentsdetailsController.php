@@ -7,10 +7,17 @@ use App\Models\Subtopictable;
 use App\Models\Studentsnote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\helpers;
+use Razorpay\Api\Api;
+use Session;
+use Exception;
+use Illuminate\Support\Facades\Hash;
 use App\Mail\FeeStructure;
 use App\Mail\GeneratedCode;
+use App\Mail\GeneratedLogin;
+
 use App\Mail\Credential;
 use Swift_IdGenerator;
 
@@ -25,6 +32,122 @@ class StudentsdetailsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    function edit(Request $request)
+    {
+
+        return view('edit');
+    }
+    function delete_syllabus_details(Request $request)
+    {
+
+        return view('delete_syllabus_details');
+    }
+    function delete_video_courses(Request $request)
+    {
+
+        return view('delete_video_courses');
+    }
+
+
+
+    function update_details($id)
+    {
+
+        $data = DB::table('studentsdetails')
+            ->where('id', $id)
+            ->get();
+        return view('update_details', compact('data'));
+    }
+
+    function delete_student($id)
+    {
+
+        $change_pass = 'UserDeleted@';
+        $change_pass2 = $change_pass.$id;
+        $pass = Hash::make($change_pass2);
+    
+         DB::table('studentsdetails')
+            ->where('id', $id)->update([
+                'is_delete' => 1
+            ]);
+            DB::table('users')
+            ->where('student_id', $id)->update([
+                'is_delete' => 1,
+                'password' => $pass
+            ]);
+        return redirect()->back();
+    }
+
+    function generate_login($id)
+    {
+
+        $firstName = DB::table('studentsdetails')->where('id', $id)->value('firstName');
+        $lastName = DB::table('studentsdetails')->where('id', $id)->value('lastName');
+        $email = DB::table('studentsdetails')->where('id', $id)->value('email');
+        $random_password = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 8);
+        $hash_password = Hash::make($random_password);
+
+
+
+        DB::table('users')->insert(array(
+            'student_id' => $id,
+            'name'     =>   $firstName . " " . $lastName,
+            'email'   =>   $email,
+            'password'   =>   $hash_password,
+            'user_role_id' => '2'
+        ));
+        DB::table('studentsdetails')->where('id', $id)->update([
+            'user_cred' => 1
+        ]);
+
+        // echo $random_password;
+        $data['id'] = $id;
+        $data['random_password'] = $random_password;
+        $data['email'] = $email;
+        $data['firstName'] = $firstName;
+        $data['lastName'] = $lastName;
+        Mail::to($email)
+            ->cc('chityalsaumya@gmail.com')
+            // ->bcc("akashgr64@gmail.com")
+            ->send(new GeneratedLogin($data));
+        return redirect()->back()->with('message', 'Generated Login credentials ');
+    }
+
+
+
+
+    function updatechanges(Request $request)
+    {
+
+        $request->validate([
+
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'number' => 'required',
+            'email' => 'required',
+            'guardianName' => 'required',
+            'guardianNumber' => 'required',
+            'guardianEmail' => 'required',
+
+
+        ]);
+
+        $firstName = $request->firstName;
+        $lastName = $request->lastName;
+        $number = $request->number;
+        $email = $request->email;
+        $guardianName = $request->guardianName;
+        $guardianNumber = $request->guardianNumber;
+        $guardianEmail = $request->guardianEmail;
+
+        DB::table('studentsdetails')->where('id', $request->id)->update([
+            'firstName' => $firstName, 'lastName' => $lastName, 'number' => $number, 'email' => $email, 'guardianName' => $guardianName, 'guardianNumber' => $guardianNumber, 'guardianEmail' => $guardianEmail
+        ]);
+
+
+        return redirect('admin_dashboard');
     }
 
     function fetch(Request $request)
@@ -53,14 +176,8 @@ class StudentsdetailsController extends Controller
 
     function fetch2(Request $request)
     {
-
-
-
         $value = $request->get('value');
-
-
         $class_id = $request->get('class_id');
-
         $data = DB::table('subjects')
             ->where('course_id', $value)
             ->where('class_id', $class_id)
@@ -85,7 +202,6 @@ class StudentsdetailsController extends Controller
             $output3 .= '<option value="' . $row->subject_name . '">' . $row->subject_name . '</option>';
         }
 
-
         return [
             'output' =>
             $output,
@@ -98,10 +214,54 @@ class StudentsdetailsController extends Controller
 
     function admin_dashboard(Request $request)
     {
-        $data = Studentsdetail::orderBy('id', 'DESC')->get();
+        if (auth()->user()->user_role_id == 1) {
+            $data = Studentsdetail::where('is_delete', 0)->orderBy('id', 'DESC')->get();
+            return view('admin_dashboard', compact('data'));
+        } else {
+            $next_month = (date('F',strtotime('last day of this month')));
+         
+
+            $year = date("Y");
+            $data2['advance'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->value('amount');
+            $data2['admin'] = DB::table('payment')->where('student_id', NULL)->value('student_id');
+            $data3['check'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('pay');
+            $data = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->get();
+            $data4['getcurrentmonthid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month)->value('id');       
+        $next_month= $data4['getcurrentmonthid'] + 1;
+        foreach ($data as $row) {
+
+            $userid = $row->id;
+            $usermonth = $row->month;
+            $useryear = $row->year;
+            $useramount = $row->amount;
+        }
+        return view('payment', compact('data', 'data2', 'data3','data4','next_month'));
+        }
+    }
 
 
-        return view('admin_dashboard', compact('data'));
+    function payment(Request $request)
+    {
+    
+        $next_month = (date('F',strtotime('last day of this month')));
+    
+
+        $year = date("Y");
+        $data2['advance'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->value('amount');
+        $data2['admin'] = DB::table('payment')->where('student_id', NULL)->value('student_id');
+        $data3['check'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('pay');
+        $data3['getid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('id');
+        $data = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->get();
+        $data4['getcurrentmonthid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month)->value('id');       
+        $next_month=  $data4['getcurrentmonthid'] +1;
+        foreach ($data as $row) {
+
+            $userid = $row->id;
+            $usermonth = $row->month;
+            $useryear = $row->year;
+            $useramount = $row->amount;
+        }
+        return view('payment', compact('data', 'data2', 'data3','data4','next_month'));
     }
 
 
@@ -148,14 +308,13 @@ class StudentsdetailsController extends Controller
             ]);
         $step8 = DB::table('studentsdetails')->where('generated_code', 'like', '%' . $code . '%')->max('generated_code_id');
         $step9 = $step8 + 1;
-        //    $step9 = str_pad($number, 3, '0', STR_PAD_LEFT);
+        $step9 = str_pad($step9, 3, '0', STR_PAD_LEFT);
 
         DB::table('studentsdetails')
             ->where('id', $id)  // find your user by their email
             ->update([
                 'generated_code_id' => $step9
             ]);
-
 
         $step10 = strval(DB::table('studentsdetails')->where('id', $id)->pluck('subject_name'));
         $step11 = str_replace(array('["', '"]'), '', $step10);
@@ -222,7 +381,6 @@ class StudentsdetailsController extends Controller
             $annually = DB::table('subjects')->where('id', $id)->value('three_annually');
         }
 
-
         $advance = $request->advance;
         DB::table('studentsdetails')
             ->where('id', $request->id)
@@ -232,7 +390,6 @@ class StudentsdetailsController extends Controller
             ]);
 
         $total_fee = $annually - $advance;
-
         $start_date = date("Y-m-d", strtotime('first day of +1 month'));
         $year = Studentsdetail::where('id', $request->id)->value('year') + 1;
         $end_date_temp = ("20" . $year . "-03-31");
@@ -241,11 +398,27 @@ class StudentsdetailsController extends Controller
         $end_date = date("Y-m-d", strtotime($end_date_temp));
         $months = $this->getMonthsInRange($start_date, $end_date);
 
-
         $months_count = count($months);
 
         $every_month_fee = round($total_fee / $months_count);
 
+        $stud_id = $request->id;
+        $user_id =  DB::table('users')->where('student_id', $stud_id)->value('id');
+    
+        foreach ($months as $month) {
+
+            $year_get = $month['year'];
+            $month_get = $month['month'];
+            DB::table('payment')
+
+                ->insert([
+                    'user_id' => $user_id,
+                    'student_id' => $stud_id,
+                    'month' =>  $month_get,
+                    'year'        => $year_get,
+                    'amount' => $every_month_fee
+                ]);
+        }
         $data['subjects'] = $subjects;
         $data['monthly'] = $monthly;
         $data['annually'] = $annually;
@@ -263,7 +436,7 @@ class StudentsdetailsController extends Controller
         $data['months_fee'] = $every_month_fee;
         $data['last_payment_year'] = $end_date_temp1;
         Mail::to($email)
-            // ->cc('chityalsaumya@gmail.com')
+            ->cc('chityalsaumya@gmail.com')
             // ->bcc("akashgr64@gmail.com")
             ->send(new GeneratedCode($data));
 
@@ -319,6 +492,18 @@ class StudentsdetailsController extends Controller
             $fee = "10000";
         }
 
+        $stud_id = $step2 ;
+    
+        $user_id =  DB::table('users')->where('student_id', $stud_id)->value('id');
+        DB::table('payment')
+
+        ->insert([
+            'user_id' => $user_id,
+            'student_id' => $stud_id,
+            'month' =>  'admission_fee',
+            'year'        => '0',
+            'amount' => $fee
+        ]);
         $total_fee = $annually - $fee;
 
         $start_date = date("Y-m-d", strtotime('first day of +1 month'));
@@ -328,11 +513,9 @@ class StudentsdetailsController extends Controller
         $end_date = date("Y-m-d", strtotime($end_date_temp));
         $months = $this->getMonthsInRange($start_date, $end_date);
 
-
         $months_count = count($months);
 
         $every_month_fee = round($total_fee / $months_count);
-
 
         $data['subjects'] = $subjects;
         $data['monthly'] = $every_month_fee;
@@ -421,7 +604,6 @@ class StudentsdetailsController extends Controller
         $data['status'] = "sent";
         $data['id'] = $step1;
 
-
         DB::table('studentsdetails')
             ->where('id', $step2)
             ->update([
@@ -502,8 +684,17 @@ class StudentsdetailsController extends Controller
 
     function admin_add_notes(Request $request)
     {
-
         return view('admin_add_notes');
+    }
+
+    function admin_add_video_courses(Request $request)
+    {
+        return view('admin_add_video_courses');
+    }
+
+    function admin_add_syllabus(Request $request)
+    {
+        return view('admin_add_syllabus');
     }
 
     function getnotes(Request $request)
@@ -544,7 +735,7 @@ class StudentsdetailsController extends Controller
         $form->save();
         $sub_topic = $request->sub_topic;
         $studentstopic_id = $form->id;
-     
+
         for ($i = 0; $i < count($sub_topic); $i++) {
             $database = [
                 'sub_topic' => $sub_topic[$i],
@@ -557,13 +748,78 @@ class StudentsdetailsController extends Controller
             }
         }
 
-
-
         if (!$submit) {
             return back()->with('fail', "we do not recognize your email address");
         } else {
             return redirect('add_subtopic_notes')->with('success', 'Topics and sub-topics Submitted ');
         }
+    }
+
+
+    
+    function getvideocourses(Request $request)
+    {
+
+        $request->validate([
+
+            // 'class_id' => 'required',
+            // 'course_id' => 'required',
+            // 'subject_id' => 'required',
+            // 'videoheading' => 'required',
+            // 'videodescription' => 'required',
+            // 'videoby' => 'required',
+            // 'videolink' => 'required|url',
+    
+
+        ]);
+  
+        $id = $request->id;
+        $class_id = $request->class_id;
+        $course_id = $request->course_id;
+        $subject_id = $request->subject_id;
+        $videoheading = $request->videoheading;
+        $videodescription = $request->videodescription;
+        $videoby = $request->videoby;
+        $videolink = $request->videolink;
+
+        if ($class_id == 1) {
+            $class_name = "XI";
+        } else {
+            $class_name = "XII";
+        }
+        $course_name = DB::table('coursetable')->where('id', $course_id)->pluck('course_name');
+        $subject_name = DB::table('subjects')->where('id', $subject_id)->pluck('subject_name');
+
+        $repl = str_replace(array('["', '"]'), '', $course_name);
+        $repl2 = str_replace(array('["', '"]'), '', $subject_name);
+
+        $course_name = $repl;
+        $subject_name = $repl2;
+        $selectedvideoheadings = implode(",",$request->selectedvideoheadings);
+           
+    
+        
+        $repl = str_replace(array('["', '"]'), '',$selectedvideoheadings);
+
+        $selectedvideoheadings = strval($repl);
+
+      
+      
+  
+        DB::table('videocourses')->insert(array(
+            'class_name' => $class_name,
+            'course_name'     =>   $course_name ,
+            'subject_name'   =>   $subject_name,
+            'videoheading'   =>   $videoheading,
+            'videodescription' => $videodescription,
+            'videoby' => $videoby,
+            'videolink' => $videolink,
+            'selectedvideoheadings' =>$selectedvideoheadings
+
+        ));
+
+        return redirect('admin_add_video_courses')->with('success', 'Video Courses Submitted ');
+
     }
 
     function getnotes2(Request $request)
@@ -577,46 +833,37 @@ class StudentsdetailsController extends Controller
             'topic' => 'required',
             'sub_topic' => 'required',
             'notes' => 'required',
-            
-
         ]);
 
         // dd($request->all());
-        $topic= $request->topic;
+        $topic = $request->topic;
         $topic_id = DB::table('subtopictables')->where('id', $topic)->value('id');
-       
+
         $sub_topic =  $request->sub_topic;
-      
+
         $sub_topic1 =  DB::table('subtopictables')->where('id', $sub_topic)->value('sub_topic');
 
         $files = [];
-        if($request->hasfile('notes'))
-         {
-            foreach($request->file('notes') as $file)
-            {
-                $name =date('d-m-Y').'-'.time().'-'.$file->hashName();
-                $file->move(public_path('storage/notes'), $name);  
-                $files[] = $name;  
+        if ($request->hasfile('notes')) {
+            foreach ($request->file('notes') as $file) {
+                $name = date('d-m-Y') . '-' . time() . '-' . $file->hashName();
+                $file->move(public_path('storage/notes'), $name);
+                $files[] = $name;
             }
-         }
-
-       
+        }
         for ($i = 0; $i < count($files); $i++) {
 
             $database = [
                 'notes' => $files[$i],
                 'sub_topic_id' => $sub_topic,
                 'sub_topic' => $sub_topic1,
-                'topic_id'=>$topic_id,
+                'topic_id' => $topic_id,
             ];
-
 
             if (!empty($files)) {
                 $submit = DB::table('notes_files')->insert($database);
             }
         }
-
-
 
         if (!$submit) {
             return back()->with('fail', "we do not recognize your email address");
@@ -625,20 +872,120 @@ class StudentsdetailsController extends Controller
         }
     }
 
-    function add_subtopic_notes(Request $request)
+    function getsyllabusfiles(Request $request)
     {
 
+        $request->validate([
+            'class_id' => 'required',
+            'course_id' => 'required',
+            'subject_id' => 'required',
+            'syllabus_files' => 'required'
+     
+        ]);
+
+        $class_id = $request->class_id;
+        $course_id = $request->course_id;
+        $subject_id = $request->subject_id;
+        if ($class_id == 1) {
+            $class_name = "XI";
+        } else {
+            $class_name = "XII";
+        }
+        $course_name = DB::table('coursetable')->where('id', $course_id)->pluck('course_name');
+        $subject_name = DB::table('subjects')->where('id', $subject_id)->pluck('subject_name');
+
+        $repl = str_replace(array('["', '"]'), '', $course_name);
+        $repl2 = str_replace(array('["', '"]'), '', $subject_name);
+
+        $course_name = $repl;
+        $subject_name = $repl2;
+  
+        $files = [];
+        if ($request->hasfile('syllabus_files')) {
+            foreach ($request->file('syllabus_files') as $file) {
+                $name = date('d-m-Y') . '-' . time() . '-' . $file->hashName();
+                $file->move(public_path('storage/syllabus_files'), $name);
+                $files[] = $name;
+            }
+        }
+        for ($i = 0; $i < count($files); $i++) {
+
+            $database = [
+                'class_name' => $class_name,
+                'course_name'     =>   $course_name ,
+                'subject_name'   =>   $subject_name,
+                'syllabus_files' => $files[$i],
+               
+            ];
+
+            if (!empty($files)) {
+                $submit = DB::table('syllabusdetails')->insert($database);
+            }
+        }
+
+        if (!$submit) {
+            return back()->with('fail', "Try Again");
+        } else {
+            return redirect('admin_add_syllabus')->with('success', 'Syllabus Submitted ');;
+        }
+    }
+
+    function delete_syllabus($id)
+    {
+        DB::table('syllabusdetails')->where('id', $id)->delete();
+     
+
+        return back()->with('success', "Deleted Syllabus");
+    }
+
+    function delete_videocourses($id)
+    {
+        DB::table('videocourses')->where('id', $id)->delete();
+     
+
+        return back()->with('success', "Deleted Video Course");
+    }
+
+
+    function add_subtopic_notes(Request $request)
+    {
         return view('add_subtopic_notes');
     }
 
 
-    function delete($id)
+    function delete(Request $request, $id)
     {
         DB::table('studentsnotes')->where('id', $id)->delete();
-        return back()->with('success', "Deleted Topic");
+        DB::table('subtopictables')->where('studentstopic_id', $id)->delete();
+        DB::table('notes_files')->where('topic_id', $id)->delete();
 
+        return back()->with('success', "Deleted Topic");
     }
 
+    public function razorpayView()
+    {
+        return view('razorpayView');
+    }
 
+    public function store(Request $request)
+    {
+        $input = $request->all();
 
+        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+
+        $payment = $api->payment->fetch($input['razorpay_payment_id']);
+
+        if (count($input)  && !empty($input['razorpay_payment_id'])) {
+            try {
+                $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount' => $payment['amount']));
+                $request->session()->put('success', 'Payment successful');
+            } catch (Exception $e) {
+                return  $e->getMessage();
+                $request->session()->put('error', $e->getMessage());
+                return redirect()->back();
+            }
+        }
+
+        return redirect()->back();
+    }
 }

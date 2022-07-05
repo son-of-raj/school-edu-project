@@ -27,8 +27,7 @@
           <article class="postcard light green">
             <a class="postcard__img_link" href="#">
             <iframe class="postcard__img" src="https://www.youtube.com/embed/N66ADrOygds?autoplay=1&mute=1"  allowfullscreen>
-                        </iframe>
-            
+            </iframe>
             </a>
             <div class="postcard__text t-dark">
               <h1 class="postcard__title blue"><a href="#">Chemistry</a></h1>

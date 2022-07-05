@@ -39,9 +39,10 @@ class StudentFormController extends Controller
             
         ]);
        
- 
+        
         $form = new Studentsdetail;
         $str = implode(",",$request->subject_name);
+       
         // $subjectid = implode(",",$request->subject_id);
         $form->firstName = $request->firstName;
         $form->lastName = $request->lastName;
@@ -86,8 +87,7 @@ class StudentFormController extends Controller
        
         
         $form->year = $request->year;
-        
-        
+      
         $getdata = $form->save();
 
         $getdataInfo = Studentsdetail::where('email','=',$request->email)->first();
@@ -118,9 +118,15 @@ class StudentFormController extends Controller
         
         return view('show_notes');
     }
-    function edit(Request $request){
+
+    function video_courses(Request $request){
+
+        return view('video_courses');
+    }
+    
+    function syllabus(Request $request){
         
-        return view('edit');
+        return view('syllabus');
     }
 
     function ms_steps(Request $request){

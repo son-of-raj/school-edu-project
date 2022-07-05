@@ -21,19 +21,19 @@
 
     </div><!-- End Breadcrumbs -->
 
-    <div class="container" data-aos="fade-up">
-        <br>
-        <div>
-
+    <div class="container" style="margin: 0%;padding:0%"  data-aos="fade-up">
+        <div class="row" style="margin: 0%;padding:0%" >
+          <div class="col-3" style="margin: 0%;">
+          <br><br><br>
             <ul>
                 @foreach($data2 as $key => $row)
 
-                <li  style="color:#0930f1" ><u><a style="color:#0930f1" href='#{{ $row->sub_topic }}'>{{ $row->sub_topic }}</a></u></li>
+                <li  style="color:#0930f1;margin: 0%;padding:0%" ><u><a style="color:#0930f1" href='#{{ $row->sub_topic }}'>{{ $row->sub_topic }}</a></u></li>
 
                 @endforeach
             </ul>
-        </div>
-        <div align="center">
+          </div>
+          <div class="col-9" style="margin: 0%;padding:0%">
             @foreach($data3 as $key => $row)
 
             <?php
@@ -41,12 +41,14 @@
             ?>
 
             <img id="{{ $row->sub_topic }}" align="center" src="<?php echo asset('storage/notes/'.$notes)?>"
-                style="height:130%;width: 75%;">
+                style="height:35%;width: 113%;margin: 0%;padding:0%">
 
 
             @endforeach
+          </div>
         </div>
     </div>
+    
 
     @include('Layouts.footer')
 

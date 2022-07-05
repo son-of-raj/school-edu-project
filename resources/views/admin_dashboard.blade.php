@@ -49,7 +49,9 @@
                     <td>{{ ++$key }}</td>
                     <td align="center"> <img src="<?php echo asset("storage/students/$row->photo")?>"
                         style="height: 46px;width: 74%;border-radius: 50%;"></td>
-                    <td align="center" class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);" onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{ $row->firstName }} {{ $row->lastName }}</a></td>
+                    <td align="center" class="stud_id" id="pop_up"><a style="cursor:pointer; color:rgb(0, 0, 0);"
+                            onclick="popup( '{{ $row->id }} ');" class='view_btn'>{{ $row->firstName }} {{
+                            $row->lastName }}</a></td>
                     <td align="center" class="stud_id">{{ $row->class_id }}</td>
                     <td align="center" class="stud_id">{{ $row->course_id }}</td>
                     <td align="center" class="stud_id">{{ $row->subject_id }}</td>
@@ -57,25 +59,30 @@
                     <td style="width:16%;align-items:center;" class="stud_id">
                         @if ($row->fee_structure != null)
                         {{-- <button style="color:white; background-color:#5fcf80;" type="button"
-                                    id="{{ 'A' . $row->id }}" class="btn generate " href=""
-                        onclick="generate_fee( '{{ 'A' . $row->id }} ');">Re-Send Structure</button> --}}
+                            id="{{ 'A' . $row->id }}" class="btn generate " href=""
+                            onclick="generate_fee( '{{ 'A' . $row->id }} ');">Re-Send Structure</button> --}}
 
                         <a>Email Sent</a>
 
 
                         @else
-                        <button style="color:white; background-color:#5fcf80; " type="button" id="{{ 'A' . $row->id }}" class="btn generate " href="" onclick="generate_fee( '{{ 'A' . $row->id }} ');">Send Fee Structure</button>
+                        <button style="color:white; background-color:#5fcf80; " type="button" id="{{ 'A' . $row->id }}"
+                            class="btn generate " href="" onclick="generate_fee( '{{ 'A' . $row->id }} ');">Send Fee
+                            Structure</button>
                         @endif
                     </td>
                     <td align="center" class="stud_id">
                         @if ($row->generated_code == null)
-                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up3" class="btn" href="" onclick="popup3( '{{ $row->id }} ');">Generate</button>
+                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up3"
+                            class="btn" href="" onclick="popup3( '{{ $row->id }} ');">Generate</button>
                         @else
-                        {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
+                        {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{
+                        str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
                         @endif
                     </td>
                     <td align="center">
-                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up2" class="btn" href="" onclick="popup2( '{{ $row->id }} ');">Send Credentials</button>
+                        <button style="color:white; background-color:#5fcf80; font-size:14px" type="button" id="pop_up2"
+                            class="btn" href="" onclick="popup2( '{{ $row->id }} ');">Send Credentials</button>
                     </td>
                     <td align="center">{{ date('d/m/Y', strtotime($row->created_at)) }}</td>
                     <td align="center" class="stud_id">
@@ -90,40 +97,41 @@
                         @if ($row->generated_code == null)
                         Exam code not Generated
                         @else
-                        {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{ str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
+                        {{ $row->generated_code }}-{{ $row->generated_subject_code }}-{{
+                        str_pad($row->generated_code_id, 3, '0', STR_PAD_LEFT) }}
                         @endif
                     </td>
 
 
-                <td align="center">
-                    {{ $row->number}}
-                </td>
-                <td align="center">
-                    {{ $row->email}}
-                </td>
-                <td align="center">
-                    {{ $row->guardianName}}
-                </td>
-                <td align="center">
-                    {{ $row->guardianNumber}}
-                </td>
-                <td align="center">
-                    {{ $row->guardianEmail}}
-                </td>
-                <td align="center">
-                    @if ($row->user_id != null)
-                    {{ $row->user_id}}
-                    @else
-                    Not-Sent
-                    @endif
-                </td>
-                <td align="center">
-                    @if ($row->user_pass != null)
-                    {{ $row->user_pass}}
-                    @else
-                    Not-Sent
-                    @endif
-                </td>
+                    <td align="center">
+                        {{ $row->number}}
+                    </td>
+                    <td align="center">
+                        {{ $row->email}}
+                    </td>
+                    <td align="center">
+                        {{ $row->guardianName}}
+                    </td>
+                    <td align="center">
+                        {{ $row->guardianNumber}}
+                    </td>
+                    <td align="center">
+                        {{ $row->guardianEmail}}
+                    </td>
+                    <td align="center">
+                        @if ($row->user_id != null)
+                        {{ $row->user_id}}
+                        @else
+                        Not-Sent
+                        @endif
+                    </td>
+                    <td align="center">
+                        @if ($row->user_pass != null)
+                        {{ $row->user_pass}}
+                        @else
+                        Not-Sent
+                        @endif
+                    </td>
 
 
 
@@ -283,6 +291,12 @@
                         </tr>
 
                     </table>
+                    <div align="right" style="padding: 10px;">
+                        <a id="update_id"></a>
+                        <a id="create_login"></a>
+                        <a id="delete"></a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -291,32 +305,35 @@
     <div id="popup_details2" class="modal2">
         <div class="modal-content">
             <div class="modal-header">
-                
+
                 <h6 id="student"></h6>
                 <strong class="close2">&times;</strong>
             </div>
             <div style="padding: 8px">
-                <form action="{{route('admin.getidpass')}}" method="post" role="form" class="form-group" border="0" >
+                <form action="{{route('admin.getidpass')}}" method="post" role="form" class="form-group" border="0">
 
                     @csrf
                     <div class="row">
                         <div class="col form-group" hidden>
-                            <input type="text" name="id" class="form-control" value="" id="id" placeholder="Id" required >
-                          
-                          </div>
-                        <div class="col form-group">
-                          <input type="text" name="user_id" class="form-control"  value="{{old('user_id')}}" id="user_id" placeholder="User Id" required >
-                          <span class="text-danger">@error('user_id'){{$message}} @enderror</span>
+                            <input type="text" name="id" class="form-control" value="" id="id" placeholder="Id"
+                                required>
+
                         </div>
                         <div class="col form-group">
-                            <input type="text" name="user_pass" class="form-control"  value="{{old('user_pass')}}" id="user_pass" placeholder="User Password" required >
+                            <input type="text" name="user_id" class="form-control" value="{{old('user_id')}}"
+                                id="user_id" placeholder="User Id" required>
+                            <span class="text-danger">@error('user_id'){{$message}} @enderror</span>
+                        </div>
+                        <div class="col form-group">
+                            <input type="text" name="user_pass" class="form-control" value="{{old('user_pass')}}"
+                                id="user_pass" placeholder="User Password" required>
                             <span class="text-danger">@error('user_pass'){{$message}} @enderror</span>
-                          </div>
+                        </div>
                     </div>
-                    <div  style="padding:10px" >
+                    <div style="padding:10px">
                         <button id="submit1" class="btn btn-success" type="submit">Send</button>
                     </div>
-                  
+
                 </form>
             </div>
         </div>
@@ -325,42 +342,42 @@
     <div id="popup_details3" class="modal3">
         <div class="modal-content">
             <div class="modal-header">
-                
+
                 <h6 id="studentName"></h6>
                 <strong class="close3">&times;</strong>
             </div>
             <div style="padding: 8px">
-                <form action="{{route('admin.getdetails')}}" method="post" role="form" class="form-group" border="0" >
+                <form action="{{route('admin.getdetails')}}" method="post" role="form" class="form-group" border="0">
 
                     @csrf
                     <div class="row">
                         <div class="col form-group" hidden>
-                            <input type="text" name="id" class="form-control" value="" id="studid" placeholder="Id" required >
-                          
-                          </div>
+                            <input type="text" name="id" class="form-control" value="" id="studid" placeholder="Id"
+                                required>
+
+                        </div>
                         <div class="col form-group">
-                            <label>Admission Fee received:</label><input type="number" name="advance" class="form-control" id="months" placeholder="Enter Amount" required >
+                            <label>Admission Fee received:</label><input type="number" name="advance"
+                                class="form-control" id="months" placeholder="Enter Amount" required>
                             <span class="text-danger">@error('months'){{$message}} @enderror</span>
-                          </div>
-                          <div class="col form-group">
-                            <label>Transaction ID:</label><input type="text" name="transaction" class="form-control" id="months" placeholder="Transaction ID">
+                        </div>
+                        <div class="col form-group">
+                            <label>Transaction ID:</label><input type="text" name="transaction" class="form-control"
+                                id="months" placeholder="Transaction ID">
                             <span class="text-danger">@error('months'){{$message}} @enderror</span>
-                          </div>
-                        
+                        </div>
+
                     </div>
-                    <div  style="padding:10px" >
+                    <div style="padding:10px">
                         <button id="submit1" class="btn btn-success" type="submit">Send</button>
                     </div>
-                  
+
                 </form>
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
-      
-
-
         var modal = document.getElementById("popup_details");
         var btn = document.getElementById("pop_up");
         var span = document.getElementsByClassName("close")[0];
@@ -464,6 +481,12 @@
                 success: function(result) {
                     console.log(result);
                     modal.style.display = "block";
+                    $("#update_id").replaceWith('<a style="color: white;" href="update_details/'+ result[0].id +'"><button style="width: 10%;margin-inline:20px;color:white; background-color:#5fcf80; font-size:14p" class="btn" type="button">Update</button></a>');
+                    $("#delete").replaceWith('<a style="color: white;" href="delete_student/'+ result[0].id +'"><button style="width: 10%;margin-inline:20px;color:white; background-color:red; font-size:14p" class="btn" type="button">Delete</button></a>');
+                    if(result[0].user_cred == 0){$("#create_login").replaceWith('<a style="color: white;" href="generate_login/'+ result[0].id +'"><button style="width: 20%;margin-inline:20px;color:white; background-color:#5fcf80; font-size:14p" class="btn" type="button">Create User Id</button></a>');}else{
+                        $("#create_login").replaceWith('<a style="color: white;"></a>');
+                    }
+                    
                     $("#student_name").replaceWith("<h6 id= 'student_name'>" + result[0].firstName + ' ' +
                         result[0].lastName + "</h6>");
                     $("#student_email").replaceWith("<h6 id= 'student_email'>" + result[0].email + "</h6>");
@@ -557,7 +580,9 @@
 
     <style>
         /* The Modal (background) */
-        .modal , .modal2 , .modal3{
+        .modal,
+        .modal2,
+        .modal3 {
             display: none;
             /* Hidden by default */
             position: fixed;
@@ -621,7 +646,9 @@
         }
 
         /* The Close Button */
-        .close, .close2, .close3{
+        .close,
+        .close2,
+        .close3 {
             color: white;
             float: right;
             font-size: 28px;
@@ -666,15 +693,14 @@
         }
 
         table.dataTable thead tr {
-  background-color: #5fcf80;
-  color:white
-}
+            background-color: #5fcf80;
+            color: white
+        }
 
-.buttons-excel {
-  background-color: #5fcf80;
-  color:white
-}
-
+        .buttons-excel {
+            background-color: #5fcf80;
+            color: white
+        }
     </style>
 
     @include('Layouts.footer')

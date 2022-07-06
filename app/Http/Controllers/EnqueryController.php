@@ -343,10 +343,7 @@ class EnqueryController extends Controller
                 $output .= ' <div class="row"> <img id="' . $row->id . '" align="center" src="asset("storage/notes/' . $row->syllabus_files . ')" style="height:35%;width: 113%;margin: 0%;padding:0%"></div>';
             }
         } else {
-            $output .= '<div class="row" align="center">
-            <div>Videos Not Available</div><br>
-            
-          </div>
+            $output .= '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
             ';
         }
 
@@ -380,10 +377,7 @@ class EnqueryController extends Controller
                 $output .= ' <div class="row"> <img id="' . $row->id . '" align="center" src="asset("storage/notes/' . $row->syllabus_files . ')" style="height:35%;width: 113%;margin: 0%;padding:0%"><a href="delete_syllabus/' . $row->id . '"> <button class="btn btn-danger " type="button">Delete</button></a></div>';
             }
         } else {
-            $output .= '<div class="row" align="center">
-            <div>Videos Not Available</div><br>
-            
-          </div>
+            $output .= '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
             ';
         }
 
@@ -417,10 +411,7 @@ class EnqueryController extends Controller
                 $output .= '<section class="light"><div class="container py-2"><article class="postcard light green"><a class="postcard__img_link" href="#"><iframe class="postcard__img" src="' .$row->videolink . '?autoplay=1&mute=1"  allowfullscreen></iframe></a><div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="#">' . $row->videoheading .  '</a></h1><div class="postcard__subtitle small"><ul class="postcard__tagbox"><li class="tag__item">' . $row->class_name .  '</li<li class="tag__item">' . $row->course_name .  '</li><li class="tag__item">' . $row->subject_name .  '</li><br><li class="tag__item"><i class="fas fa-clock mr-2"></i>' . $row->videoby . '</li></ul></div><div class="postcard__bar"></div><div class="postcard__preview-txt">' . $row->videodescription . '</div><a href="delete_videocourses/' . $row->id . '"> <button class="btn btn-danger " type="button">Delete</button></a></article></div> </section>';
             }
         } else {
-            $output .= '<div class="row" align="center">
-            <div>Videos Not Available</div><br>
-            
-          </div>
+            $output .= '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
             ';
         }
 
@@ -451,7 +442,7 @@ class EnqueryController extends Controller
             foreach ($data as $key => $row) {
 
 
-                $output .= ' <option value="' . $row->id . '">' . $row->videoheading . '</option>';
+                $output .= ' <option value="' . $row->videoheading . '">' . $row->videoheading . '</option>';
             }
         } else {
             $output .= '<option> NO DATA </option>';

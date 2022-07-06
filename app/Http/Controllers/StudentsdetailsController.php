@@ -762,13 +762,13 @@ class StudentsdetailsController extends Controller
 
         $request->validate([
 
-            // 'class_id' => 'required',
-            // 'course_id' => 'required',
-            // 'subject_id' => 'required',
-            // 'videoheading' => 'required',
-            // 'videodescription' => 'required',
-            // 'videoby' => 'required',
-            // 'videolink' => 'required|url',
+            'class_id' => 'required',
+            'course_id' => 'required',
+            'subject_id' => 'required',
+            'videoheading' => 'required',
+            'videodescription' => 'required',
+            'videoby' => 'required',
+            'videolink' => 'required|url',
     
 
         ]);
@@ -795,18 +795,27 @@ class StudentsdetailsController extends Controller
 
         $course_name = $repl;
         $subject_name = $repl2;
-        $selectedvideoheadings = implode(",",$request->selectedvideoheadings);
+        if($request->selectedvideoheadings != '' || $request->selectedvideoheadings != null ){      $selectedvideoheadings = implode("|",$request->selectedvideoheadings);
            
     
         
-        $repl = str_replace(array('["', '"]'), '',$selectedvideoheadings);
-
-        $selectedvideoheadings = strval($repl);
-
-      
-      
-  
-        DB::table('videocourses')->insert(array(
+            $repl = str_replace(array('["', '"]'), '',$selectedvideoheadings);
+    
+            $selectedvideoheadings = strval($repl);
+    
+            DB::table('videocourses')->insert(array(
+                'class_name' => $class_name,
+                'course_name'     =>   $course_name ,
+                'subject_name'   =>   $subject_name,
+                'videoheading'   =>   $videoheading,
+                'videodescription' => $videodescription,
+                'videoby' => $videoby,
+                'videolink' => $videolink,
+                'selectedvideoheadings' =>$selectedvideoheadings
+    
+            ));
+          }else{
+          DB::table('videocourses')->insert(array(
             'class_name' => $class_name,
             'course_name'     =>   $course_name ,
             'subject_name'   =>   $subject_name,
@@ -814,9 +823,13 @@ class StudentsdetailsController extends Controller
             'videodescription' => $videodescription,
             'videoby' => $videoby,
             'videolink' => $videolink,
-            'selectedvideoheadings' =>$selectedvideoheadings
-
+            
         ));
+      
+          }
+
+  
+       
 
         return redirect('admin_add_video_courses')->with('success', 'Video Courses Submitted ');
 

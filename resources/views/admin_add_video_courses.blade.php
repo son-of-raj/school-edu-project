@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col form-group">
                             <select name="class_id" id="class" class="form-control input-lg dynamic"
-                                data-dependent='course' placeholder="Class">
+                                data-dependent='course' placeholder="Class" required>
 
                                 <option value="Select Class" selected disabled>Select Class</option>
 
@@ -54,7 +54,7 @@
 
                         <div class="col form-group">
                             <select name="course_id" id="course" class="form-control input-lg dynamic2"
-                                data-dependent='subject' placeholder="Course">
+                                data-dependent='subject' placeholder="Course" required>
                                 <option value="Select Courses" selected disabled>Select Course</option>
 
                             </select>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col form-group ">
                             <select name="subject_id" id="subject" class="form-control input-lg dynamic3"
-                                placeholder="Subjects">
+                                placeholder="Subjects" required>
                                 <option value="Select Subjects" selected disabled>Select Subject</option>
                             </select>
                             <span class="text-danger">
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col" hidden>
                             <select name="subject_name" id="subject_id" class=" form-control input-lg "
-                                placeholder="Subjects">
+                                placeholder="Subjects" >
                                 <option value="Select Subjects" selected disabled>Select Subject</option>
                             </select>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="col form-group">
 
                             <input type="textarea" name="videoheading" class="form-control" value="{{ old('videoheading') }}"
-                                placeholder="Enter Video Heading">
+                                placeholder="Enter Video Heading" required>
                             <span class="text-danger">
                                 @error('videoheading')
                                 {{ $message }}
@@ -100,7 +100,7 @@
                         <div class="col form-group">
                             <textarea rows="5" cols="50" name="videodescription" class="form-control"
                                 value="{{ old('videodescription') }}" id="videodescription"
-                                placeholder="Enter Video Description"></textarea>
+                                placeholder="Enter Video Description" required></textarea>
                             <span class="text-danger">
                                 @error('videodescription')
                                 {{ $message }}
@@ -112,7 +112,7 @@
                     <div class="row">
                         <div class="col form-group">
                             <input type="textarea" name="videoby" class="form-control" value="{{ old('videoby') }}"
-                                id="videoby" placeholder="Video By">
+                                id="videoby" placeholder="Video By" required>
                             <span class="text-danger">
                                 @error('videoby')
                                 {{ $message }}
@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col form-group">
                             <input type="textarea" name="videolink" class="form-control" value="{{ old('videolink') }}"
-                                id="videolink" placeholder="Video Link">
+                                id="videolink" placeholder="Video Link" required>
                             <span class="text-danger">
                                 @error('videolink')
                                 {{ $message }}
@@ -134,7 +134,7 @@
                     </div>
                     <br>
                     <div class="col form-group ">
-                        <select name="selectedvideoheadings[]" id="videoheading" multiple="multiple" class="js-example-basic-multiple form-control input-lg " placeholder="selectedvideoheadings">
+                        <select name="selectedvideoheadings[]" id="videoheading" multiple="multiple" class="js-example-basic-multiple form-control input-lg " placeholder="selectedvideoheadings" >
                             <option value="Select Headings" selected disabled>Select Headings</option>
                          
                         </select>

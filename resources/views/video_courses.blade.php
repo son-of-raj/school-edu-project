@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col form-group">
                             <select name="class_id" id="class" class="form-control input-lg dynamic"
-                                data-dependent='course' placeholder="Class">
+                                data-dependent='course' placeholder="Class" required>
 
                                 <option value="Select Class" selected disabled>Select Class</option>
 
@@ -42,7 +42,7 @@
 
                         <div class="col form-group">
                             <select name="course_id" id="course" class="form-control input-lg dynamic2"
-                                data-dependent='subject' placeholder="Course">
+                                data-dependent='subject' placeholder="Course" required>
                                 <option value="Select Courses" selected disabled>Select Course</option>
 
                             </select>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col form-group ">
                             <select name="subject_id" id="subject" class="form-control input-lg dynamic3"
-                                data-dependent='topic' placeholder="Subjects">
+                                data-dependent='topic' placeholder="Subjects" required>
                                 <option value="Select Subjects" selected disabled>Select Subject</option>
                             </select>
                             <span class="text-danger">
@@ -65,16 +65,21 @@
                         </div>
                         <div class="col" hidden>
                             <select name="subject_name" id="subject_id" class=" form-control input-lg dynamic3(this.id)"
-                                placeholder="Subjects" data-dependent='videoheading'>
+                                placeholder="Subjects" data-dependent='videoheading' required>
                                 <option value="Select Subjects" selected disabled>Select Subject</option>
                             </select>
                         </div>
                     </div>
            <br>
      <br>
- 
+     <br>
+     <br>
+     <div id='videoheading'>
+   
 
-                    <div id='videoheading'>
+  </div>
+
+                    <div align='center' style="color: #110f16" id='videoheading2'>
                         Select Subject for Video Details
 
                     </div>
@@ -172,28 +177,25 @@
                   },
                   success: function(response) {
                     html = "";
-       
+                    if(!(response == undefined || response == null || response == "")){
                     $.each(response.result, function( index, value ) {
 
-                html += '<section class="light"><div class="container py-2"><article class="postcard light green"><a class="postcard__img_link" href="#"><iframe class="postcard__img" src="' + value.video[0].videolink + '?autoplay=1&mute=1"  allowfullscreen></iframe></a><div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="#">' + value.video[0].videoheading + '</a></h1><div class="postcard__subtitle small"><ul class="postcard__tagbox"><li class="tag__item">' + value.video[0].class_name + '</li<li class="tag__item">' + value.video[0].course_name + '</li><li class="tag__item">' + value.video[0].subject_name + '</li><br><li class="tag__item">' + value.video[0].videoby + '</li>';
-                
+                html += '<div id="' + value.video[0].videoheading + '"><section  class="light"><div class="container py-2"><article class="postcard light green"><a class="postcard__img_link" href="#"><iframe class="postcard__img" src="' + value.video[0].videolink + '?autoplay=1&mute=1"  allowfullscreen></iframe></a><div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="#">' + value.video[0].videoheading + '</a></h1><div class="postcard__subtitle small"><ul class="postcard__tagbox"><li class="tag__item">' + value.video[0].class_name + '</li<li class="tag__item">' + value.video[0].course_name + '</li><li class="tag__item">' + value.video[0].subject_name + '</li><br><li class="tag__item">' + value.video[0].videoby + '</li></ul></div><div class="postcard__bar"></div><div class="postcard__preview-txt">' + value.video[0].videodescription + '</div><div class="">'
                 var heading_text = value.video[0].selectedvideoheadings;
-                if(heading_text!==undefined){
+                if(!(heading_text == undefined || heading_text == null || heading_text == "")){
                 var tags = heading_text.split('|');
-                  $.each(tags, function( index, value ) {
-                  
-                    html += '<li class="tag__item"><a style="color:#0930f1" href="#'+ value + '">' + value + '</a></li>';
+                  $.each(tags, function( index, value ) {    
+                    html += '<a style="color:#0930f1" href="#'+ value +'">#' + value + '</a><br>';
                   });
                 }
-               
-                html += '</ul></div><div class="postcard__bar"></div><div class="postcard__preview-txt">' + value.video[0].videodescription + '</div></article></div> </section>'
-          });
-
-         
-          $('#videoheading').append(html);
- 
-      }
-                  
+                html += '</div></article></div></section></div>';
+             
+          }); }else{
+                html += '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>'
+              }
+          $('#videoheading').html(html);
+          $('#videoheading2').empty('').html('');
+      }        
               })
           }
       });

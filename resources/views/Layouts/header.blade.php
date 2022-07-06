@@ -15,9 +15,6 @@
       <ul>
         <li><a id="home" href="/">Home</a></li>
         <li><a id="about" href="about">About</a></li>
-        <li><a id="fee_structure" href="student_form">Fee Enquiry</a></li>
-       
-        <li><a id="contact" href="contact">Contact</a></li>
         <li class="dropdown"><a href="#"><span>Courses</span><i class="bi bi-chevron-down"></i></a>
           <ul>
           <li><a href="#">
@@ -27,6 +24,10 @@
           </li>
           </ul>
         </li>
+        <li><a id="fee_structure" href="student_form">Fee Enquiry</a></li>
+       
+        <li><a id="contact" href="contact">Contact</a></li>
+       
     
     @if (Auth::user())
     @if(auth()->user()->user_role_id==1)

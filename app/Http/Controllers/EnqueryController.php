@@ -334,13 +334,14 @@ class EnqueryController extends Controller
         $data = DB::table('syllabusdetails')
             ->where('subject_name', $subject_name)
             ->where('course_name', $course_name)
+            ->orderBy('id', 'ASC')
             ->get();
         $output = '';
         if (count($data) > 0) {
             foreach ($data as $key => $row) {
 
 
-                $output .= ' <div class="row"> <img id="' . $row->id . '" align="center" src="asset("storage/notes/' . $row->syllabus_files . ')" style="height:35%;width: 113%;margin: 0%;padding:0%"></div>';
+                $output .= ' <div class="col" style="margin: 0%;padding:0%" > <img style="height:35%;width: 113%;margin: 0%;padding:0%" id="' . $row->id . '" src="storage/syllabus_files/'.$row->syllabus_files.'" align="center"></div>';
             }
         } else {
             $output .= '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
@@ -368,16 +369,17 @@ class EnqueryController extends Controller
         $data = DB::table('syllabusdetails')
             ->where('subject_name', $subject_name)
             ->where('course_name', $course_name)
+            ->orderBy('id', 'ASC')
             ->get();
         $output = '';
         if (count($data) > 0) {
             foreach ($data as $key => $row) {
 
 
-                $output .= ' <div class="row"> <img id="' . $row->id . '" align="center" src="asset("storage/notes/' . $row->syllabus_files . ')" style="height:35%;width: 113%;margin: 0%;padding:0%"><a href="delete_syllabus/' . $row->id . '"> <button class="btn btn-danger " type="button">Delete</button></a></div>';
+                $output .= '<div class="col" style="padding:0%;margin-bottom:30%" ><img style="height:22%;width: 100%;margin-inline: 2%;padding:0%" id="' . $row->id . '" src="storage/syllabus_files/'.$row->syllabus_files.'" align="center"><a align="center" style="margin-inline: 25%" href="delete_syllabus/' . $row->id . '"> <button  class="btn btn-danger " align="center" type="button">Delete above image</button></a></div>';
             }
         } else {
-            $output .= '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
+            $output .= '<section ><div><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
             ';
         }
 
@@ -390,6 +392,7 @@ class EnqueryController extends Controller
     function fetch10(Request $request)
     {
 
+        $id = $request->id;
         $value = $request->get('value');
         $subject_name = DB::table('subjecttable')->where('id', $value)->value('subject_name');
 
@@ -399,26 +402,20 @@ class EnqueryController extends Controller
         $course_name = DB::table('coursetable')->where('id', $course_id)->value('course_name');
 
 
-        $data = DB::table('videocourses')
+        $result['result'] = DB::table('videocourses')
             ->where('subject_name', $subject_name)
             ->where('course_name', $course_name)
             ->get();
-        $output = '';
-        if (count($data) > 0) {
-            foreach ($data as $key => $row) {
 
-
-                $output .= '<section class="light"><div class="container py-2"><article class="postcard light green"><a class="postcard__img_link" href="#"><iframe class="postcard__img" src="' .$row->videolink . '?autoplay=1&mute=1"  allowfullscreen></iframe></a><div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="#">' . $row->videoheading .  '</a></h1><div class="postcard__subtitle small"><ul class="postcard__tagbox"><li class="tag__item">' . $row->class_name .  '</li<li class="tag__item">' . $row->course_name .  '</li><li class="tag__item">' . $row->subject_name .  '</li><br><li class="tag__item"><i class="fas fa-clock mr-2"></i>' . $row->videoby . '</li></ul></div><div class="postcard__bar"></div><div class="postcard__preview-txt">' . $row->videodescription . '</div><a href="delete_videocourses/' . $row->id . '"> <button class="btn btn-danger " type="button">Delete</button></a></article></div> </section>';
+        if (count($result['result']) > 0) {
+            foreach ($result['result'] as $key =>$row) {
+                $data[$key]['video'] = DB::table('videocourses')
+                ->where('id', $row->id)
+                ->get();
             }
-        } else {
-            $output .= '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>
-            ';
+
+            return response()->json(['result' => $data]);
         }
-
-
-        return [
-            'output' => $output
-        ];
     }
 
     function fetch11(Request $request)

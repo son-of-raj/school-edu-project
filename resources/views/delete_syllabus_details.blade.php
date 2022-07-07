@@ -82,7 +82,7 @@
                     </div>
                     <br>
                     <br><br>
-                    <div class="card-container syllabus_files "  id="syllabus_files" style="width:80%">
+                    <div class="card-container syllabus_files "  id="syllabus_files" style="width:100%;  column-count: 4; column-gap:5px">
                       
                         <div class="syllabus_files" align="center">
                             <div>Select subject for Syllabus</div><br>

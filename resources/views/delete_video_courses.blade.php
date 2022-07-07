@@ -72,12 +72,21 @@
                     </div>
                     <br>
                     <br><br>
-                    <section id='videoheading'>
-                        Select Subject for Video Details
-                    </section>
-            
-                    <br><br>
-                </form>
+                    <div id='videoheading'>
+   
+
+                    </div>
+                  
+                                      <div align='center' style="color: #110f16" id='videoheading2'>
+                                          Select Subject for Video Details
+                  
+                                      </div>
+                  
+                                     
+                           
+                             <br>
+                                     
+                                  </form>
                 <br><br>
             </div>
         </div>
@@ -488,16 +497,32 @@
                         course_id: course_id,
                         class_id: class_id
                     },
-                    success: function(result) {
-                        $('#videoheading').html(result.output);
+                    success: function(response) {
+                    html = "";
+                    if(!(response == undefined || response == null || response == "")){
+                    $.each(response.result, function( index, value ) {
+
+                html += '<div id="' + value.video[0].videoheading + '"><section  class="light"><div class="container py-2"><article class="postcard light green"><a class="postcard__img_link" href="#"><iframe class="postcard__img" src="' + value.video[0].videolink + '?autoplay=1&mute=1"  allowfullscreen></iframe></a><div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="#">' + value.video[0].videoheading + '</a></h1><div class="postcard__subtitle small"><ul class="postcard__tagbox"><li class="tag__item">' + value.video[0].class_name + '</li<li class="tag__item">' + value.video[0].course_name + '</li><li class="tag__item">' + value.video[0].subject_name + '</li><br><li class="tag__item">' + value.video[0].videoby + '</li></ul></div><div class="postcard__bar"></div><div class="postcard__preview-txt">' + value.video[0].videodescription + '</div><div class="">'
+                var heading_text = value.video[0].selectedvideoheadings;
+                if(!(heading_text == undefined || heading_text == null || heading_text == "")){
+                var tags = heading_text.split('|');
+                  $.each(tags, function( index, value ) {    
+                    html += '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a style="color:#0930f1;" href="#'+ value +'">#' + value + '</a><br>';
+                  });
+                }
+                html += ' <br><a style="float:right"><button class="btn btn-danger" href="delete_videocourses/' + value.video[0].id + '" type="button">Delete</button></a></div></article></div></section></div>';
              
-                       
-                    }
-                })
-            }
-        });
-    });
-    </script>
+          }); }else{
+                html += '<section ><div  style="font-size:30px"><div style="align-items:center;color:black">DATA NOT FOUND</div></div></section>'
+              }
+          $('#videoheading').html(html);
+          $('#videoheading2').empty('').html('');
+      }        
+              })
+          }
+      });
+  });
+  </script>
 
     <style type="text/css">
         .chosen-container {

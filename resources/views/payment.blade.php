@@ -102,7 +102,7 @@
                     <td align="center" class="stud_id">{{ $row->year }}</td>
                     <td align="center" class="stud_id">{{ $row->amount }}</td>
                     <td style="width:16%;align-items:center;" class="stud_id">
-                        @if ($row->pay != null)
+                        @if ($row->pay == 'paid')
                         <a>Paid</a>
                         @else
                   
@@ -122,7 +122,6 @@
                             </form>
                         @endif
                     </td>
-                    
                 </tr> 
                 @endif
                 @if ($row->id == $next_month)

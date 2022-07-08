@@ -90,10 +90,12 @@
                 @foreach ($data as $key => $row)
                
                 @if( $row->month !== 'admission_fee')
+
+               
   
-                  @if ($row->id !== $next_month) 
+                  @if ($row->id !== $current_month) 
                    
-                  
+                  @if($row->id !== $next_month2)
                 <tr>
                     <td style="display:none" class="stud_id">{{ $row->id }}</td>
                     <td style="display:none" class="stud_id">{{ $row->student_id }}</td>
@@ -124,10 +126,17 @@
                     </td>
                 </tr> 
                 @endif
-                @if ($row->id == $next_month)
+                @if ($row->id == $next_month2)
+                @break
+            @endif
+                @else
+            @endif
+                @if ($row->id == $current_month)
                 @break
             @endif
 
+
+            
                 @else
                 @endif
      

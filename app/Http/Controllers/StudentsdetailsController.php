@@ -218,24 +218,29 @@ class StudentsdetailsController extends Controller
             $data = Studentsdetail::where('is_delete', 0)->orderBy('id', 'DESC')->get();
             return view('admin_dashboard', compact('data'));
         } else {
+            $next_month = (date('F',strtotime('last day of this month')));
             $next_month1 = (date('F',strtotime('last day of next month')));
-         
-
+    
             $year = date("Y");
-            $data2['advance'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->value('amount');
+            $data2['advance'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->value('amount');     
             $data2['admin'] = DB::table('payment')->where('student_id', NULL)->value('student_id');
             $data3['check'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('pay');
+            $data3['getid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('id');
             $data = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->get();
-            $data4['getcurrentmonthid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month1)->value('id');       
-        $next_month= $data4['getcurrentmonthid'] + 1;
-        foreach ($data as $row) {
+            $data4['getcurrentmonthid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month)->value('id');    
+            $data4['getcurrentmonthid2'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month1)->value('id');   
+            $current_month=  $data4['getcurrentmonthid'] +1;
+            foreach ($data as $row) {
+    
+                $userid = $row->id;
+                $usermonth = $row->month;
+                $useryear = $row->year;
+                $useramount = $row->amount;
+            }
+            $next_month2=  $data4['getcurrentmonthid2'];
+        
+            return view('payment', compact('data', 'data2', 'data3','data4','current_month','next_month2'));
 
-            $userid = $row->id;
-            $usermonth = $row->month;
-            $useryear = $row->year;
-            $useramount = $row->amount;
-        }
-        return view('payment', compact('data', 'data2', 'data3','data4','next_month'));
         }
     }
 
@@ -243,17 +248,18 @@ class StudentsdetailsController extends Controller
     function payment(Request $request)
     {
     
+        $next_month = (date('F',strtotime('last day of this month')));
         $next_month1 = (date('F',strtotime('last day of next month')));
-    
 
         $year = date("Y");
-        $data2['advance'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->value('amount');
+        $data2['advance'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->value('amount');     
         $data2['admin'] = DB::table('payment')->where('student_id', NULL)->value('student_id');
         $data3['check'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('pay');
         $data3['getid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('month', 'admission_fee')->where('pay', 'paid')->value('id');
         $data = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->get();
-        $data4['getcurrentmonthid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month1)->value('id');       
-        $next_month=  $data4['getcurrentmonthid'] +1;
+        $data4['getcurrentmonthid'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month)->value('id');    
+        $data4['getcurrentmonthid2'] = DB::table('payment')->where('student_id', auth()->user()->student_id)->where('year',$year)->where('month',$next_month1)->value('id');   
+        $current_month=  $data4['getcurrentmonthid'] +1;
         foreach ($data as $row) {
 
             $userid = $row->id;
@@ -261,10 +267,9 @@ class StudentsdetailsController extends Controller
             $useryear = $row->year;
             $useramount = $row->amount;
         }
-
-
-        
-        return view('payment', compact('data', 'data2', 'data3','data4','next_month'));
+        $next_month2=  $data4['getcurrentmonthid2'];
+    
+        return view('payment', compact('data', 'data2', 'data3','data4','current_month','next_month2'));
     }
 
 
